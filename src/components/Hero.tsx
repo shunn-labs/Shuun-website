@@ -15,10 +15,23 @@ export function Hero() {
     video.muted = true
     if (prefersReducedMotion) {
       video.pause()
-    } else {
-      video.play().catch(() => {
-        /* autoplay blocked — video stays on its poster frame, no crash */
-      })
+      return
+    }
+
+    // Autoplay blocked (e.g. Safari Low Power Mode or a site autoplay
+    // setting) — resume as soon as the visitor interacts with the page,
+    // since that satisfies every browser's gesture requirement.
+    const resume = () => {
+      video.play().catch(() => {})
+    }
+    const events: Array<keyof WindowEventMap> = ['click', 'touchstart', 'scroll', 'keydown']
+
+    video.play().catch(() => {
+      events.forEach((event) => window.addEventListener(event, resume, { once: true, passive: true }))
+    })
+
+    return () => {
+      events.forEach((event) => window.removeEventListener(event, resume))
     }
   }, [])
 
