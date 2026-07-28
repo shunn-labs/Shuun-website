@@ -15,21 +15,21 @@ export function LandingPage() {
       <LogoStrip />
 
       <FeatureSection
-        id="detect"
-        eyebrow="Detect"
-        title="Flag the risk before it becomes a hazard"
-        body="A drone sweep combines multispectral, thermal, and visual sensing to flag hazardous fuel load, invasive growth, or equipment risk. When the system isn't confident, it says so and routes the flag to a person instead of guessing."
-        ctaLabel="See detection in action"
+        id="sense"
+        eyebrow="Sense"
+        title="Multimodal sensing, built for real-time decisions"
+        body="Every flight synchronizes RGB, multispectral, and thermal capture, geotagged and timestamped per frame. Inference runs onboard, at the edge — no live cloud connection required, because field connectivity in rural and border areas can't be assumed."
+        ctaLabel="See the sensing stack"
         ctaHref="#pulse"
         art={<ScanArt className="h-full w-full" />}
       />
 
       <FeatureSection
-        id="approve"
-        eyebrow="Approve"
-        title="Nothing moves without a person confirming it"
-        body="Every flagged task lands in the ops dashboard with the sensor evidence attached. A person reviews it and approves the action before any robot is dispatched — the same loop we'd want if it were our own backyard."
-        ctaLabel="See the approval workflow"
+        id="decide"
+        eyebrow="Decide"
+        title="Every detection is scored, not guessed"
+        body="Real-time anomaly and change-detection models flag water contamination, vegetation change, or equipment risk with a confidence score. Every flagged detection is geotagged, logged, and queued — for autonomous investigation or human review, depending on the mission's risk profile."
+        ctaLabel="See the decision layer"
         ctaHref="#pulse"
         art={<ApprovalArt className="h-full w-full" />}
         reverse
@@ -37,11 +37,11 @@ export function LandingPage() {
       />
 
       <FeatureSection
-        id="execute"
-        eyebrow="Execute"
-        title="Ground robots built for terrain, not warehouses"
-        body="Once approved, a ground robot navigates unstructured terrain — slopes, rubble, dense brush — to carry out the task with a modular payload: cutter, sprayer, or gripper, matched to the job."
-        ctaLabel="See ground execution"
+        id="act"
+        eyebrow="Act"
+        title="The sense-decide-act loop, closed autonomously"
+        body="On a flagged detection, the system inserts a revisit waypoint and re-routes to capture closer-range evidence — always inside an operator-defined geofence, with manual override that interrupts any autonomous action within one second. It's the same core loop and AI stack we're extending from environment monitoring today toward ground robots as a second physical form factor."
+        ctaLabel="See the action loop"
         ctaHref="#pulse"
         art={<QuadrupedArt className="h-full w-full" />}
       />

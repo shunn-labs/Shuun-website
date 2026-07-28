@@ -14,11 +14,11 @@ export function ContactBanner() {
 
         <Reveal delay={100}>
           <h2 className="text-2xl font-semibold text-fg-on-paper sm:text-3xl">
-            Have a corridor, site, or season in mind?
+            Have a site, sector, or dataset in mind?
           </h2>
           <p className="mt-4 max-w-md text-base leading-relaxed text-fg-on-paper-muted">
-            Tell us about the terrain and the risk you're managing. We'll walk through whether a
-            pilot makes sense before either of us commits to anything.
+            Tell us about the environment, agency, or private use case you're evaluating. We'll walk
+            through whether a pilot — or a DRDO/iDEX engagement — makes sense.
           </p>
           <a
             href="mailto:hello@shunnlabs.example"

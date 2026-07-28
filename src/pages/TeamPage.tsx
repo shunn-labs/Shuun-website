@@ -23,11 +23,12 @@ export function TeamPage() {
           <Reveal>
             <p className="mb-3 text-xs font-semibold tracking-wide text-fg-muted uppercase">Company</p>
             <h1 className="max-w-2xl text-4xl font-semibold text-fg sm:text-5xl">
-              The people behind the loop
+              Three founders, one DRDO-experienced mentor
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-fg-muted">
-              A small, deliberately generalist team — pilots, perception engineers, a wildland
-              firefighter, and one very patient regulatory lead.
+              A small, deliberately cross-functional team split across AI/ML, hardware and flight
+              operations, and government relations — backed by a mentor with active DRDO project
+              experience.
             </p>
           </Reveal>
         </div>

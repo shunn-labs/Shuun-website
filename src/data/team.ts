@@ -6,33 +6,33 @@ export interface TeamMember {
 
 export const team: TeamMember[] = [
   {
-    name: 'Mara Bishop',
-    role: 'Founder & CEO',
-    bio: 'Spent five years building autonomy stacks for commercial drones before starting Shunn Labs.',
+    name: 'Founder Name',
+    role: 'Founder & CEO — AI/ML',
+    bio: 'Owns model training and fine-tuning (YOLOv11, SAM2, Anomalib), dataset quality, and detection-accuracy iteration.',
   },
   {
-    name: 'Devon Achebe',
-    role: 'Co-founder & Head of Perception',
-    bio: 'Computer vision researcher turned engineer; built the confidence-gated detection models behind every mission.',
+    name: 'Founder Name',
+    role: 'Co-founder — Hardware & Flight Ops',
+    bio: 'Drone integration, Jetson edge deployment, MAVSDK autonomous re-route logic, and DGCA flight compliance.',
   },
   {
-    name: 'Priya Kellerman',
-    role: 'Head of Field Operations',
-    bio: 'Third-generation wildland firefighter — makes sure what we build survives contact with an actual forest.',
+    name: 'Founder Name',
+    role: 'Co-founder — Business & Government Relations',
+    bio: 'DRDO/iDEX liaison, pilot customer outreach, and the demo narrative and reporting our government and enterprise buyers need.',
   },
   {
-    name: 'Sam Okafor',
-    role: 'Robotics Engineering Lead',
-    bio: 'Mechanical and controls engineer integrating ground robot platforms and modular payload hardware.',
+    name: 'Mentor Name',
+    role: 'Advisor — DRDO & Dual-Use Programs',
+    bio: 'DRDO-experienced mentor guiding the TDF/iDEX pathway and reviewing export-control and dual-use compliance from day one.',
   },
   {
-    name: 'Elena Vasquez',
-    role: 'Regulatory & Policy Lead',
-    bio: 'Former FAA BVLOS program advisor — keeps every mission inside the lines until the lines move.',
+    name: 'Developer Name',
+    role: 'ML / Computer Vision Engineer',
+    bio: 'Fine-tunes and iterates the perception models against flagged false positives and negatives from every pilot flight.',
   },
   {
-    name: 'Jordan Lin',
-    role: 'Partnerships Lead',
-    bio: 'Works directly with utilities, fire districts, and government agencies piloting the platform.',
+    name: 'Developer Name',
+    role: 'Backend & Platform Engineer',
+    bio: 'Builds the FastAPI backend, PostGIS-backed database, and the dashboard that turns detections into an actionable report.',
   },
 ]

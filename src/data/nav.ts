@@ -13,17 +13,17 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   {
     label: 'Platform',
-    href: '#detect',
+    href: '#sense',
     columns: [
       [
-        { label: 'Aerial detection', description: 'Multispectral and thermal scans that flag risk', href: '#detect' },
-        { label: 'Human approval', description: 'A person confirms every action before it happens', href: '#approve' },
-        { label: 'Ground execution', description: 'Robots act on unstructured terrain, any conditions', href: '#execute' },
+        { label: 'Sensing', description: 'Multispectral, thermal, and RGB capture, synced per frame', href: '#sense' },
+        { label: 'Decision layer', description: 'Real-time anomaly scoring, confidence-gated', href: '#decide' },
+        { label: 'Action layer', description: 'Autonomous re-route within a geofence, manual override always on', href: '#act' },
       ],
       [
         { label: 'Orchestration OS', description: 'One dashboard for every mission, in flight or on the ground', href: '#pulse' },
-        { label: 'Mission audit log', description: 'Every detection and action, logged for review', href: '#pulse' },
-        { label: 'All of the platform', description: 'See the full detect-to-verify loop', href: '#detect' },
+        { label: 'Mission audit log', description: 'Every detection and action, logged and versioned', href: '#pulse' },
+        { label: 'All of the platform', description: 'See the full sense-decide-act loop', href: '#sense' },
       ],
     ],
   },
@@ -32,18 +32,18 @@ export const navItems: NavItem[] = [
     href: '#solutions',
     columns: [
       [
-        { label: 'Wildfire fuel reduction', description: 'Flag hazardous fuel load, clear it, verify the corridor', href: '#solutions' },
-        { label: 'Invasive species treatment', description: 'Spot-treat outbreaks instead of blanket spraying', href: '#solutions' },
-        { label: 'Utility corridor monitoring', description: 'Continuous sweeps for encroachment and equipment risk', href: '#solutions' },
+        { label: 'Water & vegetation monitoring', description: 'The flagship use case — contamination and change detection', href: '#solutions' },
+        { label: 'Border & defense security', description: 'Dual-use monitoring, in step with our DRDO/iDEX engagement', href: '#solutions' },
+        { label: 'Infrastructure & mining inspection', description: 'Private revenue independent of government payment cycles', href: '#solutions' },
       ],
       [
-        { label: 'Post-fire recovery', description: 'Map regrowth and erosion risk before the next season', href: '#solutions' },
-        { label: 'Conservation monitoring', description: 'Track habitat health without adding foot traffic', href: '#solutions' },
-        { label: 'All solutions', description: 'Explore every use case', href: '#solutions' },
+        { label: 'Disaster management & logistics', description: 'Flood, fire, and landslide monitoring for government agencies', href: '#solutions' },
+        { label: 'Ground robotics platform', description: 'The second physical form factor for the same AI stack', href: '#solutions' },
+        { label: 'All solutions', description: 'Explore every sector', href: '#solutions' },
       ],
     ],
   },
-  { label: 'Industries', href: '#industries' },
+  { label: 'Sectors', href: '#industries' },
   { label: 'Company', href: '/team' },
   { label: 'Resources', href: '#resources' },
 ]

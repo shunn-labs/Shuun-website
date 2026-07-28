@@ -4,9 +4,9 @@ const columns = [
   {
     heading: 'Navigation',
     links: [
-      { label: 'Platform', href: '#detect' },
+      { label: 'Platform', href: '#sense' },
       { label: 'Solutions', href: '#solutions' },
-      { label: 'Industries', href: '#industries' },
+      { label: 'Sectors', href: '#industries' },
       { label: 'Team', href: '/team' },
       { label: 'Careers', href: '/team' },
     ],
@@ -44,7 +44,8 @@ export function Footer() {
               Shunn Labs
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-fg-muted">
-              Aerial detection and human-approved ground robots for environmental risk work.
+              India's autonomous physical-AI platform — sense, decide, act, proven first in
+              environment and agriculture.
             </p>
           </div>
 

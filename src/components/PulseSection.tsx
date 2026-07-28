@@ -13,12 +13,13 @@ export function PulseSection() {
         <Reveal>
           <p className="mb-3 text-xs font-semibold tracking-wide text-accent uppercase">Pulse orchestration OS</p>
           <h2 className="text-3xl font-semibold text-fg sm:text-4xl">
-            Every detection, approval, and action — in one place
+            Every detection, decision, and action — in one place
           </h2>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-fg-muted">
-            Pulse is the command center behind the loop: it queues flagged detections for approval,
-            dispatches ground robots, tracks battery and connectivity, and logs every mission end to
-            end for audit and insurance.
+            Pulse is the command center behind the loop: it stores every flight's imagery and
+            telemetry in a queryable, versioned form, generates geotagged reports a non-technical
+            buyer can act on, and turns your dataset and model checkpoints into a documented,
+            defensible IP asset — not loose files.
           </p>
           <a
             href="#contact"

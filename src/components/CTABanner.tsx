@@ -8,11 +8,11 @@ export function CTABanner() {
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 rounded-3xl border border-black/5 bg-white px-8 py-10 lg:flex-row lg:items-center lg:px-12 lg:py-12">
           <div className="max-w-xl">
             <h3 className="text-2xl font-semibold text-fg-on-paper sm:text-3xl">
-              See what a fully-verified mission looks like
+              See what a fully-closed sense-decide-act loop looks like
             </h3>
             <p className="mt-3 text-base leading-relaxed text-fg-on-paper-muted">
-              Walk through a real detect-approve-execute-verify loop, end to end — including what happens
-              when the system isn't confident and a person has to make the call.
+              Walk through a real mission end to end — including the geofence, the manual override,
+              and what happens when the system isn't confident and routes to a person instead.
             </p>
           </div>
           <a

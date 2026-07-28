@@ -8,11 +8,11 @@ export function SolutionsGrid() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal>
           <div className="max-w-2xl">
-            <p className="mb-3 text-xs font-semibold tracking-wide text-fg-on-paper-muted uppercase">Solutions</p>
-            <h2 className="text-3xl font-semibold text-fg-on-paper sm:text-4xl">One loop, several fronts</h2>
+            <p className="mb-3 text-xs font-semibold tracking-wide text-fg-on-paper-muted uppercase">Sectors</p>
+            <h2 className="text-3xl font-semibold text-fg-on-paper sm:text-4xl">One platform, sequenced across five sectors</h2>
             <p className="mt-4 text-base leading-relaxed text-fg-on-paper-muted">
-              We're focused first on wildfire fuel-load reduction — the same detect-approve-execute-verify
-              loop extends to these adjacent environmental risks.
+              We're proving the sense-decide-act loop first in environment and agriculture — the same
+              architecture is built to extend to defense, infrastructure, and disaster response as it matures.
             </p>
           </div>
         </Reveal>
@@ -49,14 +49,15 @@ export function SolutionsGrid() {
               className="group flex h-full flex-col justify-between rounded-2xl bg-fg-on-paper p-6 text-paper transition-all hover:-translate-y-1"
             >
               <div>
-                <h3 className="text-lg font-semibold">Who we work with</h3>
+                <h3 className="text-lg font-semibold">Who we're built for</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/70">
-                  Utilities, fire districts, government conservation programs, and insurers already
-                  paying for wildfire and environmental risk mitigation.
+                  DRDO and government agencies evaluating dual-use capability programs, agri-input
+                  companies and cooperatives distributing to farmer networks, and private
+                  infrastructure and mining operators piloting inspection use cases.
                 </p>
               </div>
               <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
-                Browse industries
+                Browse sectors
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
             </a>

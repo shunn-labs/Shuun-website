@@ -1,10 +1,10 @@
 const partners = [
-  'Cascade Grid Cooperative',
-  'Pinehaven Fire District',
-  'Sierra Conservation Trust',
-  'Redwood Mutual Insurance',
-  'Ashford Land Stewardship Council',
-  'Continental Pipeline Partners',
+  'DRDO / iDEX Innovation Programs',
+  'Agri-Input & FPO Networks',
+  'State Disaster Management Authorities',
+  'Infrastructure & Mining Operators',
+  'Border Security & Defense Agencies',
+  'Conservation & Environment Programs',
 ]
 
 export function LogoStrip() {
@@ -13,7 +13,7 @@ export function LogoStrip() {
   return (
     <section className="border-y border-white/5 bg-ink py-10">
       <p className="mx-auto mb-6 max-w-7xl px-5 text-center text-xs font-medium tracking-wide text-fg-muted uppercase lg:px-8">
-        Piloting with teams managing wildfire and environmental risk
+        Built for organizations across environment, defense, and infrastructure
       </p>
       <div
         className="group relative mx-auto max-w-7xl overflow-hidden"

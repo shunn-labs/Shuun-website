@@ -8,7 +8,7 @@ export function AnnouncementBar({ onDismiss }: AnnouncementBarProps) {
   return (
     <div className="flex h-9 items-center justify-center gap-3 bg-accent px-4 text-xs font-medium text-accent-ink sm:text-sm">
       <div className="flex min-w-0 items-center gap-1.5">
-        <span className="truncate">Now raising our seed round - </span>
+        <span className="truncate">Now raising our pre-seed round - </span>
         <a
           href="#contact"
           className="shrink-0 underline underline-offset-2 hover:no-underline"

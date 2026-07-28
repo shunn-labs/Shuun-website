@@ -67,20 +67,21 @@ export function Hero() {
         <div className="max-w-2xl rounded-[2rem] border border-white/10 bg-ink/55 p-8 shadow-2xl shadow-black/40 backdrop-blur-xl sm:p-10 lg:p-12">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-fg-muted uppercase">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            Now piloting: wildfire fuel-load reduction
+            Now building: dual-use autonomy, proven in environment first
           </p>
           <h1 className="text-4xl font-semibold text-fg sm:text-5xl md:text-6xl">
-            See the risk from the air. Clear it on the ground. Verify it&apos;s done.
+            Sense it from the air. Decide what matters. Act — autonomously.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-fg-muted">
-            Shunn Labs pairs aerial detection with ground robots to reduce wildfire fuel load, treat
-            invasive species, and monitor utility corridors — every action proposed by our system and
-            confirmed by a person before a robot ever moves.
+            Shunn Labs is building India&apos;s autonomous physical-AI platform — onboard multispectral
+            and thermal sensing, real-time anomaly detection, and autonomous re-routing to investigate,
+            always inside an operator-defined geofence with manual override. Proven first in water and
+            vegetation monitoring, built to extend to defense, infrastructure, and disaster response.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
-              href="#detect"
+              href="#sense"
               className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-transform hover:scale-[1.03] hover:bg-accent-strong"
             >
               See how it works
@@ -98,9 +99,9 @@ export function Hero() {
 
           <dl className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-white/10 pt-6">
             {[
-              ['Detect', 'aerial scan flags the risk'],
-              ['Approve', 'a person confirms the action'],
-              ['Verify', 'a second pass confirms it’s done'],
+              ['<500ms', 'onboard inference latency'],
+              ['70–90%', 'detection recall, baseline to iteration'],
+              ['<1s', 'manual override always interrupts'],
             ].map(([value, label]) => (
               <div key={label}>
                 <dt className="font-display text-2xl font-semibold text-fg">{value}</dt>
