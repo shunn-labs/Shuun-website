@@ -1,0 +1,52 @@
+name: CI
+
+# Vercel deploys this repo on push, but Vercel does not fail a deploy on a
+# type error — `vite build` alone skips typechecking. This workflow is the
+# gate that catches those before they ship.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Typecheck, lint and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        # `npm ci` respects the lockfile exactly, unlike `npm install`.
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck and build
+        env:
+          # Only needs to be a valid URL at build time; the real value comes
+          # from the Vercel project's environment variables.
+          VITE_AUTH_API_URL: https://auth.shuun.site
+        # `npm run build` is `tsc -b && vite build`, so this covers types too.
+        run: npm run build
+
+      - name: Guard against committed secrets
+        # Cheap backstop: a .env with real values must never be committed,
+        # and anything VITE_-prefixed is public by definition.
+        run: |
+          if git ls-files | grep -E '^\.env($|\.local$|\.production$)'; then
+            echo "::error::an environment file is committed to the repo"
+            exit 1
+          fi
+          echo "no committed env files"

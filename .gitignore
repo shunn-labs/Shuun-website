@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Environment files. `*.local` above only covers .env.local, so name the
+# rest explicitly — the template is the only one that belongs in git.
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

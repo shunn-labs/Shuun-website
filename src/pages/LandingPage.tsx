@@ -7,8 +7,11 @@ import { PulseSection } from '../components/PulseSection'
 import { ResourcesSection } from '../components/ResourcesSection'
 import { SolutionsGrid } from '../components/SolutionsGrid'
 import { ApprovalArt, QuadrupedArt, ScanArt } from '../components/art/RobotArt'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 export function LandingPage() {
+  useDocumentTitle()
+
   return (
     <main>
       <Hero />

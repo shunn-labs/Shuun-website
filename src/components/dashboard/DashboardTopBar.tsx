@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useClock } from '../../hooks/useClock'
+import { useAuth } from '../../lib/auth/useAuth'
 import type { BrainState } from '../../lib/nandi/brainSocket'
 import { reconnectBrain } from '../../lib/nandi/brainSocket'
 import { getToken, setToken } from '../../lib/nandi/endpoints'
@@ -22,6 +23,8 @@ interface DashboardTopBarProps {
 
 export function DashboardTopBar({ brainState, logsOpen, onToggleLogs }: DashboardTopBarProps) {
   const { time, date } = useClock()
+  const { user, logout } = useAuth()
+  const navigate = useNavigate()
   const [tokenOpen, setTokenOpen] = useState(false)
   const [tokenDraft, setTokenDraft] = useState(() => getToken() ?? '')
 
@@ -33,12 +36,17 @@ export function DashboardTopBar({ brainState, logsOpen, onToggleLogs }: Dashboar
     setTokenOpen(false)
   }
 
+  async function handleSignOut() {
+    await logout()
+    navigate('/login', { replace: true })
+  }
+
   return (
     <header className="sticky top-0 z-40 border-b border-white/5 bg-ink/90 backdrop-blur-md">
       <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-3 lg:px-8">
         <div className="flex items-center gap-3">
           <Link
-            to="/"
+            to="/welcome"
             className="flex items-center gap-2 font-display text-base font-semibold tracking-tight text-fg"
           >
             <span className="grid h-8 w-8 place-items-center rounded-md bg-accent text-accent-ink">
@@ -122,6 +130,24 @@ export function DashboardTopBar({ brainState, logsOpen, onToggleLogs }: Dashboar
           >
             <TerminalIcon className="h-3.5 w-3.5" />
             Logs
+          </button>
+
+          <span className="hidden h-5 w-px bg-white/10 sm:block" />
+
+          {user && (
+            <span
+              className="hidden max-w-[160px] truncate text-xs font-medium text-fg-muted lg:block"
+              title={user.email}
+            >
+              {user.full_name}
+            </span>
+          )}
+          <button
+            type="button"
+            onClick={handleSignOut}
+            className="rounded-full px-3 py-1.5 text-xs font-semibold text-fg-muted ring-1 ring-white/10 transition-colors hover:text-fg"
+          >
+            Sign out
           </button>
         </div>
       </div>

@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useAuth } from '../lib/auth/useAuth'
 import { navItems } from '../data/nav'
 import { useLockBodyScroll } from '../hooks/useLockBodyScroll'
 import { AnnouncementBar } from './AnnouncementBar'
@@ -10,6 +12,8 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [announcementVisible, setAnnouncementVisible] = useState(true)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const { status } = useAuth()
+  const signedIn = status === 'authenticated'
 
   useLockBodyScroll(mobileOpen)
 
@@ -123,16 +127,34 @@ export function Header() {
             </ul>
           </nav>
 
+          {/* Signed-in visitors can still reach /team, so the header must
+              not keep offering them "Sign in". */}
           <div className="hidden items-center gap-3 lg:flex">
-            <a href="#contact" className="text-sm font-medium text-fg-muted hover:text-fg">
-              Support
-            </a>
-            <a
-              href="#contact"
-              className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-ink transition-transform hover:scale-[1.03] hover:bg-accent-strong"
-            >
-              Talk to sales
-            </a>
+            {signedIn ? (
+              <>
+                <Link to="/welcome" className="text-sm font-medium text-fg-muted hover:text-fg">
+                  My account
+                </Link>
+                <Link
+                  to="/dashboard"
+                  className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-ink transition-transform hover:scale-[1.03] hover:bg-accent-strong"
+                >
+                  Dashboard
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="text-sm font-medium text-fg-muted hover:text-fg">
+                  Sign in
+                </Link>
+                <Link
+                  to="/signup"
+                  className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-ink transition-transform hover:scale-[1.03] hover:bg-accent-strong"
+                >
+                  Get started
+                </Link>
+              </>
+            )}
           </div>
 
           <button
@@ -172,13 +194,22 @@ export function Header() {
                 </li>
               ))}
             </ul>
-            <a
-              href="#contact"
-              className="mt-6 block rounded-full bg-accent px-4 py-3 text-center text-sm font-semibold text-accent-ink"
-              onClick={() => setMobileOpen(false)}
-            >
-              Talk to sales
-            </a>
+            <div className="mt-6 space-y-3">
+              <Link
+                to={signedIn ? '/dashboard' : '/signup'}
+                className="block rounded-full bg-accent px-4 py-3 text-center text-sm font-semibold text-accent-ink"
+                onClick={() => setMobileOpen(false)}
+              >
+                {signedIn ? 'Dashboard' : 'Get started'}
+              </Link>
+              <Link
+                to={signedIn ? '/welcome' : '/login'}
+                className="block rounded-full px-4 py-3 text-center text-sm font-semibold text-fg ring-1 ring-white/10"
+                onClick={() => setMobileOpen(false)}
+              >
+                {signedIn ? 'My account' : 'Sign in'}
+              </Link>
+            </div>
           </div>
         )}
       </header>

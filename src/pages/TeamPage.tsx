@@ -1,6 +1,7 @@
 import { Reveal } from '../components/Reveal'
 import { ArrowRightIcon } from '../components/icons/Icons'
 import { team } from '../data/team'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 function initials(name: string) {
   return name
@@ -16,6 +17,8 @@ const avatarTones = [
 ]
 
 export function TeamPage() {
+  useDocumentTitle('Team — Shunn Labs')
+
   return (
     <main>
       <section className="bg-ink pt-32 pb-20 sm:pb-28">

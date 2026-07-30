@@ -6,13 +6,16 @@ import { DashboardTopBar } from '../components/dashboard/DashboardTopBar'
 import { SensorGrid } from '../components/dashboard/SensorGrid'
 import type { StreamGridHandle } from '../components/dashboard/StreamGrid'
 import { StreamGrid } from '../components/dashboard/StreamGrid'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import type { BrainState } from '../lib/nandi/brainSocket'
 
 /**
  * Mission control: live sensor telemetry, the video wall, and the assistant
- * side by side. Sign-in is intentionally out of the loop for now — the page
- * talks straight to the brain and vision APIs with whatever session token is
- * stored locally.
+ * side by side.
+ *
+ * The route is gated by the Shunn Labs session, but the Nandi brain and
+ * vision APIs are separate services with their own bearer token — set it
+ * from the "Session" panel in the top bar.
  */
 export function DashboardPage() {
   const [brainState, setBrainState] = useState<BrainState>('offline')
@@ -23,9 +26,7 @@ export function DashboardPage() {
   const streamsRef = useRef<StreamGridHandle>(null)
   const dragDepth = useRef(0)
 
-  useEffect(() => {
-    document.title = 'Mission control — Shunn Labs'
-  }, [])
+  useDocumentTitle('Mission control — Shunn Labs')
 
   // ── Vision capture → chat attachment ───────────────────
   const handleCaptureToChat = useCallback((file: File) => {
