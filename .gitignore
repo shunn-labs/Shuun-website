@@ -28,3 +28,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Added by the Vercel CLI.
+.vercel
+
+# The CLI also appended a bare `.env*` here, which re-ignored the template
+# because a later rule wins. The explicit rules above already cover every
+# .env file; keep the negation last so .env.example stays committable.
+.env*
+!.env.example
