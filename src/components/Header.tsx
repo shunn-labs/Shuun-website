@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../lib/auth/useAuth'
 import { navItems } from '../data/nav'
 import { useLockBodyScroll } from '../hooks/useLockBodyScroll'
+import { AnnouncementBar } from './AnnouncementBar'
 import { CloseIcon, MenuIcon } from './icons/Icons'
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [announcementVisible, setAnnouncementVisible] = useState(true)
   const { status } = useAuth()
   const signedIn = status === 'authenticated'
 
@@ -30,6 +32,7 @@ export function Header() {
 
   return (
     <div className="fixed inset-x-0 top-0 z-50">
+      {announcementVisible && <AnnouncementBar onDismiss={() => setAnnouncementVisible(false)} />}
       <header
         className={`transition-colors duration-300 ${
           scrolled ? 'bg-ink/90 backdrop-blur-md border-b border-white/5' : 'bg-transparent'
@@ -96,7 +99,11 @@ export function Header() {
         </div>
 
         {mobileOpen && (
-          <div className="h-[calc(100svh-4rem)] overflow-y-auto border-t border-white/5 bg-ink px-5 pb-10 pt-4 lg:hidden">
+          <div
+            className={`overflow-y-auto border-t border-white/5 bg-ink px-5 pb-10 pt-4 lg:hidden ${
+              announcementVisible ? 'h-[calc(100svh-6.25rem)]' : 'h-[calc(100svh-4rem)]'
+            }`}
+          >
             <ul className="divide-y divide-white/5">
               {navItems.map((item) => (
                 <li key={item.label} className="py-3">

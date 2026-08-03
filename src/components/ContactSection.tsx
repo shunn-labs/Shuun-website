@@ -3,7 +3,7 @@ import { ArrowRightIcon } from './icons/Icons'
 
 export function ContactSection() {
   return (
-    <section id="contact" className="scroll-mt-16 bg-paper py-24 sm:py-32">
+    <section id="contact" className="scroll-mt-[6.25rem] bg-paper py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
         <Reveal>
           <p className="text-xs font-semibold tracking-wide text-fg-on-paper-muted uppercase">
