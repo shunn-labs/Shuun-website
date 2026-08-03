@@ -10,7 +10,6 @@ import { LandingPage } from './pages/LandingPage'
 import { LoginPage } from './pages/LoginPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { SignupPage } from './pages/SignupPage'
-import { TeamPage } from './pages/TeamPage'
 import { WelcomePage } from './pages/WelcomePage'
 
 /** Marketing chrome. App and auth screens are full-bleed and opt out. */
@@ -36,9 +35,6 @@ function App() {
           <Route element={<RedirectIfAuthenticated blockWhileLoading={false} />}>
             <Route path="/" element={<LandingPage />} />
           </Route>
-          {/* Stays browsable while signed in, so Welcome has somewhere to
-              link back into the public site. */}
-          <Route path="/team" element={<TeamPage />} />
         </Route>
 
         <Route element={<RedirectIfAuthenticated />}>

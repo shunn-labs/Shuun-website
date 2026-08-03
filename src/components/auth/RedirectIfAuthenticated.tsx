@@ -22,9 +22,8 @@ interface RedirectIfAuthenticatedProps {
  * Mirror of ProtectedRoute: keeps signed-in users off the entry pages.
  *
  * Applied to `/`, `/login` and `/signup` — typing any of those while signed
- * in lands on /welcome instead. `/team` and `/dashboard` are deliberately
- * excluded: the marketing team page stays browsable, and redirecting
- * /dashboard would make the "Go to dashboard" button unreachable.
+ * in lands on /welcome instead. `/dashboard` is deliberately excluded:
+ * redirecting it would make the "Go to dashboard" button unreachable.
  */
 export function RedirectIfAuthenticated({
   blockWhileLoading = true,
