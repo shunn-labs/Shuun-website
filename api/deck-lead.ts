@@ -10,6 +10,13 @@
 //  the log line is the only record.
 // ═══════════════════════════════════════════════════════════
 
+// Edge, because this file exports a Web handler — `(request) => Response`.
+// Vercel's Node runtime hands a plain /api file the `(req, res)` pair
+// instead, so under Node nothing here ever ends the response and every
+// request hangs until the gateway gives up. Edge is also the right shape
+// for the work: one validation and one fetch, no Node APIs.
+export const config = { runtime: 'edge' }
+
 // The app tsconfig sets `types: ["vite/client"]`, so Node's globals are not
 // in scope when Vercel typechecks this file — and adding "node" there would
 // pull Node types into the browser bundle's build. One declaration is the
