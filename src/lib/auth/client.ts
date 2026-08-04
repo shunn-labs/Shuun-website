@@ -5,9 +5,15 @@
 //  stores them: the browser attaches them automatically because every
 //  request sets `credentials: 'include'`.
 //
-//  The one value JavaScript does handle is the CSRF token, which the
-//  server also exposes in a readable cookie. We echo it back in a header
-//  on state-changing requests to prove the call came from our own page.
+//  The one value JavaScript does handle is the CSRF token, which we echo
+//  back in a header on state-changing requests to prove the call came
+//  from our own page. It is held in memory, taken from whichever session
+//  response last issued one, because the readable cookie the server also
+//  sets is host-only to the API's origin: a page on labs.shuun.site
+//  cannot read a cookie belonging to auth.shuun.site, so relying on the
+//  cookie alone means every CSRF-protected call is sent without a token
+//  and comes back 403. The cookie is still read as a fallback for the
+//  same-origin case (in local development both sides are localhost).
 // ═══════════════════════════════════════════════════════════
 
 const API_BASE = import.meta.env.VITE_AUTH_API_URL ?? 'http://localhost:8001'
@@ -70,6 +76,16 @@ function readCsrfCookie(): string | null {
   return match ? decodeURIComponent(match[1]) : null
 }
 
+/** Last token the API issued. Survives navigation within the SPA only. */
+let csrfToken: string | null = null
+
+/** Reinstates the header token after a reload, from /refresh or /login. */
+function rememberCsrf<T>(session: T): T {
+  const token = (session as { csrf_token?: unknown }).csrf_token
+  if (typeof token === 'string' && token) csrfToken = token
+  return session
+}
+
 const SAFE_METHODS = new Set(['GET', 'HEAD', 'OPTIONS'])
 
 async function request<T>(
@@ -80,7 +96,7 @@ async function request<T>(
   if (body !== undefined) headers['Content-Type'] = 'application/json'
 
   if (!SAFE_METHODS.has(method)) {
-    const csrf = readCsrfCookie()
+    const csrf = csrfToken ?? readCsrfCookie()
     if (csrf) headers[CSRF_HEADER] = csrf
   }
 
@@ -116,14 +132,25 @@ async function request<T>(
 
 export const authApi = {
   signup: (input: { email: string; full_name: string; password: string }) =>
-    request<SessionResponse>('/api/auth/signup', { method: 'POST', body: input }),
+    request<SessionResponse>('/api/auth/signup', { method: 'POST', body: input }).then(
+      rememberCsrf,
+    ),
 
   login: (input: { email: string; password: string }) =>
-    request<SessionResponse>('/api/auth/login', { method: 'POST', body: input }),
+    request<SessionResponse>('/api/auth/login', { method: 'POST', body: input }).then(
+      rememberCsrf,
+    ),
 
-  logout: () => request<{ detail: string }>('/api/auth/logout', { method: 'POST' }),
+  // Cleared only on success: if the call failed, the token is still the
+  // right one to retry with.
+  logout: () =>
+    request<{ detail: string }>('/api/auth/logout', { method: 'POST' }).then((result) => {
+      csrfToken = null
+      return result
+    }),
 
-  refresh: () => request<SessionResponse>('/api/auth/refresh', { method: 'POST' }),
+  refresh: () =>
+    request<SessionResponse>('/api/auth/refresh', { method: 'POST' }).then(rememberCsrf),
 
   me: () => request<AuthUser>('/api/auth/me'),
 
