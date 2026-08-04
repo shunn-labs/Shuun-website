@@ -6,6 +6,7 @@ import { RedirectIfAuthenticated } from './components/auth/RedirectIfAuthenticat
 import { ScrollToTop } from './components/ScrollToTop'
 import { AuthProvider } from './lib/auth/AuthContext'
 import { DashboardPage } from './pages/DashboardPage'
+import { InvestPage } from './pages/InvestPage'
 import { LandingPage } from './pages/LandingPage'
 import { LoginPage } from './pages/LoginPage'
 import { NotFoundPage } from './pages/NotFoundPage'
@@ -35,6 +36,9 @@ function App() {
           <Route element={<RedirectIfAuthenticated blockWhileLoading={false} />}>
             <Route path="/" element={<LandingPage />} />
           </Route>
+          {/* Stays browsable while signed in: an investor who happens to
+              have an account should still reach the deck. */}
+          <Route path="/invest" element={<InvestPage />} />
         </Route>
 
         <Route element={<RedirectIfAuthenticated />}>

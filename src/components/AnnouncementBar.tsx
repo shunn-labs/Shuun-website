@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { CloseIcon } from './icons/Icons'
 
 interface AnnouncementBarProps {
@@ -9,9 +10,9 @@ export function AnnouncementBar({ onDismiss }: AnnouncementBarProps) {
     <div className="flex h-9 items-center justify-center gap-3 bg-accent px-4 text-xs font-medium text-accent-ink sm:text-sm">
       <div className="flex min-w-0 items-center gap-1.5">
         <span className="truncate">We&apos;re raising our seed round —</span>
-        <a href="#contact" className="shrink-0 underline underline-offset-2 hover:no-underline">
+        <Link to="/invest" className="shrink-0 underline underline-offset-2 hover:no-underline">
           get in touch
-        </a>
+        </Link>
       </div>
       <button
         type="button"

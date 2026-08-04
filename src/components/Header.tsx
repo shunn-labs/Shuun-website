@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '../lib/auth/useAuth'
 import { navItems } from '../data/nav'
 import { useLockBodyScroll } from '../hooks/useLockBodyScroll'
@@ -12,6 +12,11 @@ export function Header() {
   const [announcementVisible, setAnnouncementVisible] = useState(true)
   const { status } = useAuth()
   const signedIn = status === 'authenticated'
+
+  // The section links are same-page anchors, which do nothing from another
+  // route — off the homepage they have to navigate back to it first.
+  const onHomepage = useLocation().pathname === '/'
+  const sectionHref = (href: string) => (onHomepage ? href : `/${href}`)
 
   useLockBodyScroll(mobileOpen)
 
@@ -54,7 +59,7 @@ export function Header() {
               {navItems.map((item) => (
                 <li key={item.label}>
                   <a
-                    href={item.href}
+                    href={sectionHref(item.href)}
                     className="rounded-full px-4 py-2 text-sm font-medium text-fg-muted transition-colors hover:text-fg"
                   >
                     {item.label}
@@ -65,6 +70,12 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
+            <Link
+              to="/invest"
+              className="rounded-full px-4 py-2 text-sm font-semibold text-fg ring-1 ring-white/15 transition-colors hover:bg-white/5 hover:ring-white/30"
+            >
+              Invest in us
+            </Link>
             {signedIn ? (
               <Link
                 to="/dashboard"
@@ -108,7 +119,7 @@ export function Header() {
               {navItems.map((item) => (
                 <li key={item.label} className="py-3">
                   <a
-                    href={item.href}
+                    href={sectionHref(item.href)}
                     className="text-base font-medium text-fg"
                     onClick={() => setMobileOpen(false)}
                   >
@@ -116,6 +127,15 @@ export function Header() {
                   </a>
                 </li>
               ))}
+              <li className="py-3">
+                <Link
+                  to="/invest"
+                  className="text-base font-medium text-fg"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Invest in us
+                </Link>
+              </li>
             </ul>
             <div className="mt-6 space-y-3">
               <Link
