@@ -12,6 +12,12 @@
 
 export const config = { runtime: 'nodejs' }
 
+// The app tsconfig sets `types: ["vite/client"]`, so Node's globals are not
+// in scope when Vercel typechecks this file — and adding "node" there would
+// pull Node types into the browser bundle's build. One declaration is the
+// smaller price. Node supplies the real object at runtime.
+declare const process: { env: Record<string, string | undefined> }
+
 const NOTIFY_TO = '000shuun@gmail.com'
 // Resend's shared sender works without a verified domain. Swap for an
 // address on shuun.site once that domain is verified in Resend.

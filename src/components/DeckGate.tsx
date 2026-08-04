@@ -43,6 +43,9 @@ export function DeckGate({ children }: DeckGateProps) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, name, organisation }),
+        // Nobody waits on a stuck button to read a deck. If the call has not
+        // answered by now, drop it and let them through.
+        signal: AbortSignal.timeout(8000),
       })
 
       // A rejected address is the visitor's to fix, so say so and stop.
