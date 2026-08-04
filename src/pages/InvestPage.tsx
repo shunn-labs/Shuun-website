@@ -9,7 +9,7 @@ const DECK_URL = '/shuun-labs-pitch-deck.pdf'
 // embedded PDF because mobile browsers routinely refuse to render one inline,
 // leaving an empty frame where the deck should be.
 const DECK_SLIDES = Array.from(
-  { length: 11 },
+  { length: 14 },
   (_, i) => `/deck/slide-${String(i + 1).padStart(2, '0')}.jpg`,
 )
 
@@ -69,7 +69,7 @@ export function InvestPage() {
           <Reveal>
             <h2 className="text-2xl font-semibold text-fg-on-paper sm:text-3xl">Pitch deck</h2>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-fg-on-paper-muted">
-              Problem, solution, market, traction and team — 11 slides.
+              Problem, solution, market, traction and team — 14 slides.
             </p>
           </Reveal>
 
