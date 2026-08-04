@@ -10,8 +10,6 @@
 //  the log line is the only record.
 // ═══════════════════════════════════════════════════════════
 
-export const config = { runtime: 'nodejs' }
-
 // The app tsconfig sets `types: ["vite/client"]`, so Node's globals are not
 // in scope when Vercel typechecks this file — and adding "node" there would
 // pull Node types into the browser bundle's build. One declaration is the
