@@ -51,7 +51,7 @@ export function Header() {
             <span className="grid h-8 w-8 place-items-center rounded-md bg-accent text-accent-ink">
               <span className="h-2 w-2 rounded-sm bg-accent-ink" />
             </span>
-            Shunn Labs
+            Shuun Labs
           </a>
 
           <nav aria-label="Primary" className="hidden lg:block">

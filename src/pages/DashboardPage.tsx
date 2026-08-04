@@ -13,7 +13,7 @@ import type { BrainState } from '../lib/nandi/brainSocket'
  * Mission control: live sensor telemetry, the video wall, and the assistant
  * side by side.
  *
- * The route is gated by the Shunn Labs session, but the Nandi brain and
+ * The route is gated by the Shuun Labs session, but the Nandi brain and
  * vision APIs are separate services with their own bearer token — set it
  * from the "Session" panel in the top bar.
  */
@@ -26,7 +26,7 @@ export function DashboardPage() {
   const streamsRef = useRef<StreamGridHandle>(null)
   const dragDepth = useRef(0)
 
-  useDocumentTitle('Mission control — Shunn Labs')
+  useDocumentTitle('Mission control — Shuun Labs')
 
   // ── Vision capture → chat attachment ───────────────────
   const handleCaptureToChat = useCallback((file: File) => {

@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════
-//  client.ts — typed client for the Shunn Labs auth API
+//  client.ts — typed client for the Shuun Labs auth API
 //
 //  Session tokens live in httpOnly cookies, so nothing here reads or
 //  stores them: the browser attaches them automatically because every

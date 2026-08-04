@@ -25,7 +25,7 @@ export function AuthShell({ eyebrow, title, subtitle, children, footer }: AuthSh
           <span className="grid h-8 w-8 place-items-center rounded-md bg-accent text-accent-ink">
             <span className="h-2 w-2 rounded-sm bg-accent-ink" />
           </span>
-          Shunn Labs
+          Shuun Labs
         </Link>
 
         <div className="flex flex-1 items-center py-10">

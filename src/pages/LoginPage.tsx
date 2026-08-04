@@ -17,7 +17,7 @@ export function LoginPage() {
   const [formError, setFormError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
 
-  useDocumentTitle('Sign in — Shunn Labs')
+  useDocumentTitle('Sign in — Shuun Labs')
 
   // Surface an error handed back by the Google callback redirect.
   useEffect(() => {

@@ -3,7 +3,7 @@ import { Reveal } from '../components/Reveal'
 import { ArrowRightIcon } from '../components/icons/Icons'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
-const DECK_URL = '/shunn-labs-pitch-deck.pdf'
+const DECK_URL = '/shuun-labs-pitch-deck.pdf'
 
 // Rendered from the PDF at build-prep time. Shown as images rather than an
 // embedded PDF because mobile browsers routinely refuse to render one inline,
@@ -14,7 +14,7 @@ const DECK_SLIDES = Array.from(
 )
 
 export function InvestPage() {
-  useDocumentTitle('Invest — Shunn Labs')
+  useDocumentTitle('Invest — Shuun Labs')
 
   return (
     <main>
@@ -25,14 +25,14 @@ export function InvestPage() {
               Raising our seed round
             </p>
             <h1 className="mt-3 max-w-3xl text-4xl font-semibold text-fg sm:text-5xl">
-              Invest in Shunn Labs
+              Invest in Shuun Labs
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-fg-muted">
               The deck and a demo of the system in the field. If it looks like a fit, write to us
               and we&apos;ll take it from there.
             </p>
             <a
-              href="mailto:000shuun@gmail.com?subject=Investing%20in%20Shunn%20Labs"
+              href="mailto:000shuun@gmail.com?subject=Investing%20in%20Shuun%20Labs"
               className="group mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-transform hover:scale-[1.03] hover:bg-accent-strong"
             >
               Talk to us

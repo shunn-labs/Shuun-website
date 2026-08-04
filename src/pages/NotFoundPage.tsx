@@ -11,7 +11,7 @@ import { useAuth } from '../lib/auth/useAuth'
 export function NotFoundPage() {
   const { status } = useAuth()
 
-  useDocumentTitle('Page not found — Shunn Labs')
+  useDocumentTitle('Page not found — Shuun Labs')
 
   const signedIn = status === 'authenticated'
 

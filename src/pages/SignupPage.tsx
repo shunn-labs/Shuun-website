@@ -25,7 +25,7 @@ export function SignupPage() {
   const [formError, setFormError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
 
-  useDocumentTitle('Create your account — Shunn Labs')
+  useDocumentTitle('Create your account — Shuun Labs')
 
   // Already signed in? Don't show a signup form.
   useEffect(() => {

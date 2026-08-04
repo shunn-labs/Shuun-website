@@ -26,7 +26,7 @@ export function WelcomePage() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
 
-  useDocumentTitle('Welcome — Shunn Labs')
+  useDocumentTitle('Welcome — Shuun Labs')
 
   async function handleSignOut() {
     await logout()
@@ -49,7 +49,7 @@ export function WelcomePage() {
           <span className="grid h-8 w-8 place-items-center rounded-md bg-accent text-accent-ink">
             <span className="h-2 w-2 rounded-sm bg-accent-ink" />
           </span>
-          Shunn Labs
+          Shuun Labs
         </Link>
 
         <div className="flex items-center gap-3">

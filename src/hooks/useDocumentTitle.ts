@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const DEFAULT_TITLE = 'Shunn Labs — Autonomous Intelligence'
+const DEFAULT_TITLE = 'Shuun Labs — Autonomous Intelligence'
 
 /**
  * Set the document title for the lifetime of a page.

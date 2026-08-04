@@ -6,10 +6,10 @@ export function Footer() {
           <span className="grid h-8 w-8 place-items-center rounded-md bg-accent text-accent-ink">
             <span className="h-2 w-2 rounded-sm bg-accent-ink" />
           </span>
-          Shunn Labs
+          Shuun Labs
         </a>
         <p className="text-xs text-fg-muted">
-          © {new Date().getFullYear()} Shunn Labs. All rights reserved.
+          © {new Date().getFullYear()} Shuun Labs. All rights reserved.
         </p>
       </div>
     </footer>

@@ -26,7 +26,7 @@ declare const process: { env: Record<string, string | undefined> }
 const NOTIFY_TO = '000shuun@gmail.com'
 // Resend's shared sender works without a verified domain. Swap for an
 // address on shuun.site once that domain is verified in Resend.
-const NOTIFY_FROM = 'Shunn Labs <onboarding@resend.dev>'
+const NOTIFY_FROM = 'Shuun Labs <onboarding@resend.dev>'
 
 /** Deliberately loose: the point is to catch typos, not to police addresses. */
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
