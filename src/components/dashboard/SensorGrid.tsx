@@ -61,7 +61,7 @@ export function SensorGrid({ onSnapshot }: SensorGridProps) {
       {readings.length === 0 ? (
         <div className="mt-4 grid gap-4 [grid-template-columns:repeat(auto-fill,minmax(220px,1fr))]">
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="h-44 animate-pulse rounded-2xl bg-surface ring-1 ring-white/5" />
+            <div key={i} className="h-44 animate-pulse rounded-2xl bg-surface ring-1 ring-fg/5" />
           ))}
         </div>
       ) : (
@@ -76,8 +76,8 @@ export function SensorGrid({ onSnapshot }: SensorGridProps) {
         <p className="mt-3 text-xs leading-relaxed text-fg-muted">
           No telemetry endpoint answered on the brain API, so the grid is running its built-in
           simulator. It switches to real data automatically once{' '}
-          <code className="rounded bg-white/5 px-1 py-0.5 text-[11px] text-fg">/ws/sensors</code> or{' '}
-          <code className="rounded bg-white/5 px-1 py-0.5 text-[11px] text-fg">/api/sensors</code>{' '}
+          <code className="rounded bg-fg/5 px-1 py-0.5 text-[11px] text-fg">/ws/sensors</code> or{' '}
+          <code className="rounded bg-fg/5 px-1 py-0.5 text-[11px] text-fg">/api/sensors</code>{' '}
           starts responding.
         </p>
       )}

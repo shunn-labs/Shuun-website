@@ -53,7 +53,7 @@ export function InvestPage() {
               Drone flight and live detection, in the field.
             </h2>
             <video
-              className="mt-10 w-full rounded-3xl border border-fg-on-paper/10 bg-ink shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]"
+              className="mt-10 w-full rounded-3xl border border-fg-on-paper/10 bg-[#050807] shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]"
               controls
               playsInline
               preload="metadata"

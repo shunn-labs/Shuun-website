@@ -18,34 +18,34 @@ const edges = [
 
 export function EdgeSection() {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-ink py-28 sm:py-36">
-      <div className="pointer-events-none absolute inset-0 grid-field opacity-70" />
-      {/* The one dark stretch on a light page. It marks the argument that has
-          to land hardest, and gives the eye somewhere to rest mid-scroll. */}
+    // This was the page's one dark stretch. On an all-light site it earns its
+    // emphasis from a tinted ground and a heavier rule instead of inverting.
+    <section className="relative overflow-hidden border-t border-fg-on-paper/8 bg-leaf-soft/50 py-28 sm:py-36">
+      <div className="pointer-events-none absolute inset-0 grid-field-light opacity-80" />
       <div className="relative mx-auto max-w-6xl px-5 lg:px-8">
         <Reveal>
-          <p className="font-mono text-[11px] tracking-[0.18em] text-accent uppercase">
+          <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
             03 — Why us
           </p>
-          <h2 className="mt-5 max-w-3xl text-[clamp(2rem,4.4vw,3.25rem)] font-semibold text-fg">
+          <h2 className="mt-5 max-w-3xl text-[clamp(2rem,4.4vw,3.25rem)] font-semibold text-fg-on-paper">
             Detecting a problem is only the first step.
           </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-fg-muted">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-fg-on-paper-muted">
             Watering, replanting and pest control are managed separately across this
             industry, leaving no continuous record from detection to resolution. We close
             that gap and keep the receipt.
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:grid-cols-3">
+        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-leaf/20 bg-leaf/20 md:grid-cols-3">
           {edges.map((edge, i) => (
             <Reveal key={edge.title} delay={i * 90}>
-              <article className="h-full bg-ink p-8 transition-colors duration-500 hover:bg-surface sm:p-9">
-                <span className="font-mono text-[11px] tracking-[0.18em] text-accent">
+              <article className="h-full bg-paper-raised p-8 transition-colors duration-500 hover:bg-paper sm:p-9">
+                <span className="font-mono text-[11px] tracking-[0.18em] text-leaf">
                   {String.fromCharCode(65 + i)}
                 </span>
-                <h3 className="mt-6 text-xl font-semibold text-fg">{edge.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-fg-muted">{edge.body}</p>
+                <h3 className="mt-6 text-xl font-semibold text-fg-on-paper">{edge.title}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-fg-on-paper-muted">{edge.body}</p>
               </article>
             </Reveal>
           ))}

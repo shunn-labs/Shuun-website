@@ -209,7 +209,7 @@ export function StreamGrid({ onCaptureToChat, ref }: StreamGridProps) {
               onClick={() => (cameraOn ? stopCamera() : void startCamera())}
               className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors ${
                 cameraOn
-                  ? 'bg-rose-500/15 text-rose-300 ring-1 ring-rose-500/30 hover:bg-rose-500/25'
+                  ? 'bg-rose-500/15 text-rose-700 ring-1 ring-rose-500/30 hover:bg-rose-500/25'
                   : 'bg-accent text-accent-ink hover:bg-accent-strong'
               }`}
             >
@@ -222,7 +222,7 @@ export function StreamGrid({ onCaptureToChat, ref }: StreamGridProps) {
                   stopCamera()
                   setTiles([])
                 }}
-                className="rounded-full px-3.5 py-1.5 text-xs font-semibold text-fg-muted ring-1 ring-white/10 transition-colors hover:text-fg"
+                className="rounded-full px-3.5 py-1.5 text-xs font-semibold text-fg-muted ring-1 ring-fg/10 transition-colors hover:text-fg"
               >
                 Close all
               </button>
@@ -233,7 +233,7 @@ export function StreamGrid({ onCaptureToChat, ref }: StreamGridProps) {
 
       {/* ── Add a stream ── */}
       <div className="mt-4 flex flex-wrap items-center gap-2">
-        <div className="flex min-w-[240px] flex-1 items-center gap-2 rounded-full bg-surface px-2 py-1.5 ring-1 ring-white/8 focus-within:ring-accent/40">
+        <div className="flex min-w-[240px] flex-1 items-center gap-2 rounded-full bg-surface px-2 py-1.5 ring-1 ring-fg/8 focus-within:ring-accent/40">
           <input
             value={manualId}
             onChange={(e) => setManualId(e.target.value)}
@@ -256,7 +256,7 @@ export function StreamGrid({ onCaptureToChat, ref }: StreamGridProps) {
         <button
           type="button"
           onClick={() => void refreshAvailable()}
-          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-fg-muted ring-1 ring-white/10 transition-colors hover:text-fg"
+          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-fg-muted ring-1 ring-fg/10 transition-colors hover:text-fg"
         >
           <RefreshIcon className={`h-3.5 w-3.5 ${discovering ? 'animate-spin' : ''}`} />
           Discover
@@ -273,7 +273,7 @@ export function StreamGrid({ onCaptureToChat, ref }: StreamGridProps) {
               key={sid}
               type="button"
               onClick={() => openStream(sid)}
-              className="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-fg transition-colors hover:bg-accent hover:text-accent-ink"
+              className="rounded-full bg-fg/5 px-3 py-1 text-xs font-medium text-fg transition-colors hover:bg-accent hover:text-accent-ink"
             >
               + {sid}
             </button>
@@ -283,7 +283,7 @@ export function StreamGrid({ onCaptureToChat, ref }: StreamGridProps) {
 
       {/* ── Tiles ── */}
       {tiles.length === 0 ? (
-        <div className="mt-4 grid place-items-center rounded-2xl bg-surface px-6 py-16 text-center ring-1 ring-white/8">
+        <div className="mt-4 grid place-items-center rounded-2xl bg-surface px-6 py-16 text-center ring-1 ring-fg/8">
           <p className="text-sm font-medium text-fg">No streams open</p>
           <p className="mt-1.5 max-w-sm text-xs leading-relaxed text-fg-muted">
             Add a stream ID above, pick a live one from discovery, publish this device's camera, or

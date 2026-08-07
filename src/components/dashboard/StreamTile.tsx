@@ -31,8 +31,8 @@ const STATE_COPY: Record<ConsumerState, string> = {
 }
 
 function tileButtonClass(danger = false) {
-  return `grid h-7 w-7 place-items-center rounded-full text-fg-muted transition-colors hover:bg-white/10 ${
-    danger ? 'hover:text-rose-300' : 'hover:text-fg'
+  return `grid h-7 w-7 place-items-center rounded-full text-fg-muted transition-colors hover:bg-fg/10 ${
+    danger ? 'hover:text-rose-700' : 'hover:text-fg'
   }`
 }
 
@@ -120,8 +120,8 @@ export function StreamTile({ tile, onClose, onCapture }: StreamTileProps) {
   const live = state === 'connected'
 
   return (
-    <article className="overflow-hidden rounded-2xl bg-surface ring-1 ring-white/8">
-      <header className="flex items-center justify-between gap-2 border-b border-white/5 px-3 py-2">
+    <article className="overflow-hidden rounded-2xl bg-surface ring-1 ring-fg/8">
+      <header className="flex items-center justify-between gap-2 border-b border-fg/5 px-3 py-2">
         <div className="flex min-w-0 items-center gap-2">
           <StatusPill
             tone={live ? 'ok' : state === 'offline' || state === 'failed' ? 'err' : 'warn'}

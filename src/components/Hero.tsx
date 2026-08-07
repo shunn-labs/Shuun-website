@@ -72,7 +72,7 @@ export function Hero() {
         {/* The footage sits in a framed viewport rather than behind the type:
             on a light page a full-bleed video forces every headline into a
             scrim, and the frame is what makes it read as an instrument feed. */}
-        <figure className="relative mt-14 overflow-hidden rounded-[1.75rem] border border-fg-on-paper/10 bg-ink shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]">
+        <figure className="relative mt-14 overflow-hidden rounded-[1.75rem] border border-fg-on-paper/10 bg-[#050807] shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]">
           <video
             ref={videoRef}
             className={`aspect-[16/9] w-full object-cover transition-opacity duration-[1200ms] ${
@@ -89,8 +89,8 @@ export function Hero() {
             <source src="/videos/drone-field-loop.mp4" type="video/mp4" />
           </video>
 
-          <figcaption className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-ink/70 px-3.5 py-1.5 font-mono text-[10px] tracking-[0.16em] text-accent uppercase backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-dot" />
+          <figcaption className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-[#050807]/70 px-3.5 py-1.5 font-mono text-[10px] tracking-[0.16em] text-[#5cf29d] uppercase backdrop-blur-md">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#5cf29d] animate-pulse-dot" />
             Garud · survey in progress
           </figcaption>
         </figure>

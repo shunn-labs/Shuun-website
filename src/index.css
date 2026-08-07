@@ -9,12 +9,14 @@
   --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Near-black carries a green cast rather than a blue one, so the brand
-     colour sits in the same family as the ground it stands on. */
-  --color-ink: #050807;
-  --color-surface: #0a100d;
-  --color-surface-raised: #111815;
-  --color-surface-line: #1c2521;
+  /* One light scale, everywhere — marketing, auth and the dashboard. The
+     names are kept (ink, surface, fg) because every screen already speaks
+     them; only the values crossed over. Ink is the page, surface is the card
+     that sits on it, and fg is the text on both. */
+  --color-ink: #f8f9f5;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f1f4ee;
+  --color-surface-line: #dee4da;
   /* The marketing pages run light — the logo is a deep-green mark drawn for
      white, and on near-black its darker half simply disappears. The app and
      auth screens stay dark, so both scales live here side by side. */
@@ -22,20 +24,19 @@
   --color-paper-raised: #ffffff;
   --color-paper-dim: #eef1ea;
 
-  --color-fg: #f1f5f2;
-  --color-fg-muted: #93a49b;
+  --color-fg: #0b1410;
+  --color-fg-muted: #5b6b62;
   --color-fg-on-paper: #0b1410;
   --color-fg-on-paper-muted: #5b6b62;
 
-  /* The logo's green (#499749) is right for a mark on white and too dim to
-     carry a UI on near-black. This lifts it to signal strength — the green of
-     a live reading — while accent-deep keeps the logo's own weight for light
-     panels, where it reads around 7:1. Accent takes dark ink: white on a mid
-     green measures ~3.4:1, under the floor for text. */
-  --color-accent: #3ddc84;
-  --color-accent-strong: #5cf29d;
-  --color-accent-ink: #03150c;
-  --color-accent-deep: #16643c;
+  /* Accent and leaf are now the same green, because there is only one ground
+     to sit on. #10633a holds white text at 7.3:1 and reads at 6.9:1 as text
+     on paper; the logo's own #499749 manages 3.4:1 there, so it stays the
+     mark and never a label. */
+  --color-accent: #10633a;
+  --color-accent-strong: #0b4d2b;
+  --color-accent-ink: #ffffff;
+  --color-accent-deep: #0e3b2e;
 
   /* Light-theme greens, measured rather than picked: leaf carries white text
      at 7.3:1 and reads at 6.9:1 as text on paper. The logo's own bright green
@@ -155,8 +156,8 @@
      reads as texture, never as a table. */
   .grid-field {
     background-image:
-      linear-gradient(to right, color-mix(in oklab, var(--color-fg) 6%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in oklab, var(--color-fg) 6%, transparent) 1px, transparent 1px);
+      linear-gradient(to right, color-mix(in oklab, var(--color-fg) 7%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-fg) 7%, transparent) 1px, transparent 1px);
     background-size: 72px 72px;
     mask-image: linear-gradient(to bottom, black, transparent 85%);
   }
@@ -193,11 +194,7 @@
   }
 
   .text-gradient {
-    background: linear-gradient(
-      160deg,
-      var(--color-fg) 30%,
-      color-mix(in oklab, var(--color-accent) 70%, var(--color-fg))
-    );
+    background: linear-gradient(120deg, var(--color-leaf-deep) 25%, #3f9c52);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

@@ -213,11 +213,11 @@ export function AssistantChat({ onCameraToggle, onStateChange, ref }: AssistantC
   const pill = STATE_PILL[state]
 
   const iconButton =
-    'grid h-9 w-9 shrink-0 place-items-center rounded-full text-fg-muted transition-colors hover:bg-white/8 hover:text-fg'
+    'grid h-9 w-9 shrink-0 place-items-center rounded-full text-fg-muted transition-colors hover:bg-fg/8 hover:text-fg'
 
   return (
-    <div className="flex h-full min-h-0 flex-col rounded-2xl bg-surface ring-1 ring-white/8">
-      <header className="flex items-center justify-between gap-2 border-b border-white/5 px-4 py-3">
+    <div className="flex h-full min-h-0 flex-col rounded-2xl bg-surface ring-1 ring-fg/8">
+      <header className="flex items-center justify-between gap-2 border-b border-fg/5 px-4 py-3">
         <div>
           <p className="text-xs font-semibold tracking-wide text-accent uppercase">Decide</p>
           <h2 className="text-base font-semibold text-fg">Assistant</h2>
@@ -226,7 +226,7 @@ export function AssistantChat({ onCameraToggle, onStateChange, ref }: AssistantC
       </header>
 
       {state === 'unauthorized' && (
-        <p className="border-b border-white/5 bg-rose-500/8 px-4 py-2.5 text-xs leading-relaxed text-rose-200">
+        <p className="border-b border-fg/5 bg-rose-500/8 px-4 py-2.5 text-xs leading-relaxed text-rose-200">
           The brain API rejected the session token. Paste a valid one in the top bar to enable chat,
           uploads, speech, and the activity log.
         </p>
@@ -257,7 +257,7 @@ export function AssistantChat({ onCameraToggle, onStateChange, ref }: AssistantC
               className={`max-w-[92%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap ${
                 msg.role === 'user'
                   ? 'bg-accent text-accent-ink'
-                  : 'bg-surface-raised text-fg ring-1 ring-white/8'
+                  : 'bg-surface-raised text-fg ring-1 ring-fg/8'
               }`}
             >
               {msg.pending ? (
@@ -271,7 +271,7 @@ export function AssistantChat({ onCameraToggle, onStateChange, ref }: AssistantC
                 {msg.attachments.map((att) => (
                   <span
                     key={att.file_id}
-                    className="rounded-full bg-white/5 px-2 py-0.5 text-[11px] text-fg-muted"
+                    className="rounded-full bg-fg/5 px-2 py-0.5 text-[11px] text-fg-muted"
                   >
                     {att.filename}
                   </span>
@@ -286,16 +286,16 @@ export function AssistantChat({ onCameraToggle, onStateChange, ref }: AssistantC
 
       {/* ── Attachment strip ── */}
       {uploads.length > 0 && (
-        <div className="flex flex-wrap gap-2 border-t border-white/5 px-4 py-2.5">
+        <div className="flex flex-wrap gap-2 border-t border-fg/5 px-4 py-2.5">
           {uploads.map((u) => (
             <span
               key={u.id}
               className={`inline-flex max-w-[180px] items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] ring-1 ${
                 u.status === 'error'
-                  ? 'bg-rose-500/10 text-rose-300 ring-rose-500/30'
+                  ? 'bg-rose-500/10 text-rose-700 ring-rose-500/30'
                   : u.status === 'done'
-                    ? 'bg-emerald-400/10 text-emerald-200 ring-emerald-400/25'
-                    : 'bg-white/5 text-fg-muted ring-white/10'
+                    ? 'bg-emerald-500/10 text-emerald-200 ring-emerald-400/25'
+                    : 'bg-fg/5 text-fg-muted ring-fg/10'
               }`}
             >
               <span className="truncate">{u.filename}</span>
@@ -317,8 +317,8 @@ export function AssistantChat({ onCameraToggle, onStateChange, ref }: AssistantC
       )}
 
       {/* ── Composer ── */}
-      <div className="border-t border-white/5 p-3">
-        <div className="flex items-end gap-1 rounded-2xl bg-ink px-2 py-1.5 ring-1 ring-white/10 focus-within:ring-accent/40">
+      <div className="border-t border-fg/5 p-3">
+        <div className="flex items-end gap-1 rounded-2xl bg-ink px-2 py-1.5 ring-1 ring-fg/10 focus-within:ring-accent/40">
           <input
             ref={fileInputRef}
             type="file"
@@ -361,7 +361,7 @@ export function AssistantChat({ onCameraToggle, onStateChange, ref }: AssistantC
 
           <button
             type="button"
-            className={`${iconButton} ${recording ? 'bg-rose-500/20 text-rose-300' : ''}`}
+            className={`${iconButton} ${recording ? 'bg-rose-500/20 text-rose-700' : ''}`}
             title={recording ? 'Stop recording' : 'Voice input'}
             onClick={() => void handleMic()}
           >

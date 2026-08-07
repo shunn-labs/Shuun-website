@@ -55,7 +55,7 @@ export function WelcomePage() {
           <button
             type="button"
             onClick={handleSignOut}
-            className="rounded-full px-3.5 py-1.5 text-xs font-semibold text-fg-muted ring-1 ring-white/10 transition-colors hover:text-fg"
+            className="rounded-full px-3.5 py-1.5 text-xs font-semibold text-fg-muted ring-1 ring-fg/10 transition-colors hover:text-fg"
           >
             Sign out
           </button>
@@ -97,7 +97,7 @@ export function WelcomePage() {
           {HIGHLIGHTS.map((item) => (
             <article
               key={item.title}
-              className="rounded-2xl bg-surface p-5 ring-1 ring-white/8 transition-colors hover:bg-surface-raised"
+              className="rounded-2xl bg-surface p-5 ring-1 ring-fg/8 transition-colors hover:bg-surface-raised"
             >
               <h2 className="text-sm font-semibold text-fg">{item.title}</h2>
               <p className="mt-2 text-xs leading-relaxed text-fg-muted">{item.body}</p>

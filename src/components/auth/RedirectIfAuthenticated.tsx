@@ -36,7 +36,7 @@ export function RedirectIfAuthenticated({
     return (
       <div className="grid min-h-svh place-items-center bg-ink">
         <div className="flex flex-col items-center gap-3">
-          <span className="h-6 w-6 animate-spin rounded-full border-2 border-white/15 border-t-accent" />
+          <span className="h-6 w-6 animate-spin rounded-full border-2 border-fg/15 border-t-accent" />
           <p className="text-sm text-fg-muted">Checking your session…</p>
         </div>
       </div>

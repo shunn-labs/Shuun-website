@@ -35,7 +35,7 @@ export function GoogleButton({ label = 'Continue with Google', disabled }: Googl
       type="button"
       disabled={disabled}
       onClick={() => authApi.startGoogleSignIn()}
-      className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-paper px-4 py-2.5 text-sm font-semibold text-fg-on-paper transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-50"
+      className="flex w-full items-center justify-center gap-2.5 rounded-xl border border-fg/15 bg-surface px-4 py-2.5 text-sm font-semibold text-fg transition-colors hover:bg-surface-raised disabled:cursor-not-allowed disabled:opacity-50"
     >
       <GoogleMark className="h-4.5 w-4.5" />
       {label}
@@ -46,9 +46,9 @@ export function GoogleButton({ label = 'Continue with Google', disabled }: Googl
 export function AuthDivider({ label = 'or' }: { label?: string }) {
   return (
     <div className="flex items-center gap-3 py-5">
-      <span className="h-px flex-1 bg-white/10" />
+      <span className="h-px flex-1 bg-fg/10" />
       <span className="text-xs font-medium text-fg-muted uppercase">{label}</span>
-      <span className="h-px flex-1 bg-white/10" />
+      <span className="h-px flex-1 bg-fg/10" />
     </div>
   )
 }

@@ -28,7 +28,7 @@ export function TeamSection() {
                     width={640}
                     height={640}
                     loading="lazy"
-                    className="aspect-square w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+                    className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 ) : (
                   // No photo for this one, so the tile carries an initial

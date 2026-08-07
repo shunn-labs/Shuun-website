@@ -33,7 +33,7 @@ export function NotFoundPage() {
           {signedIn && (
             <Link
               to="/dashboard"
-              className="rounded-full px-5 py-2.5 text-sm font-semibold text-fg-muted ring-1 ring-white/10 transition-colors hover:text-fg"
+              className="rounded-full px-5 py-2.5 text-sm font-semibold text-fg-muted ring-1 ring-fg/10 transition-colors hover:text-fg"
             >
               Go to dashboard
             </Link>

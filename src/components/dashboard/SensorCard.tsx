@@ -3,10 +3,10 @@ import { Sparkline } from './Sparkline'
 
 const STATUS_TONE: Record<SensorStatus, { dot: string; text: string; ring: string; spark: string }> = {
   nominal: {
-    dot: 'bg-emerald-400',
-    text: 'text-emerald-300',
-    ring: 'ring-white/8',
-    spark: 'text-emerald-400',
+    dot: 'bg-emerald-500',
+    text: 'text-emerald-700',
+    ring: 'ring-fg/8',
+    spark: 'text-emerald-600',
   },
   warning: {
     dot: 'bg-accent',
@@ -16,14 +16,14 @@ const STATUS_TONE: Record<SensorStatus, { dot: string; text: string; ring: strin
   },
   critical: {
     dot: 'bg-rose-500',
-    text: 'text-rose-300',
+    text: 'text-rose-700',
     ring: 'ring-rose-500/50',
-    spark: 'text-rose-400',
+    spark: 'text-rose-600',
   },
   stale: {
     dot: 'bg-fg-muted',
     text: 'text-fg-muted',
-    ring: 'ring-white/8',
+    ring: 'ring-fg/8',
     spark: 'text-fg-muted',
   },
 }
@@ -88,7 +88,7 @@ export function SensorCard({ reading, history }: SensorCardProps) {
       <Sparkline values={history} tone={tone.spark} className="mt-2" />
 
       <div className="mt-3">
-        <div className="h-1 w-full overflow-hidden rounded-full bg-white/8">
+        <div className="h-1 w-full overflow-hidden rounded-full bg-fg/8">
           <div
             className={`h-full rounded-full ${tone.dot} transition-[width] duration-500 ease-out`}
             style={{ width: `${fill}%` }}

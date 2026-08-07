@@ -25,12 +25,12 @@ export function FormField({ label, error, hint, className = '', ...inputProps }:
         aria-describedby={error ? errorId : hint ? hintId : undefined}
         className={`mt-1.5 w-full rounded-xl bg-surface px-3.5 py-2.5 text-sm text-fg ring-1 outline-none transition-colors placeholder:text-fg-muted/60 ${
           error
-            ? 'ring-rose-500/60 focus:ring-rose-400'
-            : 'ring-white/10 focus:ring-accent/50'
+            ? 'ring-rose-500/70 focus:ring-rose-600'
+            : 'ring-fg/15 focus:ring-accent'
         }`}
       />
       {error ? (
-        <p id={errorId} role="alert" className="mt-1.5 text-xs text-rose-300">
+        <p id={errorId} role="alert" className="mt-1.5 text-xs text-rose-700">
           {error}
         </p>
       ) : hint ? (
@@ -74,10 +74,10 @@ export function PasswordField({ showStrength = false, value, ...props }: Passwor
 const STRENGTH_LABELS = ['Too weak', 'Weak', 'Fair', 'Good', 'Strong'] as const
 const STRENGTH_COLORS = [
   'bg-rose-500',
-  'bg-rose-400',
-  'bg-amber-400',
-  'bg-lime-400',
-  'bg-emerald-400',
+  'bg-rose-500',
+  'bg-amber-500',
+  'bg-lime-500',
+  'bg-emerald-500',
 ] as const
 
 /**
@@ -115,7 +115,7 @@ function PasswordStrength({ password }: { password: string }) {
           <span
             key={i}
             className={`h-1 flex-1 rounded-full transition-colors ${
-              i < score ? STRENGTH_COLORS[score] : 'bg-white/10'
+              i < score ? STRENGTH_COLORS[score] : 'bg-fg/10'
             }`}
           />
         ))}
