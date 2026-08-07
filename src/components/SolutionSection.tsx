@@ -1,3 +1,4 @@
+import { LoopVideo } from './LoopVideo'
 import { Reveal } from './Reveal'
 
 const steps = [
@@ -28,29 +29,29 @@ const steps = [
   },
 ]
 
-const products = [
+// Three clips, not eleven: the two ends of the loop and the layer between
+// them. They are illustrative b-roll, not footage of our own deployments.
+const clips = [
   {
-    name: 'Garud',
-    role: 'Autonomous measurement drone',
-    image: '/solution/garud.jpg',
-    alt: 'The Garud measurement drone hovering over a field during a test flight',
-    points: ['Plant health capture', 'Structural measurement', 'Biomass & NDVI', 'Change tracking'],
+    src: '/loop/aerial-capture.mp4',
+    poster: '/loop/aerial-capture.jpg',
+    stage: 'See',
+    caption: 'Scheduled drone surveys measure every tree — height, biomass, NDVI, count.',
   },
   {
-    name: 'Bhairav',
-    role: 'Environmental sensing & land security',
-    image: '/solution/bhairav.jpg',
-    alt: 'Soil sensors, a weather station and a static camera installed across a plantation slope',
-    points: ['Soil sensor network', 'Weather station', 'Vision-based camera net'],
+    src: '/loop/ground-sensor.mp4',
+    poster: '/loop/ground-sensor.jpg',
+    stage: 'Sense',
+    caption: 'Soil, weather and land-security sensors hold the ground truth between flights.',
   },
   {
-    name: 'Nandi',
-    role: 'Agentic environmental intelligence platform',
-    image: '/solution/nandi.jpg',
-    alt: 'Architecture diagram: Garud and Bhairav feed Nandi, which outputs field actions, a live dashboard and a registry report',
-    points: ['Manages components & data', 'Vision intelligence layer', 'Field-worker action items', 'Reporting logic'],
+    src: '/loop/platform.mp4',
+    poster: '/loop/platform.jpg',
+    stage: 'Report',
+    caption: 'One record behind the dashboard and the registry submission alike.',
   },
 ]
+
 
 export function SolutionSection() {
   return (
@@ -98,39 +99,14 @@ export function SolutionSection() {
           ))}
         </ol>
 
-        <div className="mt-20 grid gap-5 lg:grid-cols-3">
-          {products.map((product, i) => (
-            <Reveal key={product.name} delay={i * 90}>
-              <article className="leaf-card group flex h-full flex-col overflow-hidden rounded-3xl border border-fg-on-paper/10 bg-paper-raised">
-                <img
-                  src={product.image}
-                  alt={product.alt}
-                  width={1200}
-                  height={800}
-                  loading="lazy"
-                  className="aspect-[3/2] w-full border-b border-fg-on-paper/8 object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-                <div className="flex flex-1 flex-col p-7">
-                  <h3 className="font-display text-2xl font-semibold text-fg-on-paper">
-                    {product.name}
-                  </h3>
-                  <p className="mt-1.5 text-sm text-leaf">{product.role}</p>
-                  <ul className="mt-6 space-y-2.5 border-t border-fg-on-paper/8 pt-6">
-                    {product.points.map((point) => (
-                      <li
-                        key={point}
-                        className="flex items-start gap-2.5 text-sm text-fg-on-paper-muted"
-                      >
-                        <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-leaf/60" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+        <div className="mt-20 grid gap-5 lg:grid-cols-[1.35fr_1fr]">
+          <LoopVideo {...clips[0]} className="aspect-[16/10] lg:aspect-auto lg:min-h-[26rem]" />
+          <div className="grid gap-5">
+            <LoopVideo {...clips[1]} className="aspect-[16/10] lg:aspect-auto" />
+            <LoopVideo {...clips[2]} className="aspect-[16/10] lg:aspect-auto" />
+          </div>
         </div>
+
       </div>
     </section>
   )
