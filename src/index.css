@@ -16,10 +16,13 @@
   --color-fg-on-paper: #0b0d13;
   --color-fg-on-paper-muted: #565b66;
 
-  --color-accent: #f4c430;
-  --color-accent-strong: #ffd84d;
-  --color-accent-ink: #241a00;
-  --color-accent-deep: #92660b;
+  /* Taken from the logo: #06322a at the deep end of its gradient, #499749 at
+     the bright tips. Accent carries dark ink rather than white — white on a
+     mid green lands around 3.4:1, which is under the floor for body text. */
+  --color-accent: #3f9c52;
+  --color-accent-strong: #4bb063;
+  --color-accent-ink: #04160e;
+  --color-accent-deep: #14603a;
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-marquee: marquee 32s linear infinite;

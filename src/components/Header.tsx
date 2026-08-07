@@ -48,9 +48,7 @@ export function Header() {
             href="/"
             className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-fg"
           >
-            <span className="grid h-8 w-8 place-items-center rounded-md bg-accent text-accent-ink">
-              <span className="h-2 w-2 rounded-sm bg-accent-ink" />
-            </span>
+            <img src="/logo.png" alt="" width={40} height={87} className="h-8 w-auto" />
             Shuun Labs
           </a>
 
