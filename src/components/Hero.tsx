@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRightIcon } from './icons/Icons'
+import { ArrowRightIcon, PlayIcon } from './icons/Icons'
 
 const PROOF = [
   { value: 'Per-tree', label: 'resolution, not per-plot' },
@@ -8,24 +8,25 @@ const PROOF = [
   { value: 'VM0047', label: 'registry-native from day one' },
 ]
 
+const FILM = {
+  src: '/videos/shuun-labs-film.mp4',
+  poster: '/videos/shuun-labs-film-poster.jpg',
+  length: '1:13',
+}
+
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [videoReady, setVideoReady] = useState(false)
+  const [started, setStarted] = useState(false)
 
-  useEffect(() => {
+  function play() {
     const video = videoRef.current
     if (!video) return
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    video.muted = true
-    if (prefersReducedMotion) {
-      video.pause()
-    } else {
-      video.play().catch(() => {
-        /* autoplay blocked — video stays on its poster frame, no crash */
-      })
-    }
-  }, [])
+    setStarted(true)
+    video.play().catch(() => {
+      // Autoplay policy should not block a click, but if it does the native
+      // controls are already showing and the visitor can start it themselves.
+    })
+  }
 
   return (
     <section id="top" className="relative overflow-hidden bg-paper pt-32 pb-20 sm:pt-40 sm:pb-24">
@@ -69,31 +70,41 @@ export function Hero() {
           </div>
         </div>
 
-        {/* The footage sits in a framed viewport rather than behind the type:
-            on a light page a full-bleed video forces every headline into a
-            scrim, and the frame is what makes it read as an instrument feed. */}
-        <figure className="relative mt-14 overflow-hidden rounded-[1.75rem] border border-fg-on-paper/10 bg-[#050807] shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]">
+        {/* The film is the page's one video, and it sits here rather than below
+            the fold: it is the whole pitch in a minute. It opens on its own
+            poster and never plays unasked — 13 MB with a soundtrack should not
+            arrive uninvited, and nothing else on the page competes with it. */}
+        <div className="relative mt-14 overflow-hidden rounded-[1.75rem] border border-fg-on-paper/10 bg-[#050807] shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]">
           <video
             ref={videoRef}
-            className={`aspect-[16/9] w-full object-cover transition-opacity duration-[1200ms] ${
-              videoReady ? 'opacity-100' : 'opacity-0'
-            }`}
-            autoPlay
-            muted
-            loop
+            className="aspect-video w-full"
+            poster={FILM.poster}
             playsInline
-            preload="auto"
-            aria-hidden="true"
-            onCanPlay={() => setVideoReady(true)}
+            preload="none"
+            controls={started}
           >
-            <source src="/videos/drone-field-loop.mp4" type="video/mp4" />
+            <source src={FILM.src} type="video/mp4" />
+            Your browser can&apos;t play this video.{' '}
+            <a href={FILM.src}>Download it instead.</a>
           </video>
 
-          <figcaption className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-[#050807]/70 px-3.5 py-1.5 font-mono text-[10px] tracking-[0.16em] text-[#5cf29d] uppercase backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#5cf29d] animate-pulse-dot" />
-            Field survey · in progress
-          </figcaption>
-        </figure>
+          {!started && (
+            <button
+              type="button"
+              onClick={play}
+              aria-label="Play the film"
+              className="group absolute inset-0 grid place-items-center bg-[#050807]/20 transition-colors hover:bg-[#050807]/10"
+            >
+              <span className="flex items-center gap-3 rounded-full bg-paper/95 px-6 py-3.5 text-sm font-semibold text-fg-on-paper shadow-lg backdrop-blur-sm transition-transform group-hover:scale-[1.04]">
+                <PlayIcon className="h-4 w-4" />
+                Watch the film
+                <span className="font-mono text-[11px] font-normal tracking-wide text-fg-on-paper-muted">
+                  {FILM.length}
+                </span>
+              </span>
+            </button>
+          )}
+        </div>
 
         <dl className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-fg-on-paper/10 bg-fg-on-paper/10 sm:grid-cols-3">
           {PROOF.map((item) => (

@@ -1,4 +1,5 @@
 import { DeckGate } from '../components/DeckGate'
+import { LoopVideo } from '../components/LoopVideo'
 import { Reveal } from '../components/Reveal'
 import { ArrowRightIcon } from '../components/icons/Icons'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
@@ -63,6 +64,32 @@ export function InvestPage() {
               Your browser can&apos;t play this video.{' '}
               <a href="/videos/demo-detection.mp4">Download it instead.</a>
             </video>
+          </Reveal>
+
+          {/* Both of these are our own footage rather than the film's
+              generated scenes. On the page where someone is deciding whether
+              to believe us, that distinction is the whole point. */}
+          <Reveal delay={80}>
+            <div className="mt-5 grid gap-5 sm:grid-cols-[1fr_1.2fr] sm:items-stretch">
+              <LoopVideo
+                src="/videos/drone-field-loop.mp4"
+                poster="/videos/drone-field-loop.jpg"
+                stage="Field test"
+                caption="Our drone over a plantation plot, shot on site."
+                className="aspect-[16/10]"
+              />
+              <div className="flex flex-col justify-center rounded-3xl border border-fg-on-paper/10 bg-paper-raised p-7">
+                <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
+                  What you are watching
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-fg-on-paper-muted">
+                  Both clips are recordings of our own hardware in the field — the flight
+                  test above, and leaf-level disease detection running on captured frames
+                  in the player. The film on the homepage is an illustrated pitch; this is
+                  the equipment.
+                </p>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

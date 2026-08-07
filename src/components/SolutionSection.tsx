@@ -1,4 +1,3 @@
-import { LoopVideo } from './LoopVideo'
 import { Reveal } from './Reveal'
 
 const steps = [
@@ -26,29 +25,6 @@ const steps = [
     title: 'Report',
     aside: 'registry-native',
     body: 'Registry-ready MRV reports carry the full monitoring and maintenance history a verifier asks for.',
-  },
-]
-
-// Three clips, not eleven: the two ends of the loop and the layer between
-// them. They are illustrative b-roll, not footage of our own deployments.
-const clips = [
-  {
-    src: '/loop/aerial-capture.mp4',
-    poster: '/loop/aerial-capture.jpg',
-    stage: 'See',
-    caption: 'Scheduled drone surveys measure every tree — height, biomass, NDVI, count.',
-  },
-  {
-    src: '/loop/ground-sensor.mp4',
-    poster: '/loop/ground-sensor.jpg',
-    stage: 'Sense',
-    caption: 'Soil, weather and land-security sensors hold the ground truth between flights.',
-  },
-  {
-    src: '/loop/platform.mp4',
-    poster: '/loop/platform.jpg',
-    stage: 'Report',
-    caption: 'One record behind the dashboard and the registry submission alike.',
   },
 ]
 
@@ -98,14 +74,6 @@ export function SolutionSection() {
             </Reveal>
           ))}
         </ol>
-
-        <div className="mt-20 grid gap-5 lg:grid-cols-[1.35fr_1fr]">
-          <LoopVideo {...clips[0]} className="aspect-[16/10] lg:aspect-auto lg:min-h-[26rem]" />
-          <div className="grid gap-5">
-            <LoopVideo {...clips[1]} className="aspect-[16/10] lg:aspect-auto" />
-            <LoopVideo {...clips[2]} className="aspect-[16/10] lg:aspect-auto" />
-          </div>
-        </div>
 
       </div>
     </section>
