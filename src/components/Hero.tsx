@@ -91,7 +91,7 @@ export function Hero() {
 
           <figcaption className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-[#050807]/70 px-3.5 py-1.5 font-mono text-[10px] tracking-[0.16em] text-[#5cf29d] uppercase backdrop-blur-md">
             <span className="h-1.5 w-1.5 rounded-full bg-[#5cf29d] animate-pulse-dot" />
-            Garud · survey in progress
+            Field survey · in progress
           </figcaption>
         </figure>
 
