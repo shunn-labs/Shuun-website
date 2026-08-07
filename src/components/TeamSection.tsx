@@ -12,12 +12,31 @@ export function TeamSection() {
           </h2>
         </Reveal>
 
-        <ul className="mt-14 divide-y divide-white/10 border-y border-white/10">
+        <ul className="mt-14 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
           {team.map((member, i) => (
             <Reveal key={member.name} delay={i * 60}>
-              <li className="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-5">
-                <p className="text-lg font-semibold text-fg">{member.name}</p>
-                <p className="text-sm text-fg-muted">{member.role}</p>
+              <li>
+                {member.photo ? (
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    width={640}
+                    height={640}
+                    loading="lazy"
+                    className="aspect-square w-full rounded-2xl object-cover ring-1 ring-white/10"
+                  />
+                ) : (
+                  // No photo for this one, so the tile carries an initial
+                  // rather than leaving a hole in the row.
+                  <div
+                    aria-hidden="true"
+                    className="grid aspect-square w-full place-items-center rounded-2xl bg-surface font-display text-4xl font-semibold text-fg-muted ring-1 ring-white/10"
+                  >
+                    {member.name.charAt(0)}
+                  </div>
+                )}
+                <p className="mt-4 text-base font-semibold text-fg">{member.name}</p>
+                <p className="mt-0.5 text-sm text-fg-muted">{member.role}</p>
               </li>
             </Reveal>
           ))}
