@@ -40,10 +40,10 @@ export function Header() {
       {announcementVisible && <AnnouncementBar onDismiss={() => setAnnouncementVisible(false)} />}
       <header
         className={`transition-colors duration-300 ${
-          scrolled ? 'bg-ink/90 backdrop-blur-md border-b border-white/5' : 'bg-transparent'
+          scrolled ? 'border-b border-white/5 bg-ink/80 backdrop-blur-xl' : 'border-b border-transparent bg-transparent'
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-8">
           <a
             href="/"
             className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-fg"
@@ -58,7 +58,7 @@ export function Header() {
                 <li key={item.label}>
                   <a
                     href={sectionHref(item.href)}
-                    className="rounded-full px-4 py-2 text-sm font-medium text-fg-muted transition-colors hover:text-fg"
+                    className="rounded-full px-3.5 py-2 text-sm font-medium text-fg-muted transition-colors hover:text-fg"
                   >
                     {item.label}
                   </a>
@@ -70,14 +70,14 @@ export function Header() {
           <div className="hidden items-center gap-3 lg:flex">
             <Link
               to="/invest"
-              className="rounded-full px-4 py-2 text-sm font-semibold text-fg ring-1 ring-white/15 transition-colors hover:bg-white/5 hover:ring-white/30"
+              className="rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-fg transition-colors hover:border-white/35 hover:bg-white/5"
             >
               Invest in us
             </Link>
             {signedIn ? (
               <Link
                 to="/dashboard"
-                className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-ink transition-transform hover:scale-[1.03] hover:bg-accent-strong"
+                className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong"
               >
                 Dashboard
               </Link>
@@ -88,7 +88,7 @@ export function Header() {
                 </Link>
                 <Link
                   to="/signup"
-                  className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-ink transition-transform hover:scale-[1.03] hover:bg-accent-strong"
+                  className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong"
                 >
                   Create account
                 </Link>

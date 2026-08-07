@@ -3,19 +3,24 @@ import { Reveal } from './Reveal'
 
 export function TeamSection() {
   return (
-    <section id="team" className="scroll-mt-[6.25rem] bg-ink py-24 sm:py-32">
-      <div className="mx-auto max-w-5xl px-5 lg:px-8">
+    <section
+      id="team"
+      className="relative scroll-mt-[6.25rem] border-t border-white/5 bg-ink py-28 sm:py-36"
+    >
+      <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <Reveal>
-          <p className="text-xs font-semibold tracking-wide text-fg-muted uppercase">Our team</p>
-          <h2 className="mt-3 text-3xl font-semibold text-fg sm:text-4xl">
+          <p className="font-mono text-[11px] tracking-[0.18em] text-accent uppercase">
+            03 — Our team
+          </p>
+          <h2 className="mt-5 max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-semibold text-fg">
             The people building it.
           </h2>
         </Reveal>
 
-        <ul className="mt-14 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
+        <ul className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-4">
           {team.map((member, i) => (
-            <Reveal key={member.name} delay={i * 60}>
-              <li>
+            <Reveal key={member.name} delay={i * 80}>
+              <li className="edge-card group overflow-hidden rounded-2xl border border-white/10 bg-surface/60">
                 {member.photo ? (
                   <img
                     src={member.photo}
@@ -23,20 +28,24 @@ export function TeamSection() {
                     width={640}
                     height={640}
                     loading="lazy"
-                    className="aspect-square w-full rounded-2xl object-cover ring-1 ring-white/10"
+                    className="aspect-square w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
                   />
                 ) : (
                   // No photo for this one, so the tile carries an initial
                   // rather than leaving a hole in the row.
                   <div
                     aria-hidden="true"
-                    className="grid aspect-square w-full place-items-center rounded-2xl bg-surface font-display text-4xl font-semibold text-fg-muted ring-1 ring-white/10"
+                    className="grid aspect-square w-full place-items-center bg-surface-raised font-display text-5xl font-semibold text-fg-muted/40"
                   >
                     {member.name.charAt(0)}
                   </div>
                 )}
-                <p className="mt-4 text-base font-semibold text-fg">{member.name}</p>
-                <p className="mt-0.5 text-sm text-fg-muted">{member.role}</p>
+                <div className="p-5">
+                  <p className="text-base font-semibold text-fg">{member.name}</p>
+                  <p className="mt-1 font-mono text-[11px] tracking-wide text-fg-muted uppercase">
+                    {member.role}
+                  </p>
+                </div>
               </li>
             </Reveal>
           ))}

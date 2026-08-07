@@ -1,36 +1,47 @@
 @import "tailwindcss";
 
 @theme {
+  /* Inter Tight for display sizes — its tighter fit lets headlines run large
+     without the airy gaps a UI grotesk leaves at 60px+. Mono is not
+     decoration: it marks the machine-read parts (steps, readings, labels)
+     apart from the prose, which is the honest signal for this kind of work. */
   --font-sans: "Inter", system-ui, "Segoe UI", sans-serif;
-  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-ink: #030407;
-  --color-surface: #0b0d13;
-  --color-surface-raised: #12141d;
-  --color-surface-line: #1e212b;
-  --color-paper: #f6f5f1;
-  --color-paper-dim: #e7e5df;
+  /* Near-black carries a green cast rather than a blue one, so the brand
+     colour sits in the same family as the ground it stands on. */
+  --color-ink: #050807;
+  --color-surface: #0a100d;
+  --color-surface-raised: #111815;
+  --color-surface-line: #1c2521;
+  --color-paper: #f3f6f4;
+  --color-paper-dim: #e4eae6;
 
-  --color-fg: #f5f6f8;
-  --color-fg-muted: #9aa0ad;
-  --color-fg-on-paper: #0b0d13;
-  --color-fg-on-paper-muted: #565b66;
+  --color-fg: #f1f5f2;
+  --color-fg-muted: #93a49b;
+  --color-fg-on-paper: #0a100d;
+  --color-fg-on-paper-muted: #55625c;
 
-  /* Taken from the logo: #06322a at the deep end of its gradient, #499749 at
-     the bright tips. Accent carries dark ink rather than white — white on a
-     mid green lands around 3.4:1, which is under the floor for body text. */
-  --color-accent: #3f9c52;
-  --color-accent-strong: #4bb063;
-  --color-accent-ink: #04160e;
-  --color-accent-deep: #14603a;
+  /* The logo's green (#499749) is right for a mark on white and too dim to
+     carry a UI on near-black. This lifts it to signal strength — the green of
+     a live reading — while accent-deep keeps the logo's own weight for light
+     panels, where it reads around 7:1. Accent takes dark ink: white on a mid
+     green measures ~3.4:1, under the floor for text. */
+  --color-accent: #3ddc84;
+  --color-accent-strong: #5cf29d;
+  --color-accent-ink: #03150c;
+  --color-accent-deep: #16643c;
 
-  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-marquee: marquee 32s linear infinite;
+  --animate-pulse-dot: pulse-dot 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-scroll-hint: scroll-hint 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 
   @keyframes fade-up {
     from {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(28px);
     }
     to {
       opacity: 1;
@@ -44,6 +55,32 @@
     }
     to {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-accent) 60%, transparent);
+    }
+    50% {
+      opacity: 0.75;
+      box-shadow: 0 0 0 6px transparent;
+    }
+  }
+
+  @keyframes scroll-hint {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    35% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(10px);
+      opacity: 0;
     }
   }
 }
@@ -71,8 +108,8 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
   }
 
   ::selection {
@@ -95,6 +132,57 @@
     animation: var(--animate-fade-up);
   }
 
+  /* Survey grid — the faint plot lines a site is divided into before anyone
+     walks it. Sits under content at low contrast and fades out downward so it
+     reads as texture, never as a table. */
+  .grid-field {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--color-fg) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-fg) 6%, transparent) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
+  }
+
+  /* A single soft light source, placed per-section, so the dark surfaces have
+     somewhere to fall away from instead of reading as flat black. */
+  .glow-field::before {
+    content: "";
+    position: absolute;
+    inset: -20% 10% auto;
+    height: 460px;
+    background: radial-gradient(
+      ellipse at top,
+      color-mix(in oklab, var(--color-accent) 16%, transparent),
+      transparent 70%
+    );
+    filter: blur(40px);
+    pointer-events: none;
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      160deg,
+      var(--color-fg) 30%,
+      color-mix(in oklab, var(--color-accent) 70%, var(--color-fg))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Hairline that brightens toward the accent on hover — the whole card
+     lights up from its edge rather than shifting colour. */
+  .edge-card {
+    position: relative;
+    isolation: isolate;
+    transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .edge-card:hover {
+    border-color: color-mix(in oklab, var(--color-accent) 45%, transparent);
+    transform: translateY(-2px);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1;
@@ -105,8 +193,14 @@
       scroll-behavior: auto;
     }
 
-    .animate-marquee {
+    .animate-marquee,
+    .animate-pulse-dot,
+    .animate-scroll-hint {
       animation: none;
+    }
+
+    .edge-card:hover {
+      transform: none;
     }
   }
 }

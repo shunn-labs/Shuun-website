@@ -19,12 +19,13 @@ export function InvestPage() {
   return (
     <main>
       <section className="bg-ink pt-32 pb-16 sm:pt-40 sm:pb-20">
-        <div className="mx-auto max-w-5xl px-5 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <Reveal>
-            <p className="text-xs font-semibold tracking-wide text-accent uppercase">
+            <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-accent uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-dot" />
               Raising our seed round
             </p>
-            <h1 className="mt-3 max-w-3xl text-4xl font-semibold text-fg sm:text-5xl">
+            <h1 className="mt-5 max-w-3xl text-[clamp(2.5rem,6vw,4.5rem)] font-semibold text-fg">
               Invest in Shuun Labs
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-fg-muted">
@@ -33,7 +34,7 @@ export function InvestPage() {
             </p>
             <a
               href="mailto:000shuun@gmail.com?subject=Investing%20in%20Shuun%20Labs"
-              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-transform hover:scale-[1.03] hover:bg-accent-strong"
+              className="group mt-9 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong"
             >
               Talk to us
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -43,14 +44,16 @@ export function InvestPage() {
       </section>
 
       <section className="bg-ink pb-20 sm:pb-28">
-        <div className="mx-auto max-w-5xl px-5 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <Reveal>
-            <h2 className="text-2xl font-semibold text-fg sm:text-3xl">Demo</h2>
-            <p className="mt-3 text-base leading-relaxed text-fg-muted">
-              Drone flight and live detection, tested in the field.
+            <p className="font-mono text-[11px] tracking-[0.18em] text-accent uppercase">
+              01 — Demo
             </p>
+            <h2 className="mt-5 text-3xl font-semibold text-fg sm:text-4xl">
+              Drone flight and live detection, in the field.
+            </h2>
             <video
-              className="mt-8 w-full rounded-2xl border border-white/10 bg-surface"
+              className="mt-10 w-full rounded-3xl border border-white/10 bg-surface"
               controls
               playsInline
               preload="metadata"
@@ -64,12 +67,17 @@ export function InvestPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-20 sm:py-28">
-        <div className="mx-auto max-w-5xl px-5 lg:px-8">
+      <section className="border-t border-white/5 bg-surface/40 py-24 sm:py-28">
+        <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <Reveal>
-            <h2 className="text-2xl font-semibold text-fg-on-paper sm:text-3xl">Pitch deck</h2>
-            <p className="mt-3 max-w-xl text-base leading-relaxed text-fg-on-paper-muted">
-              Problem, solution, market, traction and team — 14 slides.
+            <p className="font-mono text-[11px] tracking-[0.18em] text-accent uppercase">
+              02 — Pitch deck
+            </p>
+            <h2 className="mt-5 text-3xl font-semibold text-fg sm:text-4xl">
+              Problem, solution, market, traction and team.
+            </h2>
+            <p className="mt-4 font-mono text-[11px] tracking-wide text-fg-muted uppercase">
+              14 slides
             </p>
           </Reveal>
 
@@ -81,7 +89,7 @@ export function InvestPage() {
               <a
                 href={DECK_URL}
                 download
-                className="group inline-flex items-center gap-2 rounded-full bg-fg-on-paper px-6 py-3 text-sm font-semibold text-paper transition-transform hover:scale-[1.03]"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-white/35 hover:bg-white/5"
               >
                 Download PDF
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -99,7 +107,7 @@ export function InvestPage() {
                     // The first slide is near the fold on a laptop; the rest
                     // should not cost anyone bandwidth until they scroll.
                     loading={i === 0 ? 'eager' : 'lazy'}
-                    className="w-full rounded-2xl border border-black/10 bg-white shadow-sm"
+                    className="w-full rounded-2xl border border-white/10 bg-white"
                   />
                 </li>
               ))}
