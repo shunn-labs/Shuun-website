@@ -78,12 +78,12 @@ export function SolutionSection() {
         <ol className="relative mt-16 grid gap-10 md:grid-cols-5 md:gap-6">
           <span
             aria-hidden="true"
-            className="absolute left-0 right-0 top-[9px] hidden h-px bg-gradient-to-r from-leaf/10 via-leaf/45 to-leaf/10 md:block"
+            className="absolute left-0 right-0 top-[9px] hidden h-px bg-gradient-to-r from-leaf/25 via-leaf to-leaf/25 md:block"
           />
           {steps.map((step, i) => (
             <Reveal key={step.title} delay={i * 80}>
               <li className="relative">
-                <span className="relative z-10 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-leaf/30 bg-paper">
+                <span className="relative z-10 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-leaf/40 bg-paper-dim ring-4 ring-paper-dim">
                   <span className="h-1.5 w-1.5 rounded-full bg-leaf" />
                 </span>
                 <p className="mt-5 font-mono text-[11px] tracking-[0.18em] text-fg-on-paper-muted uppercase">
