@@ -1,19 +1,21 @@
 import { Reveal } from './Reveal'
 
+// Both figures are the deck's own, kept as the deck states them.
+const scale = [
+  { value: '10 M+', label: 'hectares of forest lost every year' },
+  { value: '1 M+', label: 'species at risk' },
+]
+
 const problems = [
   {
+    index: '01',
     title: 'Manual monitoring doesn’t scale',
-    body: 'Field teams inspect sites periodically and record tree survival, growth, and health by hand. Problems are found too late, and restoration costs rise.',
-    // Deliberately not a number: we have no measured figure for detection lag,
-    // and inventing one on an investor-facing page is not worth the polish.
-    stat: 'By hand',
-    statLabel: 'every survival, growth and health check, on foot',
+    body: 'Field teams inspect sites periodically and record tree survival, growth, and health by hand. Problems are detected too late, and restoration costs rise.',
   },
   {
+    index: '02',
     title: 'Data collection isn’t continuous monitoring',
-    body: 'Satellite imagery lacks per-tree resolution and drone surveys give only periodic snapshots. Neither covers a project’s full lifecycle.',
-    stat: '10 m',
-    statLabel: 'best free satellite pixel — a sapling is a fraction of it',
+    body: 'Satellite imagery lacks the resolution for individual trees, and drone surveys give only periodic snapshots. Neither covers a project’s full lifecycle.',
   },
 ]
 
@@ -21,33 +23,47 @@ export function ProblemSection() {
   return (
     <section
       id="problem"
-      className="relative scroll-mt-[6.25rem] overflow-hidden border-t border-white/5 bg-ink py-28 sm:py-36"
+      className="relative scroll-mt-[6.25rem] border-t border-fg-on-paper/8 bg-paper py-28 sm:py-36"
     >
-      <div className="relative mx-auto max-w-6xl px-5 lg:px-8">
-        <Reveal>
-          <p className="font-mono text-[11px] tracking-[0.18em] text-accent uppercase">
-            01 — The problem
-          </p>
-          <h2 className="mt-5 max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-semibold text-fg">
-            Nature is degrading faster than we can restore it.
-          </h2>
-        </Reveal>
+      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
+          <Reveal>
+            <div className="lg:sticky lg:top-28">
+              <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
+                01 — The problem
+              </p>
+              <h2 className="mt-5 text-[clamp(2rem,4.4vw,3.25rem)] font-semibold text-fg-on-paper">
+                Nature is degrading faster than we can restore it.
+              </h2>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-2">
-          {problems.map((problem, i) => (
-            <Reveal key={problem.title} delay={i * 100}>
-              <article className="edge-card flex h-full flex-col rounded-3xl border border-white/10 bg-surface/60 p-8 sm:p-10">
-                <p className="font-display text-5xl font-semibold text-accent sm:text-6xl">
-                  {problem.stat}
-                </p>
-                <p className="mt-2 font-mono text-[11px] leading-relaxed tracking-wide text-fg-muted uppercase">
-                  {problem.statLabel}
-                </p>
-                <h3 className="mt-10 text-2xl font-semibold text-fg">{problem.title}</h3>
-                <p className="mt-4 text-base leading-relaxed text-fg-muted">{problem.body}</p>
-              </article>
-            </Reveal>
-          ))}
+              <dl className="mt-10 flex flex-wrap gap-x-12 gap-y-6">
+                {scale.map((item) => (
+                  <div key={item.value}>
+                    <dt className="font-display text-4xl font-semibold text-leaf">{item.value}</dt>
+                    <dd className="mt-1.5 max-w-[14rem] font-mono text-[11px] leading-relaxed tracking-wide text-fg-on-paper-muted uppercase">
+                      {item.label}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </Reveal>
+
+          <div className="grid gap-5">
+            {problems.map((problem, i) => (
+              <Reveal key={problem.title} delay={i * 100}>
+                <article className="leaf-card h-full rounded-3xl border border-fg-on-paper/10 bg-paper-raised p-8 sm:p-10">
+                  <span className="font-mono text-[11px] tracking-[0.18em] text-fg-on-paper-muted">
+                    {problem.index}
+                  </span>
+                  <h3 className="mt-5 text-2xl font-semibold text-fg-on-paper">{problem.title}</h3>
+                  <p className="mt-4 text-base leading-relaxed text-fg-on-paper-muted">
+                    {problem.body}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -76,16 +76,16 @@ export function DeckGate({ children }: DeckGateProps) {
   if (unlocked) return <>{children}</>
 
   return (
-    <div className="mt-10 rounded-3xl border border-white/10 bg-ink p-8 sm:p-10">
-      <h3 className="text-xl font-semibold text-fg">Where should we send it?</h3>
-      <p className="mt-2 max-w-md text-sm leading-relaxed text-fg-muted">
+    <div className="mt-10 rounded-3xl border border-fg-on-paper/10 bg-paper-raised p-8 sm:p-10">
+      <h3 className="text-xl font-semibold text-fg-on-paper">Where should we send it?</h3>
+      <p className="mt-2 max-w-md text-sm leading-relaxed text-fg-on-paper-muted">
         Leave an email and the deck opens right here. We only use it to follow up about the
         round.
       </p>
 
       <form onSubmit={handleSubmit} className="mt-6 max-w-md space-y-4">
         <div>
-          <label htmlFor="deck-email" className="block font-mono text-[11px] tracking-wide text-fg-muted uppercase">
+          <label htmlFor="deck-email" className="block font-mono text-[11px] tracking-wide text-fg-on-paper-muted uppercase">
             Email
           </label>
           <input
@@ -95,39 +95,39 @@ export function DeckGate({ children }: DeckGateProps) {
             required
             autoComplete="email"
             placeholder="you@fund.com"
-            className="mt-2 w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-fg outline-none transition-colors placeholder:text-fg-muted/50 focus:border-accent/60"
+            className="mt-2 w-full rounded-xl border border-fg-on-paper/15 bg-paper px-4 py-3 text-sm text-fg-on-paper outline-none transition-colors placeholder:text-fg-on-paper-muted/50 focus:border-leaf"
           />
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="deck-name" className="block font-mono text-[11px] tracking-wide text-fg-muted uppercase">
-              Name <span className="text-fg-muted/60">(optional)</span>
+            <label htmlFor="deck-name" className="block font-mono text-[11px] tracking-wide text-fg-on-paper-muted uppercase">
+              Name <span className="text-fg-on-paper-muted/60">(optional)</span>
             </label>
             <input
               id="deck-name"
               name="name"
               type="text"
               autoComplete="name"
-              className="mt-2 w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-fg outline-none transition-colors focus:border-accent/60"
+              className="mt-2 w-full rounded-xl border border-fg-on-paper/15 bg-paper px-4 py-3 text-sm text-fg-on-paper outline-none transition-colors focus:border-leaf"
             />
           </div>
           <div>
-            <label htmlFor="deck-org" className="block font-mono text-[11px] tracking-wide text-fg-muted uppercase">
-              Fund / company <span className="text-fg-muted/60">(optional)</span>
+            <label htmlFor="deck-org" className="block font-mono text-[11px] tracking-wide text-fg-on-paper-muted uppercase">
+              Fund / company <span className="text-fg-on-paper-muted/60">(optional)</span>
             </label>
             <input
               id="deck-org"
               name="organisation"
               type="text"
               autoComplete="organization"
-              className="mt-2 w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-fg outline-none transition-colors focus:border-accent/60"
+              className="mt-2 w-full rounded-xl border border-fg-on-paper/15 bg-paper px-4 py-3 text-sm text-fg-on-paper outline-none transition-colors focus:border-leaf"
             />
           </div>
         </div>
 
         {error && (
-          <p role="alert" className="text-sm text-red-400">
+          <p role="alert" className="text-sm text-red-700">
             {error}
           </p>
         )}
@@ -135,7 +135,7 @@ export function DeckGate({ children }: DeckGateProps) {
         <button
           type="submit"
           disabled={submitting}
-          className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-60"
+          className="group inline-flex items-center gap-2 rounded-full bg-leaf px-7 py-3.5 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong disabled:cursor-not-allowed disabled:opacity-60"
         >
           {submitting ? 'Opening…' : 'Show me the deck'}
           <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

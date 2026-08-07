@@ -17,24 +17,24 @@ export function InvestPage() {
   useDocumentTitle('Invest — Shuun Labs')
 
   return (
-    <main>
-      <section className="bg-ink pt-32 pb-16 sm:pt-40 sm:pb-20">
+    <main className="bg-paper">
+      <section className="relative overflow-hidden bg-paper pt-32 pb-16 sm:pt-40 sm:pb-20">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <Reveal>
-            <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-accent uppercase">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-dot" />
+            <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-leaf animate-pulse-dot" />
               Raising our seed round
             </p>
-            <h1 className="mt-5 max-w-3xl text-[clamp(2.5rem,6vw,4.5rem)] font-semibold text-fg">
+            <h1 className="mt-5 max-w-3xl text-[clamp(2.5rem,6vw,4.5rem)] font-semibold text-fg-on-paper">
               Invest in Shuun Labs
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-fg-muted">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-fg-on-paper-muted">
               The deck and a demo of the system in the field. If it looks like a fit, write to us
               and we&apos;ll take it from there.
             </p>
             <a
               href="mailto:000shuun@gmail.com?subject=Investing%20in%20Shuun%20Labs"
-              className="group mt-9 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong"
+              className="group mt-9 inline-flex items-center gap-2 rounded-full bg-leaf px-7 py-3.5 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong"
             >
               Talk to us
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -43,17 +43,17 @@ export function InvestPage() {
         </div>
       </section>
 
-      <section className="bg-ink pb-20 sm:pb-28">
+      <section className="bg-paper pb-20 sm:pb-28">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <Reveal>
-            <p className="font-mono text-[11px] tracking-[0.18em] text-accent uppercase">
+            <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
               01 — Demo
             </p>
-            <h2 className="mt-5 text-3xl font-semibold text-fg sm:text-4xl">
+            <h2 className="mt-5 text-3xl font-semibold text-fg-on-paper sm:text-4xl">
               Drone flight and live detection, in the field.
             </h2>
             <video
-              className="mt-10 w-full rounded-3xl border border-white/10 bg-surface"
+              className="mt-10 w-full rounded-3xl border border-fg-on-paper/10 bg-ink shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]"
               controls
               playsInline
               preload="metadata"
@@ -67,16 +67,16 @@ export function InvestPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 bg-surface/40 py-24 sm:py-28">
+      <section className="border-t border-fg-on-paper/8 bg-paper-dim/60 py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <Reveal>
-            <p className="font-mono text-[11px] tracking-[0.18em] text-accent uppercase">
+            <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
               02 — Pitch deck
             </p>
-            <h2 className="mt-5 text-3xl font-semibold text-fg sm:text-4xl">
+            <h2 className="mt-5 text-3xl font-semibold text-fg-on-paper sm:text-4xl">
               Problem, solution, market, traction and team.
             </h2>
-            <p className="mt-4 font-mono text-[11px] tracking-wide text-fg-muted uppercase">
+            <p className="mt-4 font-mono text-[11px] tracking-wide text-fg-on-paper-muted uppercase">
               14 slides
             </p>
           </Reveal>
@@ -89,7 +89,7 @@ export function InvestPage() {
               <a
                 href={DECK_URL}
                 download
-                className="group inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-white/35 hover:bg-white/5"
+                className="group inline-flex items-center gap-2 rounded-full border border-fg-on-paper/15 px-6 py-3 text-sm font-semibold text-fg-on-paper transition-colors hover:border-fg-on-paper/35 hover:bg-fg-on-paper/5"
               >
                 Download PDF
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -107,7 +107,7 @@ export function InvestPage() {
                     // The first slide is near the fold on a laptop; the rest
                     // should not cost anyone bandwidth until they scroll.
                     loading={i === 0 ? 'eager' : 'lazy'}
-                    className="w-full rounded-2xl border border-white/10 bg-white"
+                    className="w-full rounded-2xl border border-fg-on-paper/10 bg-paper-raised shadow-sm"
                   />
                 </li>
               ))}

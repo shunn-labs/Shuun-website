@@ -40,13 +40,13 @@ export function Header() {
       {announcementVisible && <AnnouncementBar onDismiss={() => setAnnouncementVisible(false)} />}
       <header
         className={`transition-colors duration-300 ${
-          scrolled ? 'border-b border-white/5 bg-ink/80 backdrop-blur-xl' : 'border-b border-transparent bg-transparent'
+          scrolled ? 'border-b border-fg-on-paper/8 bg-paper/85 backdrop-blur-xl' : 'border-b border-transparent bg-transparent'
         }`}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-8">
           <a
             href="/"
-            className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-fg"
+            className="flex items-center gap-2.5 font-display text-lg font-semibold tracking-tight text-fg-on-paper"
           >
             <img src="/logo.png" alt="" width={40} height={87} className="h-8 w-auto" />
             Shuun Labs
@@ -58,7 +58,7 @@ export function Header() {
                 <li key={item.label}>
                   <a
                     href={sectionHref(item.href)}
-                    className="rounded-full px-3.5 py-2 text-sm font-medium text-fg-muted transition-colors hover:text-fg"
+                    className="rounded-full px-3.5 py-2 text-sm font-medium text-fg-on-paper-muted transition-colors hover:text-fg-on-paper"
                   >
                     {item.label}
                   </a>
@@ -70,25 +70,25 @@ export function Header() {
           <div className="hidden items-center gap-3 lg:flex">
             <Link
               to="/invest"
-              className="rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-fg transition-colors hover:border-white/35 hover:bg-white/5"
+              className="rounded-full border border-fg-on-paper/15 px-4 py-2 text-sm font-semibold text-fg-on-paper transition-colors hover:border-fg-on-paper/35 hover:bg-fg-on-paper/5"
             >
               Invest in us
             </Link>
             {signedIn ? (
               <Link
                 to="/dashboard"
-                className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong"
+                className="rounded-full bg-leaf px-4 py-2 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong"
               >
                 Dashboard
               </Link>
             ) : (
               <>
-                <Link to="/login" className="text-sm font-medium text-fg-muted hover:text-fg">
+                <Link to="/login" className="text-sm font-medium text-fg-on-paper-muted hover:text-fg-on-paper">
                   Sign in
                 </Link>
                 <Link
                   to="/signup"
-                  className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong"
+                  className="rounded-full bg-leaf px-4 py-2 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong"
                 >
                   Create account
                 </Link>
@@ -98,7 +98,7 @@ export function Header() {
 
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center rounded-full text-fg lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full text-fg-on-paper lg:hidden"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
@@ -109,16 +109,16 @@ export function Header() {
 
         {mobileOpen && (
           <div
-            className={`overflow-y-auto border-t border-white/5 bg-ink px-5 pb-10 pt-4 lg:hidden ${
+            className={`overflow-y-auto border-t border-fg-on-paper/8 bg-paper px-5 pb-10 pt-4 lg:hidden ${
               announcementVisible ? 'h-[calc(100svh-6.25rem)]' : 'h-[calc(100svh-4rem)]'
             }`}
           >
-            <ul className="divide-y divide-white/5">
+            <ul className="divide-y divide-fg-on-paper/8">
               {navItems.map((item) => (
                 <li key={item.label} className="py-3">
                   <a
                     href={sectionHref(item.href)}
-                    className="text-base font-medium text-fg"
+                    className="text-base font-medium text-fg-on-paper"
                     onClick={() => setMobileOpen(false)}
                   >
                     {item.label}
@@ -128,7 +128,7 @@ export function Header() {
               <li className="py-3">
                 <Link
                   to="/invest"
-                  className="text-base font-medium text-fg"
+                  className="text-base font-medium text-fg-on-paper"
                   onClick={() => setMobileOpen(false)}
                 >
                   Invest in us
@@ -138,7 +138,7 @@ export function Header() {
             <div className="mt-6 space-y-3">
               <Link
                 to={signedIn ? '/dashboard' : '/signup'}
-                className="block rounded-full bg-accent px-4 py-3 text-center text-sm font-semibold text-accent-ink"
+                className="block rounded-full bg-leaf px-4 py-3 text-center text-sm font-semibold text-leaf-ink"
                 onClick={() => setMobileOpen(false)}
               >
                 {signedIn ? 'Dashboard' : 'Create account'}
@@ -146,7 +146,7 @@ export function Header() {
               {!signedIn && (
                 <Link
                   to="/login"
-                  className="block rounded-full px-4 py-3 text-center text-sm font-semibold text-fg ring-1 ring-white/10"
+                  className="block rounded-full border border-fg-on-paper/15 px-4 py-3 text-center text-sm font-semibold text-fg-on-paper"
                   onClick={() => setMobileOpen(false)}
                 >
                   Sign in

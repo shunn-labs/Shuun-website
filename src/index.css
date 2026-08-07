@@ -15,13 +15,17 @@
   --color-surface: #0a100d;
   --color-surface-raised: #111815;
   --color-surface-line: #1c2521;
-  --color-paper: #f3f6f4;
-  --color-paper-dim: #e4eae6;
+  /* The marketing pages run light — the logo is a deep-green mark drawn for
+     white, and on near-black its darker half simply disappears. The app and
+     auth screens stay dark, so both scales live here side by side. */
+  --color-paper: #f8f9f5;
+  --color-paper-raised: #ffffff;
+  --color-paper-dim: #eef1ea;
 
   --color-fg: #f1f5f2;
   --color-fg-muted: #93a49b;
-  --color-fg-on-paper: #0a100d;
-  --color-fg-on-paper-muted: #55625c;
+  --color-fg-on-paper: #0b1410;
+  --color-fg-on-paper-muted: #5b6b62;
 
   /* The logo's green (#499749) is right for a mark on white and too dim to
      carry a UI on near-black. This lifts it to signal strength — the green of
@@ -32,6 +36,16 @@
   --color-accent-strong: #5cf29d;
   --color-accent-ink: #03150c;
   --color-accent-deep: #16643c;
+
+  /* Light-theme greens, measured rather than picked: leaf carries white text
+     at 7.3:1 and reads at 6.9:1 as text on paper. The logo's own bright green
+     (#499749) manages only 3.4:1 on paper, so it stays decorative — the mark,
+     never the label. */
+  --color-leaf: #10633a;
+  --color-leaf-strong: #0b4d2b;
+  --color-leaf-deep: #0e3b2e;
+  --color-leaf-soft: #e9f1ea;
+  --color-leaf-ink: #ffffff;
 
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-marquee: marquee 32s linear infinite;
@@ -96,8 +110,11 @@
 
   body {
     margin: 0;
-    background: var(--color-ink);
-    color: var(--color-fg);
+    /* Light, because the marketing pages are the ones that overscroll. Every
+       dark screen (auth, welcome, dashboard, 404) paints its own bg-ink on a
+       min-h-svh root, so none of them depend on this. */
+    background: var(--color-paper);
+    color: var(--color-fg-on-paper);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -112,13 +129,14 @@
     line-height: 1.02;
   }
 
+  /* Chosen to work on both scales: readable over paper and over near-black. */
   ::selection {
-    background: var(--color-accent);
-    color: var(--color-accent-ink);
+    background: var(--color-leaf);
+    color: var(--color-leaf-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-leaf);
     outline-offset: 3px;
   }
 }
@@ -159,6 +177,21 @@
     pointer-events: none;
   }
 
+  .grid-field-light {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--color-leaf-deep) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-leaf-deep) 8%, transparent) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+  }
+
+  .text-gradient-leaf {
+    background: linear-gradient(120deg, var(--color-leaf-deep) 25%, #3f9c52);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .text-gradient {
     background: linear-gradient(
       160deg,
@@ -183,6 +216,16 @@
     transform: translateY(-2px);
   }
 
+  .leaf-card {
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .leaf-card:hover {
+    border-color: color-mix(in oklab, var(--color-leaf) 35%, transparent);
+    box-shadow: 0 18px 40px -24px color-mix(in oklab, var(--color-leaf-deep) 45%, transparent);
+    transform: translateY(-3px);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1;
@@ -199,7 +242,8 @@
       animation: none;
     }
 
-    .edge-card:hover {
+    .edge-card:hover,
+    .leaf-card:hover {
       transform: none;
     }
   }

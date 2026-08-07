@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ArrowRightIcon } from './icons/Icons'
 
-const CAPABILITIES = [
+const PROOF = [
   { value: 'Per-tree', label: 'resolution, not per-plot' },
   { value: 'Continuous', label: 'not a quarterly snapshot' },
-  { value: 'Registry-ready', label: 'MRV from day one' },
+  { value: 'VM0047', label: 'registry-native from day one' },
 ]
 
 export function Hero() {
@@ -27,84 +28,83 @@ export function Hero() {
   }, [])
 
   return (
-    <section id="top" className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-ink">
-      {/* Drone footage over farmland, muted and decorative. The source clip is
-          already trimmed to start at its 3s mark, so the loop restarts there. */}
-      <video
-        ref={videoRef}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ${
-          videoReady ? 'opacity-100' : 'opacity-0'
-        }`}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        aria-hidden="true"
-        onCanPlay={() => setVideoReady(true)}
-      >
-        <source src="/videos/drone-field-loop.mp4" type="video/mp4" />
-      </video>
+    <section id="top" className="relative overflow-hidden bg-paper pt-32 pb-20 sm:pt-40 sm:pb-24">
+      <div className="pointer-events-none absolute inset-0 grid-field-light" />
+      {/* One warm light source behind the headline, so the paper has a centre
+          rather than reading as an even sheet. */}
+      <div className="pointer-events-none absolute -top-40 left-1/4 h-[420px] w-[620px] rounded-full bg-leaf-soft blur-[110px]" />
 
-      {/* Three stacked passes rather than one flat wash: an overall damp, a
-          heavy foot for the type to sit on, and a green cast that ties the
-          footage to the palette instead of leaving it a grey rectangle. */}
-      <div className="pointer-events-none absolute inset-0 bg-ink/45" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/10" />
-      <div className="pointer-events-none absolute inset-0 mix-blend-soft-light bg-accent/12" />
-      <div className="pointer-events-none absolute inset-0 grid-field opacity-60" />
-
-      <div className="relative mx-auto w-full max-w-6xl px-5 pb-16 pt-40 sm:pb-20 lg:px-8">
-        <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-accent uppercase">
-          <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-dot" />
+      <div className="relative mx-auto max-w-6xl px-5 lg:px-8">
+        <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
+          <span className="h-1.5 w-1.5 rounded-full bg-leaf animate-pulse-dot" />
           Autonomous environmental intelligence
         </p>
 
-        <h1 className="mt-6 max-w-5xl text-[clamp(2.5rem,6.4vw,5.25rem)] font-semibold text-fg">
-          We measure the forest,
-          <br />
-          <span className="text-gradient">tree by tree.</span>
+        <h1 className="mt-7 max-w-4xl text-[clamp(2.5rem,6.2vw,5rem)] font-semibold text-fg-on-paper">
+          We measure the forest,{' '}
+          <span className="text-gradient-leaf">tree by tree</span> — and prove it.
         </h1>
 
-        <p className="mt-7 max-w-xl text-lg leading-relaxed text-fg-muted sm:text-xl">
-          Drones, ground sensors and an agentic AI layer that watch a plantation
-          continuously — detect what changed, dispatch the fix, and file the evidence a
-          carbon registry will accept.
-        </p>
+        <div className="mt-9 grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+          <p className="max-w-xl text-lg leading-relaxed text-fg-on-paper-muted sm:text-xl">
+            Drones, ground sensors and an agentic AI layer that watch a plantation
+            continuously — detect what changed, dispatch the fix, and file the evidence
+            chain a carbon registry will actually accept.
+          </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-3">
-          <a
-            href="#solution"
-            className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong"
-          >
-            See how it works
-            <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
-            href="/invest"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-fg backdrop-blur-sm transition-colors hover:border-white/35 hover:bg-white/5"
-          >
-            Investor deck
-          </a>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="#solution"
+              className="group inline-flex items-center gap-2 rounded-full bg-leaf px-7 py-3.5 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong"
+            >
+              See how it works
+              <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+            <Link
+              to="/invest"
+              className="inline-flex items-center rounded-full border border-fg-on-paper/15 px-7 py-3.5 text-sm font-semibold text-fg-on-paper transition-colors hover:border-fg-on-paper/35 hover:bg-fg-on-paper/5"
+            >
+              Investor deck
+            </Link>
+          </div>
         </div>
 
-        <dl className="mt-16 grid max-w-3xl gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-3">
-          {CAPABILITIES.map((item) => (
-            <div key={item.value} className="bg-ink/70 px-5 py-5 backdrop-blur-md">
-              <dt className="font-display text-xl font-semibold text-fg">{item.value}</dt>
-              <dd className="mt-1 font-mono text-[11px] tracking-wide text-fg-muted uppercase">
+        {/* The footage sits in a framed viewport rather than behind the type:
+            on a light page a full-bleed video forces every headline into a
+            scrim, and the frame is what makes it read as an instrument feed. */}
+        <figure className="relative mt-14 overflow-hidden rounded-[1.75rem] border border-fg-on-paper/10 bg-ink shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]">
+          <video
+            ref={videoRef}
+            className={`aspect-[16/9] w-full object-cover transition-opacity duration-[1200ms] ${
+              videoReady ? 'opacity-100' : 'opacity-0'
+            }`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            onCanPlay={() => setVideoReady(true)}
+          >
+            <source src="/videos/drone-field-loop.mp4" type="video/mp4" />
+          </video>
+
+          <figcaption className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-ink/70 px-3.5 py-1.5 font-mono text-[10px] tracking-[0.16em] text-accent uppercase backdrop-blur-md">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-dot" />
+            Garud · survey in progress
+          </figcaption>
+        </figure>
+
+        <dl className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-fg-on-paper/10 bg-fg-on-paper/10 sm:grid-cols-3">
+          {PROOF.map((item) => (
+            <div key={item.value} className="bg-paper-raised px-6 py-6">
+              <dt className="font-display text-2xl font-semibold text-fg-on-paper">{item.value}</dt>
+              <dd className="mt-1.5 font-mono text-[11px] tracking-wide text-fg-on-paper-muted uppercase">
                 {item.label}
               </dd>
             </div>
           ))}
         </dl>
-      </div>
-
-      <div className="relative mx-auto w-full max-w-6xl px-5 pb-8 lg:px-8">
-        <span
-          aria-hidden="true"
-          className="block h-8 w-px bg-gradient-to-b from-accent to-transparent animate-scroll-hint"
-        />
       </div>
     </section>
   )
