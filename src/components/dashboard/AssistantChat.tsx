@@ -226,7 +226,7 @@ export function AssistantChat({ onCameraToggle, onStateChange, ref }: AssistantC
       </header>
 
       {state === 'unauthorized' && (
-        <p className="border-b border-fg/5 bg-rose-500/8 px-4 py-2.5 text-xs leading-relaxed text-rose-200">
+        <p className="border-b border-fg/5 bg-rose-500/8 px-4 py-2.5 text-xs leading-relaxed text-rose-700">
           The brain API rejected the session token. Paste a valid one in the top bar to enable chat,
           uploads, speech, and the activity log.
         </p>
@@ -294,7 +294,7 @@ export function AssistantChat({ onCameraToggle, onStateChange, ref }: AssistantC
                 u.status === 'error'
                   ? 'bg-rose-500/10 text-rose-700 ring-rose-500/30'
                   : u.status === 'done'
-                    ? 'bg-emerald-500/10 text-emerald-200 ring-emerald-400/25'
+                    ? 'bg-emerald-500/10 text-emerald-700 ring-emerald-400/25'
                     : 'bg-fg/5 text-fg-muted ring-fg/10'
               }`}
             >

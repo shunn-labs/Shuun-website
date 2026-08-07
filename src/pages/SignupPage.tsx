@@ -107,7 +107,7 @@ export function SignupPage() {
         {formError && (
           <div
             role="alert"
-            className="rounded-xl bg-rose-500/10 px-3.5 py-2.5 text-sm text-rose-200 ring-1 ring-rose-500/30"
+            className="rounded-xl bg-rose-500/10 px-3.5 py-2.5 text-sm text-rose-700 ring-1 ring-rose-500/30"
           >
             {formError}
           </div>
