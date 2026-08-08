@@ -1,3 +1,4 @@
+import { LoopCard } from './LoopCard'
 import { Reveal } from './Reveal'
 
 const steps = [
@@ -28,6 +29,32 @@ const steps = [
   },
 ]
 
+// Three of the eleven clips: the two ends of the loop and the layer between
+// them. Illustrative b-roll rather than footage of our own deployments, which
+// is why each is captioned by stage rather than by product.
+const clips = [
+  {
+    src: '/loop/aerial-capture.mp4',
+    poster: '/loop/aerial-capture.jpg',
+    stage: 'See',
+    title: 'Per-tree capture',
+    body: 'Scheduled drone surveys measure every tree — height, biomass, NDVI and count — instead of sampling a plot and extrapolating.',
+  },
+  {
+    src: '/loop/ground-sensor.mp4',
+    poster: '/loop/ground-sensor.jpg',
+    stage: 'Sense',
+    title: 'Ground truth between flights',
+    body: 'Soil, weather and land-security sensors hold the plot-level record continuously, so a survey lands on context rather than a blank slate.',
+  },
+  {
+    src: '/loop/platform.mp4',
+    poster: '/loop/platform.jpg',
+    stage: 'Report',
+    title: 'One record, two audiences',
+    body: 'The same monitoring and maintenance history drives the operational dashboard and the registry submission.',
+  },
+]
 
 export function SolutionSection() {
   return (
@@ -75,6 +102,13 @@ export function SolutionSection() {
           ))}
         </ol>
 
+        <div className="mt-20 grid gap-5 lg:grid-cols-3">
+          {clips.map((clip, i) => (
+            <Reveal key={clip.title} delay={i * 90}>
+              <LoopCard {...clip} />
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   )
