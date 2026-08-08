@@ -86,22 +86,22 @@ export function SolutionSection() {
           />
           {steps.map((step, i) => (
             <Reveal key={step.title} delay={i * 80}>
-              <li className="relative">
-                {/* Stacked, the loop still has to read as a run, so the marker
-                    column carries a vertical rule where the horizontal one
-                    cannot exist. */}
+              {/* Stacked, the marker moves into a gutter of its own and the
+                  text is indented past it. Left in the text column, the
+                  connecting rule ran straight through the copy. */}
+              <li className="relative pl-9 sm:pl-0">
                 {i < steps.length - 1 && (
                   <span
                     aria-hidden="true"
-                    className="absolute left-[8px] top-[18px] h-[calc(100%+2.5rem)] w-px bg-leaf/25 sm:hidden"
+                    className="absolute left-[8px] top-[22px] h-[calc(100%+18px)] w-px bg-leaf/25 sm:hidden"
                   />
                 )}
-                <span className="relative z-10 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-leaf/40 bg-paper-dim ring-4 ring-paper-dim">
+                <span className="absolute left-0 top-0 z-10 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-leaf/40 bg-paper-dim ring-4 ring-paper-dim sm:relative sm:left-auto sm:top-auto">
                   <span className="h-1.5 w-1.5 rounded-full bg-leaf" />
                 </span>
                 {/* Reserved height, so a two-line aside cannot push one stage
                     title out of line with its neighbours. */}
-                <p className="mt-5 font-mono text-[11px] leading-relaxed tracking-[0.18em] text-fg-on-paper-muted uppercase lg:min-h-[3.2em]">
+                <p className="font-mono text-[11px] leading-relaxed tracking-[0.18em] text-fg-on-paper-muted uppercase sm:mt-5 lg:min-h-[3.2em]">
                   {String(i + 1).padStart(2, '0')} · {step.aside}
                 </p>
                 <h3 className="mt-2 font-display text-xl font-semibold text-fg-on-paper">
