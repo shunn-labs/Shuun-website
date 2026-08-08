@@ -23,7 +23,7 @@ export function InvestPage() {
           <Reveal>
             <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
               <span className="h-1.5 w-1.5 rounded-full bg-leaf animate-pulse-dot" />
-              Raising our seed round
+              Raising our pre-seed round
             </p>
             <h1 className="mt-5 max-w-3xl text-[clamp(2.5rem,6vw,4.5rem)] font-semibold text-fg-on-paper">
               Invest in Shuun Labs
