@@ -20,7 +20,7 @@ export function TeamSection() {
         <ul className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-4">
           {team.map((member, i) => (
             <Reveal key={member.name} delay={i * 80}>
-              <li className="leaf-card group overflow-hidden rounded-2xl border border-fg-on-paper/10 bg-paper-raised">
+              <li className="leaf-card group flex h-full flex-col overflow-hidden rounded-2xl border border-fg-on-paper/10 bg-paper-raised">
                 {member.photo ? (
                   <img
                     src={member.photo}
@@ -40,7 +40,7 @@ export function TeamSection() {
                     {member.name.charAt(0)}
                   </div>
                 )}
-                <div className="border-t border-fg-on-paper/8 p-5">
+                <div className="flex flex-1 flex-col border-t border-fg-on-paper/8 p-5">
                   <p className="text-base font-semibold text-fg-on-paper">{member.name}</p>
                   <p className="mt-1 font-mono text-[11px] tracking-wide text-fg-on-paper-muted uppercase">
                     {member.role}

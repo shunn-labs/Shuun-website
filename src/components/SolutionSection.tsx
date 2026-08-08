@@ -79,18 +79,29 @@ export function SolutionSection() {
 
         {/* Five stages on one rule, so the loop is legible as a sequence before
             a word of it is read. The rule is the product. */}
-        <ol className="relative mt-16 grid gap-10 md:grid-cols-5 md:gap-6">
+        <ol className="relative mt-16 grid gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-5 lg:gap-6">
           <span
             aria-hidden="true"
-            className="absolute left-0 right-0 top-[9px] hidden h-px bg-gradient-to-r from-leaf/25 via-leaf to-leaf/25 md:block"
+            className="absolute left-0 right-0 top-[9px] hidden h-px bg-gradient-to-r from-leaf/25 via-leaf to-leaf/25 lg:block"
           />
           {steps.map((step, i) => (
             <Reveal key={step.title} delay={i * 80}>
               <li className="relative">
+                {/* Stacked, the loop still has to read as a run, so the marker
+                    column carries a vertical rule where the horizontal one
+                    cannot exist. */}
+                {i < steps.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-[8px] top-[18px] h-[calc(100%+2.5rem)] w-px bg-leaf/25 sm:hidden"
+                  />
+                )}
                 <span className="relative z-10 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-leaf/40 bg-paper-dim ring-4 ring-paper-dim">
                   <span className="h-1.5 w-1.5 rounded-full bg-leaf" />
                 </span>
-                <p className="mt-5 font-mono text-[11px] tracking-[0.18em] text-fg-on-paper-muted uppercase">
+                {/* Reserved height, so a two-line aside cannot push one stage
+                    title out of line with its neighbours. */}
+                <p className="mt-5 font-mono text-[11px] leading-relaxed tracking-[0.18em] text-fg-on-paper-muted uppercase lg:min-h-[3.2em]">
                   {String(i + 1).padStart(2, '0')} · {step.aside}
                 </p>
                 <h3 className="mt-2 font-display text-xl font-semibold text-fg-on-paper">
@@ -102,7 +113,7 @@ export function SolutionSection() {
           ))}
         </ol>
 
-        <div className="mt-20 grid gap-5 lg:grid-cols-3">
+        <div className="mt-20 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {clips.map((clip, i) => (
             <Reveal key={clip.title} delay={i * 90}>
               <LoopCard {...clip} />

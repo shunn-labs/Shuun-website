@@ -37,7 +37,7 @@ export function EdgeSection() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-leaf/20 bg-leaf/20 md:grid-cols-3">
+        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-leaf/20 bg-leaf/20 lg:grid-cols-3">
           {edges.map((edge, i) => (
             <Reveal key={edge.title} delay={i * 90}>
               <article className="h-full bg-paper-raised p-8 transition-colors duration-500 hover:bg-paper sm:p-9">
