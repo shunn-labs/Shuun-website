@@ -8,6 +8,6 @@ export interface TeamMember {
 export const team: TeamMember[] = [
   { name: 'Somnath Halder', role: 'Founder & CEO', photo: '/team/somnath.jpg' },
   { name: 'Manish Kumar', role: 'Co-Founder & COO', photo: '/team/manish.jpg' },
-  { name: 'Aryan', role: 'Co-Founder & CTO' },
+  { name: 'Aryan', role: 'Co-Founder & CTO', photo: '/team/aryan.jpeg' },
   { name: 'Sancheeta', role: 'Intern', photo: '/team/sancheeta.jpg' },
 ]
