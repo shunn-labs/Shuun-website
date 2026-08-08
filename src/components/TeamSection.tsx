@@ -17,7 +17,7 @@ export function TeamSection() {
           </h2>
         </Reveal>
 
-        <ul className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-4">
+        <ul className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
           {team.map((member, i) => (
             <Reveal key={member.name} delay={i * 80}>
               <li className="leaf-card group flex h-full flex-col overflow-hidden rounded-2xl border border-fg-on-paper/10 bg-paper-raised">
@@ -50,6 +50,7 @@ export function TeamSection() {
             </Reveal>
           ))}
         </ul>
+
       </div>
     </section>
   )
