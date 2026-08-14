@@ -47,10 +47,9 @@ export function DashboardTopBar({ brainState, logsOpen, onToggleLogs }: Dashboar
         <div className="flex items-center gap-3">
           <Link
             to="/welcome"
-            className="flex items-center gap-2 font-display text-base font-semibold tracking-tight text-fg"
+            className="flex items-center"
           >
-            <img src="/logo.png" alt="" width={40} height={87} className="h-8 w-auto" />
-            Shuun Labs
+            <img src="/logo-wordmark.png" alt="Shuun Labs" width={475} height={160} className="h-9 w-auto" />
           </Link>
           <span className="hidden h-5 w-px bg-fg/10 sm:block" />
           <span className="hidden text-sm font-medium text-fg-muted sm:block">Mission control</span>

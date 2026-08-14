@@ -21,8 +21,8 @@ export function InvestPage() {
       <section className="relative overflow-hidden bg-paper pt-32 pb-16 sm:pt-40 sm:pb-20">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <Reveal>
-            <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
-              <span className="h-1.5 w-1.5 rounded-full bg-leaf animate-pulse-dot" />
+            <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-brand uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse-dot" />
               Raising our pre-seed round
             </p>
             <h1 className="mt-5 max-w-3xl text-[clamp(2.5rem,6vw,4.5rem)] font-semibold text-fg-on-paper">
@@ -34,7 +34,7 @@ export function InvestPage() {
             </p>
             <a
               href="mailto:000shuun@gmail.com?subject=Investing%20in%20Shuun%20Labs"
-              className="group mt-9 inline-flex items-center gap-2 rounded-full bg-leaf px-7 py-3.5 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong"
+              className="group mt-9 inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-strong"
             >
               Talk to us
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -46,7 +46,7 @@ export function InvestPage() {
       <section className="bg-paper pb-20 sm:pb-28">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <Reveal>
-            <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
+            <p className="font-mono text-[11px] tracking-[0.18em] text-brand uppercase">
               01 — Demo
             </p>
             <h2 className="mt-5 max-w-2xl text-3xl font-semibold text-fg-on-paper sm:text-4xl">
@@ -59,7 +59,7 @@ export function InvestPage() {
               building toward.
             </p>
             <video
-              className="mt-10 w-full rounded-3xl border border-fg-on-paper/10 bg-[#050807] shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]"
+              className="mt-10 w-full rounded-3xl border border-fg-on-paper/10 bg-[#050a14] shadow-[0_40px_80px_-40px_rgba(11,18,32,0.45)]"
               controls
               playsInline
               preload="metadata"
@@ -77,7 +77,7 @@ export function InvestPage() {
       <section className="border-t border-fg-on-paper/8 bg-paper-dim/60 py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <Reveal>
-            <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
+            <p className="font-mono text-[11px] tracking-[0.18em] text-brand uppercase">
               02 — Pitch deck
             </p>
             <h2 className="mt-5 text-3xl font-semibold text-fg-on-paper sm:text-4xl">

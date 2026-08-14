@@ -95,7 +95,7 @@ export function DeckGate({ children }: DeckGateProps) {
             required
             autoComplete="email"
             placeholder="you@fund.com"
-            className="mt-2 w-full rounded-xl border border-fg-on-paper/15 bg-paper px-4 py-3 text-sm text-fg-on-paper outline-none transition-colors placeholder:text-fg-on-paper-muted/50 focus:border-leaf"
+            className="mt-2 w-full rounded-xl border border-fg-on-paper/15 bg-paper px-4 py-3 text-sm text-fg-on-paper outline-none transition-colors placeholder:text-fg-on-paper-muted/50 focus:border-brand"
           />
         </div>
 
@@ -109,7 +109,7 @@ export function DeckGate({ children }: DeckGateProps) {
               name="name"
               type="text"
               autoComplete="name"
-              className="mt-2 w-full rounded-xl border border-fg-on-paper/15 bg-paper px-4 py-3 text-sm text-fg-on-paper outline-none transition-colors focus:border-leaf"
+              className="mt-2 w-full rounded-xl border border-fg-on-paper/15 bg-paper px-4 py-3 text-sm text-fg-on-paper outline-none transition-colors focus:border-brand"
             />
           </div>
           <div>
@@ -121,7 +121,7 @@ export function DeckGate({ children }: DeckGateProps) {
               name="organisation"
               type="text"
               autoComplete="organization"
-              className="mt-2 w-full rounded-xl border border-fg-on-paper/15 bg-paper px-4 py-3 text-sm text-fg-on-paper outline-none transition-colors focus:border-leaf"
+              className="mt-2 w-full rounded-xl border border-fg-on-paper/15 bg-paper px-4 py-3 text-sm text-fg-on-paper outline-none transition-colors focus:border-brand"
             />
           </div>
         </div>
@@ -135,7 +135,7 @@ export function DeckGate({ children }: DeckGateProps) {
         <button
           type="submit"
           disabled={submitting}
-          className="group inline-flex items-center gap-2 rounded-full bg-leaf px-7 py-3.5 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong disabled:cursor-not-allowed disabled:opacity-60"
+          className="group inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-strong disabled:cursor-not-allowed disabled:opacity-60"
         >
           {submitting ? 'Opening…' : 'Show me the deck'}
           <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

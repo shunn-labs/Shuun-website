@@ -46,10 +46,9 @@ export function Header() {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-8">
           <a
             href="/"
-            className="flex items-center gap-2.5 font-display text-lg font-semibold tracking-tight text-fg-on-paper"
+            className="flex items-center"
           >
-            <img src="/logo.png" alt="" width={40} height={87} className="h-8 w-auto" />
-            Shuun Labs
+            <img src="/logo-wordmark.png" alt="Shuun Labs" width={475} height={160} className="h-10 w-auto" />
           </a>
 
           <nav aria-label="Primary" className="hidden lg:block">
@@ -77,7 +76,7 @@ export function Header() {
             {signedIn ? (
               <Link
                 to="/dashboard"
-                className="rounded-full bg-leaf px-4 py-2 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong"
+                className="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-strong"
               >
                 Dashboard
               </Link>
@@ -88,7 +87,7 @@ export function Header() {
                 </Link>
                 <Link
                   to="/signup"
-                  className="rounded-full bg-leaf px-4 py-2 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong"
+                  className="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-strong"
                 >
                   Create account
                 </Link>
@@ -138,7 +137,7 @@ export function Header() {
             <div className="mt-6 space-y-3">
               <Link
                 to={signedIn ? '/dashboard' : '/signup'}
-                className="block rounded-full bg-leaf px-4 py-3 text-center text-sm font-semibold text-leaf-ink"
+                className="block rounded-full bg-brand px-4 py-3 text-center text-sm font-semibold text-brand-ink"
                 onClick={() => setMobileOpen(false)}
               >
                 {signedIn ? 'Dashboard' : 'Create account'}

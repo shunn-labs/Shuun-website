@@ -29,7 +29,7 @@ export function ProblemSection() {
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
           <Reveal>
             <div className="lg:sticky lg:top-28">
-              <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
+              <p className="font-mono text-[11px] tracking-[0.18em] text-brand uppercase">
                 01 — The problem
               </p>
               <h2 className="mt-5 text-[clamp(2rem,4.4vw,3.25rem)] font-semibold text-fg-on-paper">
@@ -39,7 +39,7 @@ export function ProblemSection() {
               <dl className="mt-10 flex flex-wrap gap-x-12 gap-y-6">
                 {scale.map((item) => (
                   <div key={item.value}>
-                    <dt className="font-display text-4xl font-semibold text-leaf">{item.value}</dt>
+                    <dt className="font-display text-4xl font-semibold text-brand">{item.value}</dt>
                     <dd className="mt-1.5 max-w-[14rem] font-mono text-[11px] leading-relaxed tracking-wide text-fg-on-paper-muted uppercase">
                       {item.label}
                     </dd>
@@ -52,7 +52,7 @@ export function ProblemSection() {
           <div className="grid gap-5">
             {problems.map((problem, i) => (
               <Reveal key={problem.title} delay={i * 100}>
-                <article className="leaf-card h-full rounded-3xl border border-fg-on-paper/10 bg-paper-raised p-8 sm:p-10">
+                <article className="brand-card h-full rounded-3xl border border-fg-on-paper/10 bg-paper-raised p-8 sm:p-10">
                   <span className="font-mono text-[11px] tracking-[0.18em] text-fg-on-paper-muted">
                     {problem.index}
                   </span>

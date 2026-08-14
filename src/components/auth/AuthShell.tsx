@@ -20,10 +20,9 @@ export function AuthShell({ eyebrow, title, subtitle, children, footer }: AuthSh
       <div className="flex flex-col px-5 py-8 sm:px-10 lg:px-16">
         <Link
           to="/"
-          className="inline-flex w-fit items-center gap-2 font-display text-lg font-semibold tracking-tight text-fg"
+          className="inline-flex w-fit items-center"
         >
-          <img src="/logo.png" alt="" width={40} height={87} className="h-8 w-auto" />
-          Shuun Labs
+          <img src="/logo-wordmark.png" alt="Shuun Labs" width={475} height={160} className="h-10 w-auto" />
         </Link>
 
         <div className="flex flex-1 items-center py-10">
@@ -42,7 +41,7 @@ export function AuthShell({ eyebrow, title, subtitle, children, footer }: AuthSh
       </div>
 
       {/* ── Brand column ── */}
-      <aside className="relative hidden overflow-hidden border-l border-fg/8 bg-leaf-soft/60 lg:block">
+      <aside className="relative hidden overflow-hidden border-l border-fg/8 bg-brand-soft/60 lg:block">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -right-24 top-1/3 h-[560px] w-[560px] rounded-full bg-accent/15 blur-[130px]" />
           <div className="pointer-events-none absolute inset-0 grid-field-light opacity-70" />

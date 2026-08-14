@@ -20,11 +20,11 @@ export function EdgeSection() {
   return (
     // This was the page's one dark stretch. On an all-light site it earns its
     // emphasis from a tinted ground and a heavier rule instead of inverting.
-    <section className="relative overflow-hidden border-t border-fg-on-paper/8 bg-leaf-soft/50 py-28 sm:py-36">
+    <section className="relative overflow-hidden border-t border-fg-on-paper/8 bg-brand-soft/50 py-28 sm:py-36">
       <div className="pointer-events-none absolute inset-0 grid-field-light opacity-80" />
       <div className="relative mx-auto max-w-6xl px-5 lg:px-8">
         <Reveal>
-          <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
+          <p className="font-mono text-[11px] tracking-[0.18em] text-brand uppercase">
             03 — Why us
           </p>
           <h2 className="mt-5 max-w-3xl text-[clamp(2rem,4.4vw,3.25rem)] font-semibold text-fg-on-paper">
@@ -37,11 +37,11 @@ export function EdgeSection() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-leaf/20 bg-leaf/20 lg:grid-cols-3">
+        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-brand/20 bg-brand/20 lg:grid-cols-3">
           {edges.map((edge, i) => (
             <Reveal key={edge.title} delay={i * 90}>
               <article className="h-full bg-paper-raised p-8 transition-colors duration-500 hover:bg-paper sm:p-9">
-                <span className="font-mono text-[11px] tracking-[0.18em] text-leaf">
+                <span className="font-mono text-[11px] tracking-[0.18em] text-brand">
                   {String.fromCharCode(65 + i)}
                 </span>
                 <h3 className="mt-6 text-xl font-semibold text-fg-on-paper">{edge.title}</h3>

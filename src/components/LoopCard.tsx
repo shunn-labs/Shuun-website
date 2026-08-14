@@ -52,8 +52,8 @@ export function LoopCard({ src, poster, stage, title, body }: LoopCardProps) {
   }, [])
 
   return (
-    <figure className="leaf-card group flex h-full flex-col overflow-hidden rounded-3xl border border-fg-on-paper/10 bg-paper-raised">
-      <div className="relative overflow-hidden bg-[#050807]">
+    <figure className="brand-card group flex h-full flex-col overflow-hidden rounded-3xl border border-fg-on-paper/10 bg-paper-raised">
+      <div className="relative overflow-hidden bg-[#050a14]">
         <video
           ref={ref}
           className="aspect-[3/2] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
@@ -69,7 +69,7 @@ export function LoopCard({ src, poster, stage, title, body }: LoopCardProps) {
       </div>
 
       <figcaption className="flex flex-1 flex-col border-t border-fg-on-paper/8 p-7">
-        <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">{stage}</p>
+        <p className="font-mono text-[11px] tracking-[0.18em] text-brand uppercase">{stage}</p>
         <h3 className="mt-3 font-display text-xl font-semibold text-fg-on-paper">{title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-fg-on-paper-muted">{body}</p>
       </figcaption>

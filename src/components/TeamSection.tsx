@@ -9,7 +9,7 @@ export function TeamSection() {
     >
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <Reveal>
-          <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
+          <p className="font-mono text-[11px] tracking-[0.18em] text-brand uppercase">
             04 — Our team
           </p>
           <h2 className="mt-5 max-w-3xl text-[clamp(2rem,4.4vw,3.25rem)] font-semibold text-fg-on-paper">
@@ -20,7 +20,7 @@ export function TeamSection() {
         <ul className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
           {team.map((member, i) => (
             <Reveal key={member.name} delay={i * 80}>
-              <li className="leaf-card group flex h-full flex-col overflow-hidden rounded-2xl border border-fg-on-paper/10 bg-paper-raised">
+              <li className="brand-card group flex h-full flex-col overflow-hidden rounded-2xl border border-fg-on-paper/10 bg-paper-raised">
                 {member.photo ? (
                   <img
                     src={member.photo}
@@ -35,7 +35,7 @@ export function TeamSection() {
                   // rather than leaving a hole in the row.
                   <div
                     aria-hidden="true"
-                    className="grid aspect-square w-full place-items-center bg-leaf-soft font-display text-5xl font-semibold text-leaf/40"
+                    className="grid aspect-square w-full place-items-center bg-brand-soft font-display text-5xl font-semibold text-brand/40"
                   >
                     {member.name.charAt(0)}
                   </div>

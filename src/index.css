@@ -13,40 +13,43 @@
      names are kept (ink, surface, fg) because every screen already speaks
      them; only the values crossed over. Ink is the page, surface is the card
      that sits on it, and fg is the text on both. */
-  --color-ink: #f8f9f5;
+  --color-ink: #f7f8fb;
   --color-surface: #ffffff;
-  --color-surface-raised: #f1f4ee;
-  --color-surface-line: #dee4da;
-  /* The marketing pages run light — the logo is a deep-green mark drawn for
-     white, and on near-black its darker half simply disappears. The app and
-     auth screens stay dark, so both scales live here side by side. */
-  --color-paper: #f8f9f5;
+  --color-surface-raised: #eff1f6;
+  --color-surface-line: #dce0e9;
+  /* Paper carried a green cast from the previous mark. With a blue wordmark
+     that reads as a mismatch, so the neutrals cool by the same degree the
+     brand did — near-white with a faint blue bias rather than a warm one. */
+  --color-paper: #f7f8fb;
   --color-paper-raised: #ffffff;
-  --color-paper-dim: #eef1ea;
+  --color-paper-dim: #edeff5;
 
-  --color-fg: #0b1410;
-  --color-fg-muted: #5b6b62;
-  --color-fg-on-paper: #0b1410;
-  --color-fg-on-paper-muted: #5b6b62;
+  /* 17.6:1 and 5.8:1 on the new paper. */
+  --color-fg: #0b1220;
+  --color-fg-muted: #59626f;
+  --color-fg-on-paper: #0b1220;
+  --color-fg-on-paper-muted: #59626f;
 
-  /* Accent and leaf are now the same green, because there is only one ground
-     to sit on. #10633a holds white text at 7.3:1 and reads at 6.9:1 as text
-     on paper; the logo's own #499749 manages 3.4:1 there, so it stays the
-     mark and never a label. */
-  --color-accent: #10633a;
-  --color-accent-strong: #0b4d2b;
+  /* Sampled straight out of the wordmark rather than approximated: #004aad is
+     the exact blue of the Devanagari, and it happens to measure well — 8.1:1
+     carrying white text, 7.7:1 as text on paper. Accent is an alias so the app
+     and auth screens follow the same colour. */
+  --color-brand: #004aad;
+  --color-brand-strong: #003c8c;
+  --color-brand-deep: #002d69;
+  --color-brand-soft: #e8eefa;
+  --color-brand-ink: #ffffff;
+
+  --color-accent: #004aad;
+  --color-accent-strong: #003c8c;
   --color-accent-ink: #ffffff;
-  --color-accent-deep: #0e3b2e;
+  --color-accent-deep: #002d69;
 
-  /* Light-theme greens, measured rather than picked: leaf carries white text
-     at 7.3:1 and reads at 6.9:1 as text on paper. The logo's own bright green
-     (#499749) manages only 3.4:1 on paper, so it stays decorative — the mark,
-     never the label. */
-  --color-leaf: #10633a;
-  --color-leaf-strong: #0b4d2b;
-  --color-leaf-deep: #0e3b2e;
-  --color-leaf-soft: #e9f1ea;
-  --color-leaf-ink: #ffffff;
+  /* The wordmark's amber. It reads 1.6:1 on paper, which is below even the
+     floor for a meaningful graphic, so it never carries text or state on the
+     light pages — it appears only over the dark video surfaces, where it hits
+     4.9:1 and echoes the logo without lying about contrast. */
+  --color-warm: #ffbc57;
 
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-marquee: marquee 32s linear infinite;
@@ -132,12 +135,12 @@
 
   /* Chosen to work on both scales: readable over paper and over near-black. */
   ::selection {
-    background: var(--color-leaf);
-    color: var(--color-leaf-ink);
+    background: var(--color-brand);
+    color: var(--color-brand-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-leaf);
+    outline: 2px solid var(--color-brand);
     outline-offset: 3px;
   }
 }
@@ -180,21 +183,21 @@
 
   .grid-field-light {
     background-image:
-      linear-gradient(to right, color-mix(in oklab, var(--color-leaf-deep) 8%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in oklab, var(--color-leaf-deep) 8%, transparent) 1px, transparent 1px);
+      linear-gradient(to right, color-mix(in oklab, var(--color-brand-deep) 9%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-brand-deep) 9%, transparent) 1px, transparent 1px);
     background-size: 72px 72px;
     mask-image: linear-gradient(to bottom, black, transparent 80%);
   }
 
-  .text-gradient-leaf {
-    background: linear-gradient(120deg, var(--color-leaf-deep) 25%, #3f9c52);
+  .text-gradient-brand {
+    background: linear-gradient(120deg, var(--color-brand-deep) 20%, #2f7fd8);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .text-gradient {
-    background: linear-gradient(120deg, var(--color-leaf-deep) 25%, #3f9c52);
+    background: linear-gradient(120deg, var(--color-brand-deep) 20%, #2f7fd8);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -213,13 +216,13 @@
     transform: translateY(-2px);
   }
 
-  .leaf-card {
+  .brand-card {
     transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .leaf-card:hover {
-    border-color: color-mix(in oklab, var(--color-leaf) 35%, transparent);
-    box-shadow: 0 18px 40px -24px color-mix(in oklab, var(--color-leaf-deep) 45%, transparent);
+  .brand-card:hover {
+    border-color: color-mix(in oklab, var(--color-brand) 35%, transparent);
+    box-shadow: 0 18px 40px -24px color-mix(in oklab, var(--color-brand-deep) 40%, transparent);
     transform: translateY(-3px);
   }
 
@@ -240,7 +243,7 @@
     }
 
     .edge-card:hover,
-    .leaf-card:hover {
+    .brand-card:hover {
       transform: none;
     }
   }

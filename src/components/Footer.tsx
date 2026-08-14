@@ -15,10 +15,9 @@ export function Footer() {
           <div>
             <a
               href="/"
-              className="flex items-center gap-2.5 font-display text-base font-semibold text-fg-on-paper"
+              className="flex items-center"
             >
-              <img src="/logo.png" alt="" width={40} height={87} className="h-7 w-auto" />
-              Shuun Labs
+              <img src="/logo-wordmark.png" alt="Shuun Labs" width={475} height={160} className="h-9 w-auto" />
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-fg-on-paper-muted">
               Autonomous intelligence for environmental monitoring and restoration.
@@ -37,7 +36,7 @@ export function Footer() {
             ))}
             <Link
               to="/invest"
-              className="font-mono text-[11px] tracking-wide text-leaf uppercase transition-colors hover:text-leaf-strong"
+              className="font-mono text-[11px] tracking-wide text-brand uppercase transition-colors hover:text-brand-strong"
             >
               Invest in us
             </Link>

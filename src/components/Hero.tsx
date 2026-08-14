@@ -33,17 +33,17 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 grid-field-light" />
       {/* One warm light source behind the headline, so the paper has a centre
           rather than reading as an even sheet. */}
-      <div className="pointer-events-none absolute -top-40 left-1/4 h-[420px] w-[620px] rounded-full bg-leaf-soft blur-[110px]" />
+      <div className="pointer-events-none absolute -top-40 left-1/4 h-[420px] w-[620px] rounded-full bg-brand-soft blur-[110px]" />
 
       <div className="relative mx-auto max-w-6xl px-5 lg:px-8">
-        <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
-          <span className="h-1.5 w-1.5 rounded-full bg-leaf animate-pulse-dot" />
+        <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-brand uppercase">
+          <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse-dot" />
           Autonomous environmental intelligence
         </p>
 
         <h1 className="mt-7 max-w-4xl text-[clamp(2.5rem,6.2vw,5rem)] font-semibold text-fg-on-paper">
           We measure the forest,{' '}
-          <span className="text-gradient-leaf">tree by tree</span> — and prove it.
+          <span className="text-gradient-brand">tree by tree</span> — and prove it.
         </h1>
 
         <div className="mt-9 grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
@@ -56,7 +56,7 @@ export function Hero() {
           <div className="flex flex-wrap items-center gap-3">
             <a
               href="#solution"
-              className="group inline-flex items-center gap-2 rounded-full bg-leaf px-7 py-3.5 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong"
+              className="group inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-strong"
             >
               See how it works
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -74,7 +74,7 @@ export function Hero() {
             the fold: it is the whole pitch in a minute. It opens on its own
             poster and never plays unasked — 13 MB with a soundtrack should not
             arrive uninvited, and nothing else on the page competes with it. */}
-        <div className="relative mt-14 overflow-hidden rounded-[1.75rem] border border-fg-on-paper/10 bg-[#050807] shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]">
+        <div className="relative mt-14 overflow-hidden rounded-[1.75rem] border border-fg-on-paper/10 bg-[#050a14] shadow-[0_40px_80px_-40px_rgba(11,18,32,0.45)]">
           <video
             ref={videoRef}
             className="aspect-video w-full"
@@ -93,7 +93,7 @@ export function Hero() {
               type="button"
               onClick={play}
               aria-label="Play the film"
-              className="group absolute inset-0 grid place-items-center bg-[#050807]/20 transition-colors hover:bg-[#050807]/10"
+              className="group absolute inset-0 grid place-items-center bg-[#050a14]/20 transition-colors hover:bg-[#050a14]/10"
             >
               <span className="flex items-center gap-3 rounded-full bg-paper/95 px-6 py-3.5 text-sm font-semibold text-fg-on-paper shadow-lg backdrop-blur-sm transition-transform group-hover:scale-[1.04]">
                 <PlayIcon className="h-4 w-4" />

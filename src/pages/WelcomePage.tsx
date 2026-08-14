@@ -44,10 +44,9 @@ export function WelcomePage() {
             is home, and / would only forward straight back here. */}
         <Link
           to="/welcome"
-          className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-fg"
+          className="flex items-center"
         >
-          <img src="/logo.png" alt="" width={40} height={87} className="h-8 w-auto" />
-          Shuun Labs
+          <img src="/logo-wordmark.png" alt="Shuun Labs" width={475} height={160} className="h-10 w-auto" />
         </Link>
 
         <div className="flex items-center gap-3">

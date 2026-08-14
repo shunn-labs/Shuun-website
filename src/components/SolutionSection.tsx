@@ -64,7 +64,7 @@ export function SolutionSection() {
     >
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <Reveal>
-          <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
+          <p className="font-mono text-[11px] tracking-[0.18em] text-brand uppercase">
             02 — The solution
           </p>
           <h2 className="mt-5 max-w-3xl text-[clamp(2rem,4.4vw,3.25rem)] font-semibold text-fg-on-paper">
@@ -82,7 +82,7 @@ export function SolutionSection() {
         <ol className="relative mt-16 grid gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-5 lg:gap-6">
           <span
             aria-hidden="true"
-            className="absolute left-0 right-0 top-[9px] hidden h-px bg-gradient-to-r from-leaf/25 via-leaf to-leaf/25 lg:block"
+            className="absolute left-0 right-0 top-[9px] hidden h-px bg-gradient-to-r from-brand/25 via-brand to-brand/25 lg:block"
           />
           {steps.map((step, i) => (
             <Reveal key={step.title} delay={i * 80}>
@@ -93,11 +93,11 @@ export function SolutionSection() {
                 {i < steps.length - 1 && (
                   <span
                     aria-hidden="true"
-                    className="absolute left-[8px] top-[22px] h-[calc(100%+18px)] w-px bg-leaf/25 sm:hidden"
+                    className="absolute left-[8px] top-[22px] h-[calc(100%+18px)] w-px bg-brand/25 sm:hidden"
                   />
                 )}
-                <span className="absolute left-0 top-0 z-10 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-leaf/40 bg-paper-dim ring-4 ring-paper-dim sm:relative sm:left-auto sm:top-auto">
-                  <span className="h-1.5 w-1.5 rounded-full bg-leaf" />
+                <span className="absolute left-0 top-0 z-10 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-brand/40 bg-paper-dim ring-4 ring-paper-dim sm:relative sm:left-auto sm:top-auto">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand" />
                 </span>
                 {/* Reserved height, so a two-line aside cannot push one stage
                     title out of line with its neighbours. */}
