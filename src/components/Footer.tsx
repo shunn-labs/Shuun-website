@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const links = [
-  { label: 'Problem', href: '/#problem' },
-  { label: 'Solution', href: '/#solution' },
-  { label: 'Our team', href: '/#team' },
-  { label: 'Contact us', href: '/#contact' },
-]
+  { label: "Problem", href: "/#problem" },
+  { label: "Solution", href: "/#solution" },
+  { label: "Our team", href: "/#team" },
+  { label: "Contact us", href: "/#contact" },
+];
 
 export function Footer() {
   return (
@@ -17,11 +17,18 @@ export function Footer() {
               href="/"
               className="flex items-center gap-2.5 font-display text-base font-semibold text-fg-on-paper"
             >
-              <img src="/logo.png" alt="" width={40} height={87} className="h-7 w-auto" />
-              Shuun Labs
+              <img
+                src="/logo.png"
+                alt=""
+                width={40}
+                height={87}
+                className="h-7 w-auto"
+              />
+              Shunn Labs
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-fg-on-paper-muted">
-              Autonomous intelligence for environmental monitoring and restoration.
+              Autonomous intelligence for environmental monitoring and
+              restoration.
             </p>
           </div>
 
@@ -46,11 +53,13 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-2 border-t border-fg-on-paper/8 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-mono text-[11px] tracking-wide text-fg-on-paper-muted">
-            © {new Date().getFullYear()} Shuun Labs
+            © {new Date().getFullYear()} Shunn Labs
           </p>
-          <p className="font-mono text-[11px] tracking-wide text-fg-on-paper-muted">labs.shuun.site</p>
+          <p className="font-mono text-[11px] tracking-wide text-fg-on-paper-muted">
+            www.shunnlabs.com
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

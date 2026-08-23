@@ -1,19 +1,25 @@
-import type { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 interface AuthShellProps {
-  eyebrow: string
-  title: string
-  subtitle: string
-  children: ReactNode
-  footer?: ReactNode
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  children: ReactNode;
+  footer?: ReactNode;
 }
 
 /**
  * Split layout shared by sign-up and sign-in: form on the left, brand
  * panel on the right. The panel is decorative and drops away on mobile.
  */
-export function AuthShell({ eyebrow, title, subtitle, children, footer }: AuthShellProps) {
+export function AuthShell({
+  eyebrow,
+  title,
+  subtitle,
+  children,
+  footer,
+}: AuthShellProps) {
   return (
     <div className="grid min-h-svh bg-ink lg:grid-cols-2">
       {/* ── Form column ── */}
@@ -22,8 +28,14 @@ export function AuthShell({ eyebrow, title, subtitle, children, footer }: AuthSh
           to="/"
           className="inline-flex w-fit items-center gap-2 font-display text-lg font-semibold tracking-tight text-fg"
         >
-          <img src="/logo.png" alt="" width={40} height={87} className="h-8 w-auto" />
-          Shuun Labs
+          <img
+            src="/logo.png"
+            alt=""
+            width={40}
+            height={87}
+            className="h-8 w-auto"
+          />
+          Shunn Labs
         </Link>
 
         <div className="flex flex-1 items-center py-10">
@@ -31,8 +43,12 @@ export function AuthShell({ eyebrow, title, subtitle, children, footer }: AuthSh
             <p className="mb-2 font-mono text-[11px] tracking-[0.18em] text-accent uppercase">
               {eyebrow}
             </p>
-            <h1 className="text-3xl font-semibold text-fg sm:text-4xl">{title}</h1>
-            <p className="mt-3 text-sm leading-relaxed text-fg-muted">{subtitle}</p>
+            <h1 className="text-3xl font-semibold text-fg sm:text-4xl">
+              {title}
+            </h1>
+            <p className="mt-3 text-sm leading-relaxed text-fg-muted">
+              {subtitle}
+            </p>
 
             <div className="mt-8">{children}</div>
           </div>
@@ -59,19 +75,22 @@ export function AuthShell({ eyebrow, title, subtitle, children, footer }: AuthSh
               <span className="text-accent">Prove.</span>
             </p>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-fg-muted">
-              Mission control for the closed loop — live sensor telemetry, drone survey
-              video, and the evidence chain a carbon registry will accept.
+              Mission control for the closed loop — live sensor telemetry, drone
+              survey video, and the evidence chain a carbon registry will
+              accept.
             </p>
           </div>
 
           <dl className="flex gap-10">
             {[
-              ['Per-tree', 'measurement'],
-              ['Geotagged', 'every intervention'],
-              ['VM0047', 'registry-native'],
+              ["Per-tree", "measurement"],
+              ["Geotagged", "every intervention"],
+              ["VM0047", "registry-native"],
             ].map(([value, label]) => (
               <div key={label}>
-                <dt className="font-display text-xl font-semibold text-accent">{value}</dt>
+                <dt className="font-display text-xl font-semibold text-accent">
+                  {value}
+                </dt>
                 <dd className="mt-1 text-xs text-fg-muted">{label}</dd>
               </div>
             ))}
@@ -79,5 +98,5 @@ export function AuthShell({ eyebrow, title, subtitle, children, footer }: AuthSh
         </div>
       </aside>
     </div>
-  )
+  );
 }

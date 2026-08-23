@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect } from "react";
 
-const DEFAULT_TITLE = 'Shuun Labs — Autonomous Intelligence'
+const DEFAULT_TITLE = "Shunn Labs — Autonomous Intelligence";
 
 /**
  * Set the document title for the lifetime of a page.
@@ -11,6 +11,6 @@ const DEFAULT_TITLE = 'Shuun Labs — Autonomous Intelligence'
  */
 export function useDocumentTitle(title?: string) {
   useEffect(() => {
-    document.title = title ?? DEFAULT_TITLE
-  }, [title])
+    document.title = title ?? DEFAULT_TITLE;
+  }, [title]);
 }

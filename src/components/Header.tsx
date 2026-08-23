@@ -1,46 +1,50 @@
-import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { useAuth } from '../lib/auth/useAuth'
-import { navItems } from '../data/nav'
-import { useLockBodyScroll } from '../hooks/useLockBodyScroll'
-import { AnnouncementBar } from './AnnouncementBar'
-import { CloseIcon, MenuIcon } from './icons/Icons'
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "../lib/auth/useAuth";
+import { navItems } from "../data/nav";
+import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
+import { AnnouncementBar } from "./AnnouncementBar";
+import { CloseIcon, MenuIcon } from "./icons/Icons";
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [announcementVisible, setAnnouncementVisible] = useState(true)
-  const { status } = useAuth()
-  const signedIn = status === 'authenticated'
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [announcementVisible, setAnnouncementVisible] = useState(true);
+  const { status } = useAuth();
+  const signedIn = status === "authenticated";
 
   // The section links are same-page anchors, which do nothing from another
   // route — off the homepage they have to navigate back to it first.
-  const onHomepage = useLocation().pathname === '/'
-  const sectionHref = (href: string) => (onHomepage ? href : `/${href}`)
+  const onHomepage = useLocation().pathname === "/";
+  const sectionHref = (href: string) => (onHomepage ? href : `/${href}`);
 
-  useLockBodyScroll(mobileOpen)
+  useLockBodyScroll(mobileOpen);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') setMobileOpen(false)
+      if (e.key === "Escape") setMobileOpen(false);
     }
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   return (
     <div className="fixed inset-x-0 top-0 z-50">
-      {announcementVisible && <AnnouncementBar onDismiss={() => setAnnouncementVisible(false)} />}
+      {announcementVisible && (
+        <AnnouncementBar onDismiss={() => setAnnouncementVisible(false)} />
+      )}
       <header
         className={`transition-colors duration-300 ${
-          scrolled ? 'border-b border-fg-on-paper/8 bg-paper/85 backdrop-blur-xl' : 'border-b border-transparent bg-transparent'
+          scrolled
+            ? "border-b border-fg-on-paper/8 bg-paper/85 backdrop-blur-xl"
+            : "border-b border-transparent bg-transparent"
         }`}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-8">
@@ -48,8 +52,14 @@ export function Header() {
             href="/"
             className="flex items-center gap-2.5 font-display text-lg font-semibold tracking-tight text-fg-on-paper"
           >
-            <img src="/logo.png" alt="" width={40} height={87} className="h-8 w-auto" />
-            Shuun Labs
+            <img
+              src="/logo.png"
+              alt=""
+              width={40}
+              height={87}
+              className="h-8 w-auto"
+            />
+            Shunn Labs
           </a>
 
           <nav aria-label="Primary" className="hidden lg:block">
@@ -83,7 +93,7 @@ export function Header() {
               </Link>
             ) : (
               <>
-                <Link to="/login" className="text-sm font-medium text-fg-on-paper-muted hover:text-fg-on-paper">
+                {/* <Link to="/login" className="text-sm font-medium text-fg-on-paper-muted hover:text-fg-on-paper">
                   Sign in
                 </Link>
                 <Link
@@ -91,7 +101,7 @@ export function Header() {
                   className="rounded-full bg-leaf px-4 py-2 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong"
                 >
                   Create account
-                </Link>
+                </Link> */}
               </>
             )}
           </div>
@@ -99,18 +109,24 @@ export function Header() {
           <button
             type="button"
             className="grid h-10 w-10 place-items-center rounded-full text-fg-on-paper lg:hidden"
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
           >
-            {mobileOpen ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
+            {mobileOpen ? (
+              <CloseIcon className="h-6 w-6" />
+            ) : (
+              <MenuIcon className="h-6 w-6" />
+            )}
           </button>
         </div>
 
         {mobileOpen && (
           <div
             className={`overflow-y-auto border-t border-fg-on-paper/8 bg-paper px-5 pb-10 pt-4 lg:hidden ${
-              announcementVisible ? 'h-[calc(100svh-6.25rem)]' : 'h-[calc(100svh-4rem)]'
+              announcementVisible
+                ? "h-[calc(100svh-6.25rem)]"
+                : "h-[calc(100svh-4rem)]"
             }`}
           >
             <ul className="divide-y divide-fg-on-paper/8">
@@ -137,11 +153,11 @@ export function Header() {
             </ul>
             <div className="mt-6 space-y-3">
               <Link
-                to={signedIn ? '/dashboard' : '/signup'}
+                to={signedIn ? "/dashboard" : "/signup"}
                 className="block rounded-full bg-leaf px-4 py-3 text-center text-sm font-semibold text-leaf-ink"
                 onClick={() => setMobileOpen(false)}
               >
-                {signedIn ? 'Dashboard' : 'Create account'}
+                {signedIn ? "Dashboard" : "Create account"}
               </Link>
               {!signedIn && (
                 <Link
@@ -157,5 +173,5 @@ export function Header() {
         )}
       </header>
     </div>
-  )
+  );
 }

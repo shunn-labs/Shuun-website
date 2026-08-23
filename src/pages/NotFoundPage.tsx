@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
-import { useDocumentTitle } from '../hooks/useDocumentTitle'
-import { useAuth } from '../lib/auth/useAuth'
+import { Link } from "react-router-dom";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { useAuth } from "../lib/auth/useAuth";
 
 /**
  * Catch-all for unknown paths.
@@ -9,11 +9,11 @@ import { useAuth } from '../lib/auth/useAuth'
  * their way back into the app, everyone else is offered the public site.
  */
 export function NotFoundPage() {
-  const { status } = useAuth()
+  const { status } = useAuth();
 
-  useDocumentTitle('Page not found — Shuun Labs')
+  useDocumentTitle("Page not found — Shunn Labs");
 
-  const signedIn = status === 'authenticated'
+  const signedIn = status === "authenticated";
 
   return (
     <div className="grid min-h-svh place-items-center bg-ink px-5">
@@ -21,14 +21,15 @@ export function NotFoundPage() {
         <p className="font-display text-6xl font-semibold text-accent">404</p>
         <h1 className="mt-4 text-2xl font-semibold text-fg">Page not found</h1>
         <p className="mt-3 text-sm leading-relaxed text-fg-muted">
-          That URL doesn't exist. It may have moved, or the link may be out of date.
+          That URL doesn't exist. It may have moved, or the link may be out of
+          date.
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
           <Link
-            to={signedIn ? '/welcome' : '/'}
+            to={signedIn ? "/welcome" : "/"}
             className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong"
           >
-            {signedIn ? 'Back to your account' : 'Back to home'}
+            {signedIn ? "Back to your account" : "Back to home"}
           </Link>
           {signedIn && (
             <Link
@@ -41,5 +42,5 @@ export function NotFoundPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

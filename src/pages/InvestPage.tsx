@@ -1,20 +1,20 @@
-import { DeckGate } from '../components/DeckGate'
-import { Reveal } from '../components/Reveal'
-import { ArrowRightIcon } from '../components/icons/Icons'
-import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { DeckGate } from "../components/DeckGate";
+import { Reveal } from "../components/Reveal";
+import { ArrowRightIcon } from "../components/icons/Icons";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
-const DECK_URL = '/shuun-labs-pitch-deck.pdf'
+const DECK_URL = "/shuun-labs-pitch-deck.pdf";
 
 // Rendered from the PDF at build-prep time. Shown as images rather than an
 // embedded PDF because mobile browsers routinely refuse to render one inline,
 // leaving an empty frame where the deck should be.
 const DECK_SLIDES = Array.from(
   { length: 14 },
-  (_, i) => `/deck/slide-${String(i + 1).padStart(2, '0')}.jpg`,
-)
+  (_, i) => `/deck/slide-${String(i + 1).padStart(2, "0")}.jpg`,
+);
 
 export function InvestPage() {
-  useDocumentTitle('Invest — Shuun Labs')
+  useDocumentTitle("Invest — Shunn Labs");
 
   return (
     <main className="bg-paper">
@@ -26,11 +26,11 @@ export function InvestPage() {
               Raising our pre-seed round
             </p>
             <h1 className="mt-5 max-w-3xl text-[clamp(2.5rem,6vw,4.5rem)] font-semibold text-fg-on-paper">
-              Invest in Shuun Labs
+              Invest in Shunn Labs
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-fg-on-paper-muted">
-              The deck, and footage of what we have built so far. If it looks like a fit,
-              write to us and we&apos;ll take it from there.
+              The deck, and footage of what we have built so far. If it looks
+              like a fit, write to us and we&apos;ll take it from there.
             </p>
             <a
               href="mailto:000shuun@gmail.com?subject=Investing%20in%20Shuun%20Labs"
@@ -53,10 +53,10 @@ export function InvestPage() {
               Where we are today.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-fg-on-paper-muted">
-              Our own footage of the drone we fly, the vision models running on captured
-              frames, and the dashboard behind them. It is progress on the stack, not a
-              deployed end-to-end system — the closed loop in the film is what we are
-              building toward.
+              Our own footage of the drone we fly, the vision models running on
+              captured frames, and the dashboard behind them. It is progress on
+              the stack, not a deployed end-to-end system — the closed loop in
+              the film is what we are building toward.
             </p>
             <video
               className="mt-10 w-full rounded-3xl border border-fg-on-paper/10 bg-[#050807] shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]"
@@ -66,11 +66,10 @@ export function InvestPage() {
               poster="/videos/demo-detection-poster.jpg"
             >
               <source src="/videos/demo-detection.mp4" type="video/mp4" />
-              Your browser can&apos;t play this video.{' '}
+              Your browser can&apos;t play this video.{" "}
               <a href="/videos/demo-detection.mp4">Download it instead.</a>
             </video>
           </Reveal>
-
         </div>
       </section>
 
@@ -113,7 +112,7 @@ export function InvestPage() {
                     height={900}
                     // The first slide is near the fold on a laptop; the rest
                     // should not cost anyone bandwidth until they scroll.
-                    loading={i === 0 ? 'eager' : 'lazy'}
+                    loading={i === 0 ? "eager" : "lazy"}
                     className="w-full rounded-2xl border border-fg-on-paper/10 bg-paper-raised shadow-sm"
                   />
                 </li>
@@ -123,5 +122,5 @@ export function InvestPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }

@@ -1,36 +1,36 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useDocumentTitle } from '../hooks/useDocumentTitle'
-import { ArrowRightIcon } from '../components/icons/Icons'
-import { useAuth } from '../lib/auth/useAuth'
+import { Link, useNavigate } from "react-router-dom";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { ArrowRightIcon } from "../components/icons/Icons";
+import { useAuth } from "../lib/auth/useAuth";
 
 const HIGHLIGHTS = [
   {
-    title: 'Live sensor readings',
-    body: 'Six sensors streaming now, and the grid grows on its own as more come online.',
+    title: "Live sensor readings",
+    body: "Six sensors streaming now, and the grid grows on its own as more come online.",
   },
   {
-    title: 'Multi-stream video wall',
-    body: 'Open any live stream, publish this device’s camera, capture frames into chat.',
+    title: "Multi-stream video wall",
+    body: "Open any live stream, publish this device’s camera, capture frames into chat.",
   },
   {
-    title: 'Assistant in the loop',
-    body: 'Ask about a reading, request a feed, or drop a file — with voice in and out.',
+    title: "Assistant in the loop",
+    body: "Ask about a reading, request a feed, or drop a file — with voice in and out.",
   },
-]
+];
 
 function firstName(fullName: string): string {
-  return fullName.trim().split(/\s+/)[0] || fullName
+  return fullName.trim().split(/\s+/)[0] || fullName;
 }
 
 export function WelcomePage() {
-  const { user, logout } = useAuth()
-  const navigate = useNavigate()
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
-  useDocumentTitle('Welcome — Shuun Labs')
+  useDocumentTitle("Welcome — Shunn Labs");
 
   async function handleSignOut() {
-    await logout()
-    navigate('/login', { replace: true })
+    await logout();
+    navigate("/login", { replace: true });
   }
 
   return (
@@ -46,12 +46,20 @@ export function WelcomePage() {
           to="/welcome"
           className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-fg"
         >
-          <img src="/logo.png" alt="" width={40} height={87} className="h-8 w-auto" />
-          Shuun Labs
+          <img
+            src="/logo.png"
+            alt=""
+            width={40}
+            height={87}
+            className="h-8 w-auto"
+          />
+          Shunn Labs
         </Link>
 
         <div className="flex items-center gap-3">
-          <span className="hidden text-sm text-fg-muted sm:block">{user?.email}</span>
+          <span className="hidden text-sm text-fg-muted sm:block">
+            {user?.email}
+          </span>
           <button
             type="button"
             onClick={handleSignOut}
@@ -67,11 +75,12 @@ export function WelcomePage() {
           You're in
         </p>
         <h1 className="text-4xl font-semibold text-fg sm:text-5xl">
-          Welcome, {user ? firstName(user.full_name) : 'operator'}.
+          Welcome, {user ? firstName(user.full_name) : "operator"}.
         </h1>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-fg-muted">
-          Your account is ready. Mission control gives you the full sense-decide-act loop in
-          one place — live telemetry, video, and the assistant that ties them together.
+          Your account is ready. Mission control gives you the full
+          sense-decide-act loop in one place — live telemetry, video, and the
+          assistant that ties them together.
         </p>
 
         {/* No "Back to site" link: `/` forwards signed-in users straight
@@ -88,8 +97,9 @@ export function WelcomePage() {
 
         {user && !user.is_email_verified && user.has_password && (
           <p className="mt-8 max-w-xl rounded-xl bg-accent/8 px-4 py-3 text-xs leading-relaxed text-accent ring-1 ring-accent/25">
-            Your email isn't verified yet. Verification isn't enforced on this environment,
-            so you can carry on — it becomes required once email delivery is switched on.
+            Your email isn't verified yet. Verification isn't enforced on this
+            environment, so you can carry on — it becomes required once email
+            delivery is switched on.
           </p>
         )}
 
@@ -100,11 +110,13 @@ export function WelcomePage() {
               className="rounded-2xl bg-surface p-5 ring-1 ring-fg/8 transition-colors hover:bg-surface-raised"
             >
               <h2 className="text-sm font-semibold text-fg">{item.title}</h2>
-              <p className="mt-2 text-xs leading-relaxed text-fg-muted">{item.body}</p>
+              <p className="mt-2 text-xs leading-relaxed text-fg-muted">
+                {item.body}
+              </p>
             </article>
           ))}
         </div>
       </main>
     </div>
-  )
+  );
 }
