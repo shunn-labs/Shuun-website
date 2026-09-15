@@ -1,21 +1,26 @@
 import { Reveal } from './Reveal'
 
-// Both figures are the deck's own, kept as the deck states them.
 const scale = [
-  { value: '10 M+', label: 'hectares of forest lost every year' },
-  { value: '1 M+', label: 'species at risk' },
+  { value: '10.9 M', label: 'hectares of forest lost every year' },
+  { value: '~1,000', label: 'species lost every year to deforestation' },
+  { value: '57.1 Bn', label: 'tonnes of CO₂e emitted in 2023 — a record' },
 ]
 
 const problems = [
   {
     index: '01',
-    title: 'Manual monitoring doesn’t scale',
-    body: 'Field teams inspect sites periodically and record tree survival, growth, and health by hand. Problems are detected too late, and restoration costs rise.',
+    title: 'Vanishing forests',
+    body: '489 million hectares of forest have been lost worldwide since 1990, and the loss continues on every continent — led by South America, Africa and Asia.',
   },
   {
     index: '02',
-    title: 'Data collection isn’t continuous monitoring',
-    body: 'Satellite imagery lacks the resolution for individual trees, and drone surveys give only periodic snapshots. Neither covers a project’s full lifecycle.',
+    title: 'Species on the brink',
+    body: 'Extinction is running 100–1,000× faster than natural rates. In India, 90% of the area under biodiversity hotspots has already been destroyed.',
+  },
+  {
+    index: '03',
+    title: 'A rising greenhouse gas load',
+    body: 'Global emissions grew 1.3% from 2022 to 2023, driving rising temperatures, sea-level rise, water stress and ecosystem degradation.',
   },
 ]
 
@@ -36,11 +41,11 @@ export function ProblemSection() {
                 Nature is degrading faster than we can restore it.
               </h2>
 
-              <dl className="mt-10 flex flex-wrap gap-x-12 gap-y-6">
+              <dl className="mt-10 grid gap-6 sm:grid-cols-3 lg:grid-cols-1">
                 {scale.map((item) => (
                   <div key={item.value}>
                     <dt className="font-display text-4xl font-semibold text-leaf">{item.value}</dt>
-                    <dd className="mt-1.5 max-w-[14rem] font-mono text-[11px] leading-relaxed tracking-wide text-fg-on-paper-muted uppercase">
+                    <dd className="mt-1.5 max-w-[16rem] font-mono text-[11px] leading-relaxed tracking-wide text-fg-on-paper-muted uppercase">
                       {item.label}
                     </dd>
                   </div>

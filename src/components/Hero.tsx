@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { ArrowRightIcon, PlayIcon } from './icons/Icons'
 
 const PROOF = [
-  { value: 'Per-tree', label: 'resolution, not per-plot' },
-  { value: 'Continuous', label: 'not a quarterly snapshot' },
-  { value: 'VM0047', label: 'registry-native from day one' },
+  { value: '3 systems', label: 'drone, robodog and AI brain in development' },
+  { value: 'Ground-level', label: 'sapling planting, not seed scattering' },
+  { value: '2', label: 'forest departments have issued letters of intent' },
 ]
 
 const FILM = {
@@ -38,19 +38,19 @@ export function Hero() {
       <div className="relative mx-auto max-w-6xl px-5 lg:px-8">
         <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
           <span className="h-1.5 w-1.5 rounded-full bg-leaf animate-pulse-dot" />
-          Autonomous environmental intelligence
+          Project Punarvan · In development
         </p>
 
         <h1 className="mt-7 max-w-4xl text-[clamp(2.5rem,6.2vw,5rem)] font-semibold text-fg-on-paper">
-          We measure the forest,{' '}
-          <span className="text-gradient-leaf">tree by tree</span> — and prove it.
+          Building the robots that will{' '}
+          <span className="text-gradient-leaf">bring our forests back.</span>
         </h1>
 
         <div className="mt-9 grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <p className="max-w-xl text-lg leading-relaxed text-fg-on-paper-muted sm:text-xl">
-            Drones, ground sensors and an agentic AI layer that watch a plantation
-            continuously — detect what changed, dispatch the fix, and file the evidence
-            chain a carbon registry will actually accept.
+            We&apos;re developing an autonomous drone, a quadruped robot and an agentic AI
+            brain to plant, monitor and restore forests across hills, dense forest floor and
+            riverbanks — terrain too difficult, dangerous or costly for manual labour.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -65,15 +65,13 @@ export function Hero() {
               to="/invest"
               className="inline-flex items-center rounded-full border border-fg-on-paper/15 px-7 py-3.5 text-sm font-semibold text-fg-on-paper transition-colors hover:border-fg-on-paper/35 hover:bg-fg-on-paper/5"
             >
-              Investor deck
+              Invest in us
             </Link>
           </div>
         </div>
 
-        {/* The film is the page's one video, and it sits here rather than below
-            the fold: it is the whole pitch in a minute. It opens on its own
-            poster and never plays unasked — 13 MB with a soundtrack should not
-            arrive uninvited, and nothing else on the page competes with it. */}
+        {/* The film opens on its own poster and never plays unasked — 13 MB
+            with a soundtrack should not arrive uninvited. */}
         <div className="relative mt-14 overflow-hidden rounded-[1.75rem] border border-fg-on-paper/10 bg-[#050807] shadow-[0_40px_80px_-40px_rgba(11,20,16,0.45)]">
           <video
             ref={videoRef}

@@ -13,22 +13,19 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-14 lg:px-8">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <a
-              href="/"
-              className="flex items-center gap-2.5 font-display text-base font-semibold text-fg-on-paper"
-            >
+            <a href="/" className="inline-flex">
               <img
                 src="/logo.png"
-                alt=""
-                width={40}
-                height={87}
-                className="h-7 w-auto"
+                alt="Shunn Labs"
+                width={593}
+                height={192}
+                loading="lazy"
+                className="h-8 w-auto"
               />
-              Shunn Labs
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-fg-on-paper-muted">
-              Autonomous intelligence for environmental monitoring and
-              restoration.
+              Building autonomous robotics and AI for reforestation and forest-health
+              monitoring.
             </p>
           </div>
 

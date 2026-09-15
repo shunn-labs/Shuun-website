@@ -1,58 +1,61 @@
-import { LoopCard } from './LoopCard'
 import { Reveal } from './Reveal'
 
 const steps = [
   {
-    title: 'Sense',
-    aside: 'ground truth, continuous',
-    body: 'Connected IoT sensors collect ground-truth environmental data at plot level, without waiting for a site visit.',
+    title: 'Map',
+    aside: 'from the air',
+    body: 'Sharabh will survey the target area, detect terrain and obstacles, and flag the spots worth planting.',
   },
   {
-    title: 'See',
-    aside: 'aerial, per-tree',
-    body: 'Scheduled autonomous drone surveys and AI vision measure every tree — height, biomass, NDVI, count.',
+    title: 'Decide',
+    aside: 'the plan',
+    body: 'Nandi will process the map and plan the task sequence and the optimal planting pattern.',
   },
   {
-    title: 'Secure',
-    aside: 'real time',
-    body: 'Static camera networks detect fire, encroachment, grazing and unauthorised activity as it happens.',
+    title: 'Execute',
+    aside: 'on the ground',
+    body: 'Bhairav will walk to each spot, drill, plant the sapling and report completion.',
   },
   {
-    title: 'Act',
-    aside: 'the part competitors skip',
-    body: 'Maintenance tasks are generated and dispatched, and every intervention is logged with timestamp and photo evidence.',
-  },
-  {
-    title: 'Report',
-    aside: 'registry-native',
-    body: 'Registry-ready MRV reports carry the full monitoring and maintenance history a verifier asks for.',
+    title: 'Monitor',
+    aside: 'after planting',
+    body: 'Sharabh and Bhairav will keep tracking growth and health long after the sapling is in the ground.',
   },
 ]
 
-// Three of the eleven clips: the two ends of the loop and the layer between
-// them. Illustrative b-roll rather than footage of our own deployments, which
-// is why each is captioned by stage rather than by product.
-const clips = [
+const systems = [
   {
-    src: '/loop/aerial-capture.mp4',
-    poster: '/loop/aerial-capture.jpg',
-    stage: 'See',
-    title: 'Per-tree capture',
-    body: 'Scheduled drone surveys measure every tree — height, biomass, NDVI and count — instead of sampling a plot and extrapolating.',
+    name: 'Sharabh',
+    kind: 'The drone',
+    tagline: 'Eyes in the sky',
+    capabilities: [
+      'Aerial mapping and terrain scanning',
+      'Detection of rocks, water bodies, vegetation and wildlife',
+      'Planting-spot selection from soil, slope and sunlight',
+      'Multispectral imagery for NDVI and vegetation health',
+    ],
   },
   {
-    src: '/loop/ground-sensor.mp4',
-    poster: '/loop/ground-sensor.jpg',
-    stage: 'Sense',
-    title: 'Ground truth between flights',
-    body: 'Soil, weather and land-security sensors hold the plot-level record continuously, so a survey lands on context rather than a blank slate.',
+    name: 'Bhairav',
+    kind: 'The robodog',
+    tagline: 'Ground executor',
+    capabilities: [
+      'Designed for hills, dense forest floor and riverbanks',
+      'Ground inspection and soil drilling',
+      'Sapling planting and pick-and-place',
+      'Real-time execution of Nandi’s tasks',
+    ],
   },
   {
-    src: '/loop/platform.mp4',
-    poster: '/loop/platform.jpg',
-    stage: 'Report',
-    title: 'One record, two audiences',
-    body: 'The same monitoring and maintenance history drives the operational dashboard and the registry submission.',
+    name: 'Nandi',
+    kind: 'The AI brain',
+    tagline: 'Agentic orchestrator',
+    capabilities: [
+      'Coordination of Sharabh’s maps with Bhairav’s work',
+      'Site, species and planting-density planning',
+      'Tree count, height, biomass and CO₂ estimates',
+      'Disease and deforestation-risk early warnings',
+    ],
   },
 ]
 
@@ -65,21 +68,22 @@ export function SolutionSection() {
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <Reveal>
           <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
-            02 — The solution
+            02 — Project Punarvan
           </p>
           <h2 className="mt-5 max-w-3xl text-[clamp(2rem,4.4vw,3.25rem)] font-semibold text-fg-on-paper">
-            A closed loop, from the soil to the registry.
+            One fleet to map, plant and watch the forest grow.
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-fg-on-paper-muted">
-            One-time surveys and disconnected field visits are replaced by a continuous
-            sense → detect → act → report loop, built from day one to output
-            carbon-registry compliant data.
+            We&apos;re developing autonomous robotics and agentic AI for large-scale tree
+            plantation, reforestation and forest-health monitoring — a drone to survey from
+            the air, a robot to plant on the ground, and a brain designed to coordinate both
+            and learn from every planting.
           </p>
         </Reveal>
 
-        {/* Five stages on one rule, so the loop is legible as a sequence before
-            a word of it is read. The rule is the product. */}
-        <ol className="relative mt-16 grid gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-5 lg:gap-6">
+        {/* Four stages on one rule, so the workflow is legible as a sequence
+            before a word of it is read. */}
+        <ol className="relative mt-16 grid gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4 lg:gap-6">
           <span
             aria-hidden="true"
             className="absolute left-0 right-0 top-[9px] hidden h-px bg-gradient-to-r from-leaf/25 via-leaf to-leaf/25 lg:block"
@@ -99,9 +103,7 @@ export function SolutionSection() {
                 <span className="absolute left-0 top-0 z-10 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-leaf/40 bg-paper-dim ring-4 ring-paper-dim sm:relative sm:left-auto sm:top-auto">
                   <span className="h-1.5 w-1.5 rounded-full bg-leaf" />
                 </span>
-                {/* Reserved height, so a two-line aside cannot push one stage
-                    title out of line with its neighbours. */}
-                <p className="font-mono text-[11px] leading-relaxed tracking-[0.18em] text-fg-on-paper-muted uppercase sm:mt-5 lg:min-h-[3.2em]">
+                <p className="font-mono text-[11px] leading-relaxed tracking-[0.18em] text-fg-on-paper-muted uppercase sm:mt-5">
                   {String(i + 1).padStart(2, '0')} · {step.aside}
                 </p>
                 <h3 className="mt-2 font-display text-xl font-semibold text-fg-on-paper">
@@ -113,10 +115,31 @@ export function SolutionSection() {
           ))}
         </ol>
 
-        <div className="mt-20 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {clips.map((clip, i) => (
-            <Reveal key={clip.title} delay={i * 90}>
-              <LoopCard {...clip} />
+        <div className="mt-20 grid gap-5 md:grid-cols-3">
+          {systems.map((system, i) => (
+            <Reveal key={system.name} delay={i * 90}>
+              <article className="leaf-card flex h-full flex-col rounded-3xl border border-fg-on-paper/10 bg-paper-raised p-8">
+                <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
+                  {system.tagline}
+                </p>
+                <h3 className="mt-4 font-display text-3xl font-semibold text-fg-on-paper">
+                  {system.name}
+                </h3>
+                <p className="mt-1 text-sm font-medium text-fg-on-paper-muted">
+                  {system.kind} · in development
+                </p>
+                <ul className="mt-6 space-y-3 border-t border-fg-on-paper/8 pt-6">
+                  {system.capabilities.map((capability) => (
+                    <li
+                      key={capability}
+                      className="flex gap-3 text-sm leading-relaxed text-fg-on-paper-muted"
+                    >
+                      <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-leaf" />
+                      {capability}
+                    </li>
+                  ))}
+                </ul>
+              </article>
             </Reveal>
           ))}
         </div>

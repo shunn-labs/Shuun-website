@@ -3,9 +3,9 @@ import { ArrowRightIcon } from './icons/Icons'
 
 const audiences = [
   'Government forest departments',
-  'NGOs running plantation programs',
-  'Agriculture & plantation estates',
-  'Carbon project developers',
+  'NGOs running plantation programmes',
+  'CSR-funded green drives',
+  'Carbon credit project developers',
 ]
 
 export function ContactSection() {
@@ -24,11 +24,11 @@ export function ContactSection() {
                   05 — Contact us
                 </p>
                 <h2 className="mt-5 max-w-xl text-[clamp(1.9rem,4vw,3rem)] font-semibold text-fg-on-paper">
-                  Tell us about the land you need monitored.
+                  Tell us about the land you want restored.
                 </h2>
                 <p className="mt-5 max-w-md text-base leading-relaxed text-fg-on-paper-muted">
-                  A single survey is enough to start — it proves our accuracy on your own
-                  land before anything longer-term is on the table.
+                  We&apos;re looking for early partners to shape Project Punarvan as we build
+                  it — especially sites on terrain that is hard to reach.
                 </p>
                 <a
                   href="mailto:000shuun@gmail.com"

@@ -9,39 +9,17 @@
   --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* One light scale, everywhere — marketing, auth and the dashboard. The
-     names are kept (ink, surface, fg) because every screen already speaks
-     them; only the values crossed over. Ink is the page, surface is the card
-     that sits on it, and fg is the text on both. */
-  --color-ink: #f8f9f5;
-  --color-surface: #ffffff;
-  --color-surface-raised: #f1f4ee;
-  --color-surface-line: #dee4da;
-  /* The marketing pages run light — the logo is a deep-green mark drawn for
-     white, and on near-black its darker half simply disappears. The app and
-     auth screens stay dark, so both scales live here side by side. */
+  /* The one scale: paper is the page, paper-raised the card on it, and
+     fg-on-paper the text on both. */
   --color-paper: #f8f9f5;
   --color-paper-raised: #ffffff;
   --color-paper-dim: #eef1ea;
 
-  --color-fg: #0b1410;
-  --color-fg-muted: #5b6b62;
   --color-fg-on-paper: #0b1410;
   --color-fg-on-paper-muted: #5b6b62;
 
-  /* Accent and leaf are now the same green, because there is only one ground
-     to sit on. #10633a holds white text at 7.3:1 and reads at 6.9:1 as text
-     on paper; the logo's own #499749 manages 3.4:1 there, so it stays the
-     mark and never a label. */
-  --color-accent: #10633a;
-  --color-accent-strong: #0b4d2b;
-  --color-accent-ink: #ffffff;
-  --color-accent-deep: #0e3b2e;
-
-  /* Light-theme greens, measured rather than picked: leaf carries white text
-     at 7.3:1 and reads at 6.9:1 as text on paper. The logo's own bright green
-     (#499749) manages only 3.4:1 on paper, so it stays decorative — the mark,
-     never the label. */
+  /* Greens measured rather than picked: leaf carries white text at 7.3:1 and
+     reads at 6.9:1 as text on paper. */
   --color-leaf: #10633a;
   --color-leaf-strong: #0b4d2b;
   --color-leaf-deep: #0e3b2e;
@@ -49,9 +27,7 @@
   --color-leaf-ink: #ffffff;
 
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-marquee: marquee 32s linear infinite;
   --animate-pulse-dot: pulse-dot 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-scroll-hint: scroll-hint 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 
   @keyframes fade-up {
     from {
@@ -64,38 +40,15 @@
     }
   }
 
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
   @keyframes pulse-dot {
     0%,
     100% {
       opacity: 1;
-      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-accent) 60%, transparent);
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-leaf) 60%, transparent);
     }
     50% {
       opacity: 0.75;
       box-shadow: 0 0 0 6px transparent;
-    }
-  }
-
-  @keyframes scroll-hint {
-    0% {
-      transform: translateY(0);
-      opacity: 0;
-    }
-    35% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(10px);
-      opacity: 0;
     }
   }
 }
@@ -111,9 +64,6 @@
 
   body {
     margin: 0;
-    /* Light, because the marketing pages are the ones that overscroll. Every
-       dark screen (auth, welcome, dashboard, 404) paints its own bg-ink on a
-       min-h-svh root, so none of them depend on this. */
     background: var(--color-paper);
     color: var(--color-fg-on-paper);
     font-family: var(--font-sans);
@@ -130,7 +80,6 @@
     line-height: 1.02;
   }
 
-  /* Chosen to work on both scales: readable over paper and over near-black. */
   ::selection {
     background: var(--color-leaf);
     color: var(--color-leaf-ink);
@@ -151,33 +100,6 @@
     animation: var(--animate-fade-up);
   }
 
-  /* Survey grid — the faint plot lines a site is divided into before anyone
-     walks it. Sits under content at low contrast and fades out downward so it
-     reads as texture, never as a table. */
-  .grid-field {
-    background-image:
-      linear-gradient(to right, color-mix(in oklab, var(--color-fg) 7%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in oklab, var(--color-fg) 7%, transparent) 1px, transparent 1px);
-    background-size: 72px 72px;
-    mask-image: linear-gradient(to bottom, black, transparent 85%);
-  }
-
-  /* A single soft light source, placed per-section, so the dark surfaces have
-     somewhere to fall away from instead of reading as flat black. */
-  .glow-field::before {
-    content: "";
-    position: absolute;
-    inset: -20% 10% auto;
-    height: 460px;
-    background: radial-gradient(
-      ellipse at top,
-      color-mix(in oklab, var(--color-accent) 16%, transparent),
-      transparent 70%
-    );
-    filter: blur(40px);
-    pointer-events: none;
-  }
-
   .grid-field-light {
     background-image:
       linear-gradient(to right, color-mix(in oklab, var(--color-leaf-deep) 8%, transparent) 1px, transparent 1px),
@@ -191,26 +113,6 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-  }
-
-  .text-gradient {
-    background: linear-gradient(120deg, var(--color-leaf-deep) 25%, #3f9c52);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  /* Hairline that brightens toward the accent on hover — the whole card
-     lights up from its edge rather than shifting colour. */
-  .edge-card {
-    position: relative;
-    isolation: isolate;
-    transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .edge-card:hover {
-    border-color: color-mix(in oklab, var(--color-accent) 45%, transparent);
-    transform: translateY(-2px);
   }
 
   .leaf-card {
@@ -233,13 +135,10 @@
       scroll-behavior: auto;
     }
 
-    .animate-marquee,
-    .animate-pulse-dot,
-    .animate-scroll-hint {
+    .animate-pulse-dot {
       animation: none;
     }
 
-    .edge-card:hover,
     .leaf-card:hover {
       transform: none;
     }

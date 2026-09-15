@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "../lib/auth/useAuth";
 import { navItems } from "../data/nav";
 import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
 import { AnnouncementBar } from "./AnnouncementBar";
@@ -10,8 +9,6 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [announcementVisible, setAnnouncementVisible] = useState(true);
-  const { status } = useAuth();
-  const signedIn = status === "authenticated";
 
   // The section links are same-page anchors, which do nothing from another
   // route — off the homepage they have to navigate back to it first.
@@ -48,18 +45,14 @@ export function Header() {
         }`}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-8">
-          <a
-            href="/"
-            className="flex items-center gap-2.5 font-display text-lg font-semibold tracking-tight text-fg-on-paper"
-          >
+          <a href="/" className="flex items-center">
             <img
               src="/logo.png"
-              alt=""
-              width={40}
-              height={87}
-              className="h-8 w-auto"
+              alt="Shunn Labs"
+              width={593}
+              height={192}
+              className="h-9 w-auto"
             />
-            Shunn Labs
           </a>
 
           <nav aria-label="Primary" className="hidden lg:block">
@@ -77,34 +70,12 @@ export function Header() {
             </ul>
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
-            <Link
-              to="/invest"
-              className="rounded-full border border-fg-on-paper/15 px-4 py-2 text-sm font-semibold text-fg-on-paper transition-colors hover:border-fg-on-paper/35 hover:bg-fg-on-paper/5"
-            >
-              Invest in us
-            </Link>
-            {signedIn ? (
-              <Link
-                to="/dashboard"
-                className="rounded-full bg-leaf px-4 py-2 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong"
-              >
-                Dashboard
-              </Link>
-            ) : (
-              <>
-                {/* <Link to="/login" className="text-sm font-medium text-fg-on-paper-muted hover:text-fg-on-paper">
-                  Sign in
-                </Link>
-                <Link
-                  to="/signup"
-                  className="rounded-full bg-leaf px-4 py-2 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong"
-                >
-                  Create account
-                </Link> */}
-              </>
-            )}
-          </div>
+          <Link
+            to="/invest"
+            className="hidden rounded-full bg-leaf px-4 py-2 text-sm font-semibold text-leaf-ink transition-colors hover:bg-leaf-strong lg:block"
+          >
+            Invest in us
+          </Link>
 
           <button
             type="button"
@@ -141,34 +112,14 @@ export function Header() {
                   </a>
                 </li>
               ))}
-              <li className="py-3">
-                <Link
-                  to="/invest"
-                  className="text-base font-medium text-fg-on-paper"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Invest in us
-                </Link>
-              </li>
             </ul>
-            <div className="mt-6 space-y-3">
-              <Link
-                to={signedIn ? "/dashboard" : "/signup"}
-                className="block rounded-full bg-leaf px-4 py-3 text-center text-sm font-semibold text-leaf-ink"
-                onClick={() => setMobileOpen(false)}
-              >
-                {signedIn ? "Dashboard" : "Create account"}
-              </Link>
-              {!signedIn && (
-                <Link
-                  to="/login"
-                  className="block rounded-full border border-fg-on-paper/15 px-4 py-3 text-center text-sm font-semibold text-fg-on-paper"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Sign in
-                </Link>
-              )}
-            </div>
+            <Link
+              to="/invest"
+              className="mt-6 block rounded-full bg-leaf px-4 py-3 text-center text-sm font-semibold text-leaf-ink"
+              onClick={() => setMobileOpen(false)}
+            >
+              Invest in us
+            </Link>
           </div>
         )}
       </header>

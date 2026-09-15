@@ -1,25 +1,26 @@
 import { Reveal } from './Reveal'
 
-// Straight from the deck's competitive-advantage slide, in its own words.
 const edges = [
   {
-    title: 'The only closed loop: measure → act → prove',
-    body: 'We generate the intervention, dispatch it to field workers, and log completion with timestamp and photo evidence. That evidence chain is what a verifier actually needs.',
+    title: 'Legs, not wheels',
+    body: 'Most forestry ground robots are wheeled and built for flat farmland. Bhairav is being designed as a quadruped, to stay stable on the rocky slopes, dense undergrowth and riverbanks where reforestation is needed most.',
   },
   {
-    title: 'We own the full stack — aerial, ground, and execution',
-    body: 'Others analyse third-party satellite data. We capture our own per-tree and ground-sensor data, which is what makes calibration accurate and the insight actionable.',
+    title: 'Planted, not scattered',
+    body: 'Field studies put the survival of seeds scattered from the air at 0–20%. Bhairav will drill, place and secure each sapling in prepared soil, avoiding the fragile seed-to-sapling stage.',
   },
   {
-    title: 'Registry-native from day one',
-    body: 'Methodology-ready outputs (VM0047, CCTS) from the first flight — serving the operational dashboard and the VVB audit from the same record.',
+    title: 'Designed for forestry',
+    body: 'General-purpose robot dogs carry expensive features forestry never uses. Bhairav is being designed only for drilling, planting, pick-and-place and ground inspection — to optimise performance and cost.',
+  },
+  {
+    title: 'An AI that learns',
+    body: 'Traditional planting has no memory — each session starts from scratch. Nandi will track what was planted and what survived, and keep refining site selection and planting strategy.',
   },
 ]
 
 export function EdgeSection() {
   return (
-    // This was the page's one dark stretch. On an all-light site it earns its
-    // emphasis from a tinted ground and a heavier rule instead of inverting.
     <section className="relative overflow-hidden border-t border-fg-on-paper/8 bg-leaf-soft/50 py-28 sm:py-36">
       <div className="pointer-events-none absolute inset-0 grid-field-light opacity-80" />
       <div className="relative mx-auto max-w-6xl px-5 lg:px-8">
@@ -28,16 +29,16 @@ export function EdgeSection() {
             03 — Why us
           </p>
           <h2 className="mt-5 max-w-3xl text-[clamp(2rem,4.4vw,3.25rem)] font-semibold text-fg-on-paper">
-            Detecting a problem is only the first step.
+            Others solve one piece. We&apos;re building the whole system.
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-fg-on-paper-muted">
-            Watering, replanting and pest control are managed separately across this
-            industry, leaving no continuous record from detection to resolution. We close
-            that gap and keep the receipt.
+            Existing reforestation technology tackles terrain, survival or intelligence in
+            isolation. Project Punarvan is designed to bring terrain-adaptive planting,
+            high-survival methods and a learning decision layer together in one fleet.
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-leaf/20 bg-leaf/20 lg:grid-cols-3">
+        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-leaf/20 bg-leaf/20 sm:grid-cols-2">
           {edges.map((edge, i) => (
             <Reveal key={edge.title} delay={i * 90}>
               <article className="h-full bg-paper-raised p-8 transition-colors duration-500 hover:bg-paper sm:p-9">

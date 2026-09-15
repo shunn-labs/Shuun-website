@@ -8,19 +8,26 @@ export function TeamSection() {
       className="relative scroll-mt-[6.25rem] border-t border-fg-on-paper/8 bg-paper py-28 sm:py-36"
     >
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
-        <Reveal>
+        <Reveal className="text-center">
           <p className="font-mono text-[11px] tracking-[0.18em] text-leaf uppercase">
             04 — Our team
           </p>
-          <h2 className="mt-5 max-w-3xl text-[clamp(2rem,4.4vw,3.25rem)] font-semibold text-fg-on-paper">
+          <h2 className="mx-auto mt-5 max-w-3xl text-[clamp(2rem,4.4vw,3.25rem)] font-semibold text-fg-on-paper">
             The people building it.
           </h2>
         </Reveal>
 
-        <ul className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+        {/* Centred flex rather than a fixed column grid, so a short row sits in
+            the middle instead of hugging the left edge. */}
+        <ul className="mt-16 flex flex-wrap justify-center gap-5">
           {team.map((member, i) => (
-            <Reveal key={member.name} delay={i * 80}>
-              <li className="leaf-card group flex h-full flex-col overflow-hidden rounded-2xl border border-fg-on-paper/10 bg-paper-raised">
+            <Reveal
+              key={member.name}
+              as="li"
+              delay={i * 80}
+              className="w-full max-w-[18rem] sm:w-[calc((100%-2.5rem)/3)]"
+            >
+              <div className="leaf-card group flex h-full flex-col overflow-hidden rounded-2xl border border-fg-on-paper/10 bg-paper-raised">
                 {member.photo ? (
                   <img
                     src={member.photo}
@@ -31,8 +38,6 @@ export function TeamSection() {
                     className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 ) : (
-                  // No photo for this one, so the tile carries an initial
-                  // rather than leaving a hole in the row.
                   <div
                     aria-hidden="true"
                     className="grid aspect-square w-full place-items-center bg-leaf-soft font-display text-5xl font-semibold text-leaf/40"
@@ -40,17 +45,17 @@ export function TeamSection() {
                     {member.name.charAt(0)}
                   </div>
                 )}
-                <div className="flex flex-1 flex-col border-t border-fg-on-paper/8 p-5">
+                <div className="flex flex-1 flex-col border-t border-fg-on-paper/8 p-5 text-center">
                   <p className="text-base font-semibold text-fg-on-paper">{member.name}</p>
-                  <p className="mt-1 font-mono text-[11px] tracking-wide text-fg-on-paper-muted uppercase">
+                  <p className="mt-1 font-mono text-[11px] tracking-wide text-leaf uppercase">
                     {member.role}
                   </p>
+                  <p className="mt-1 text-sm text-fg-on-paper-muted">{member.focus}</p>
                 </div>
-              </li>
+              </div>
             </Reveal>
           ))}
         </ul>
-
       </div>
     </section>
   )
