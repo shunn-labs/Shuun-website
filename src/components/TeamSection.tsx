@@ -50,7 +50,6 @@ export function TeamSection() {
                   <p className="mt-1 font-mono text-[11px] tracking-wide text-leaf uppercase">
                     {member.role}
                   </p>
-                  <p className="mt-1 text-sm text-fg-on-paper-muted">{member.focus}</p>
                 </div>
               </div>
             </Reveal>
